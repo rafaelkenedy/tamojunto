@@ -9,7 +9,7 @@ const Header = () => {
 			<StyledContainer>
 				<StyledButton
 					onPress={() => {
-						navigate('FrontPost');
+						navigate('PostFront');
 					}}>
 					<StyledMenu source={require('../../assets/icons/menu.png')} />
 				</StyledButton>

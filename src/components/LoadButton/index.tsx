@@ -9,7 +9,7 @@ const LoadButton = ({isComment = false}) => {
 		<>
 			<StyledButton
 				isComment={isComment}
-				onPress={isComment ? () => navigate('Home') : () => {}}>
+				onPress={isComment ? () => navigate('PostComments') : () => {}}>
 				<StyledTitle isComment={isComment}>
 					{isComment ? 'Exibir Comentários' : 'Carregar mais tópicos'}
 				</StyledTitle>
