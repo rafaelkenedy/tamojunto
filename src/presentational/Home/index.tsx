@@ -15,12 +15,10 @@ import {ScrollView} from 'react-native';
 import ForumCard from '../../components/ForumCard';
 import NewTopicShortcut from '../../components/NewTopicShortcut';
 import LoadButton from '../../components/LoadButton';
-import DrawlerMenu from '../../components/DrawlerMenu';
 
 const Home = () => {
 	return (
 		<StyledView>
-			<DrawlerMenu />
 			<Header />
 			<StyledContainer>
 				<ScrollView>

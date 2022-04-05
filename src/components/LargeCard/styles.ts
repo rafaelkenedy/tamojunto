@@ -14,7 +14,6 @@ interface ViewType extends ViewProps {
 
 export const StyledText = styled.Text<TextType>`
 	color: ${(props) => props.textColor || theme.colors.eden};
-	font-weight: bold;
 	font-size: ${(props) => props.textSize || '16px'};
 	font-weight: ${(props) => props.textWeight || 300};
 `;

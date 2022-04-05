@@ -4,10 +4,11 @@ import theme from '../../styles/theme';
 
 interface ViewType extends ViewProps {
 	line?: boolean;
+	postSize?: boolean;
 }
 
-export const StyledContainer = styled.View`
-	height: 173px;
+export const StyledContainer = styled.View<ViewType>`
+	height: ${(props) => (props.postSize ? 'auto' : '173px')};
 	width: 100%;
 	border-radius: 12px;
 	margin-top: 15px;
@@ -48,5 +49,5 @@ export const StyledText = styled.Text`
 	color: ${theme.colors.black_pearl};
 	font-size: 13px;
 	font-style: italic;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 `;

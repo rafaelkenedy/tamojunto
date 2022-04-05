@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import theme from '../styles/theme';
 import Home from '../presentational/Home';
 import Topic from '../presentational/Topic';
+import FrontPost from '../presentational/FrontPost';
 
 const Routes = () => {
 	const Stack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ const Routes = () => {
 				initialRouteName="Home">
 				<Stack.Screen name="Home" component={Home} />
 				<Stack.Screen name="Topic" component={Topic} />
+				<Stack.Screen name="FrontPost" component={FrontPost} />
 			</Stack.Navigator>
 		</NavigationContainer>
 	);

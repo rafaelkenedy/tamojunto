@@ -1,12 +1,18 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 
 import {StyledButton, StyledTitle} from './styles';
 
-const LoadButton = () => {
+const LoadButton = ({isComment = false}) => {
+	const {navigate} = useNavigation();
 	return (
 		<>
-			<StyledButton>
-				<StyledTitle>Carregar mais tópicos</StyledTitle>
+			<StyledButton
+				isComment={isComment}
+				onPress={isComment ? () => navigate('Home') : () => {}}>
+				<StyledTitle isComment={isComment}>
+					{isComment ? 'Exibir Comentários' : 'Carregar mais tópicos'}
+				</StyledTitle>
 			</StyledButton>
 		</>
 	);
