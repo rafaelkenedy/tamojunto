@@ -32,5 +32,5 @@ export const StyledRow = styled.ScrollView`
 `;
 
 export const StyledLocker = styled.View`
-	height: 240px;
+	height: 260px;
 `;

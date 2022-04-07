@@ -11,7 +11,7 @@ export const StyledContainer = styled.View`
 	height: 60px;
 	width: 100%;
 	margin-top: 10px;
-	margin-bottom: 10px;
+	margin-bottom: 80px;
 	justify-content: space-between;
 `;
 

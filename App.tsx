@@ -13,7 +13,7 @@ const App = () => {
 			<ThemeProvider theme={theme}>
 				<StatusBar
 					barStyle="dark-content"
-					backgroundColor={theme.colors.catskill_white}
+					backgroundColor={theme.colors.white}
 				/>
 				<Routes />
 			</ThemeProvider>

@@ -8,7 +8,7 @@ interface TextType extends TextProps {
 
 export const StyledContainer = styled.View`
 	height: 70px;
-	background-color: ${theme.colors.catskill_white};
+	background-color: ${theme.colors.white};
 	flex-direction: row;
 	align-items: center;
 	border-bottom-left-radius: 12px;
