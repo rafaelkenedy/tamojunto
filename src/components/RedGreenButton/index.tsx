@@ -8,7 +8,7 @@ import {
 } from './styles';
 
 const RedGreenButton = ({redTitle = 'voltar', greenTitle = 'comentar'}) => {
-	const {goBack} = useNavigation();
+	const {navigate, goBack} = useNavigation();
 	return (
 		<>
 			<StyledContainer>
@@ -17,7 +17,7 @@ const RedGreenButton = ({redTitle = 'voltar', greenTitle = 'comentar'}) => {
 						{redTitle}
 					</StyledButtonText>
 				</StyledButtonContainer>
-				<StyledButtonContainer>
+				<StyledButtonContainer onPress={() => navigate('CreatePostOrComment')}>
 					<StyledButtonText>{greenTitle}</StyledButtonText>
 				</StyledButtonContainer>
 			</StyledContainer>

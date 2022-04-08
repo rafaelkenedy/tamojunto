@@ -3,10 +3,9 @@ import {Provider} from 'react-redux';
 import {ThemeProvider} from 'styled-components';
 import {StatusBar} from 'react-native';
 
-import Routes from './src/routes';
+import Routes from './src/routes/routes';
 import store from './src/store';
 import theme from './src/styles/theme';
-
 const App = () => {
 	return (
 		<Provider store={store}>

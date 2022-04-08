@@ -7,6 +7,10 @@ interface ViewType extends ViewProps {
 	postSize?: boolean;
 }
 
+export const StyleButton = styled.TouchableOpacity.attrs(() => ({
+	activeOpacity: 0.95,
+}))(() => '');
+
 export const StyledContainer = styled.View<ViewType>`
 	height: ${(props) => (props.postSize ? 'auto' : '173px')};
 	width: 100%;

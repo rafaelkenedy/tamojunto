@@ -12,13 +12,17 @@ interface ViewType extends ViewProps {
 	isCover: boolean;
 }
 
+export const StyleButton = styled.TouchableOpacity.attrs(() => ({
+	activeOpacity: 0.95,
+}))(() => '');
+
 export const StyledText = styled.Text<TextType>`
 	color: ${(props) => props.textColor || theme.colors.eden};
 	font-size: ${(props) => props.textSize || '16px'};
 	font-weight: ${(props) => props.textWeight || 300};
 `;
 
-export const StyledCardContainer = styled.View<ViewType>`
+export const StyledCardContainer = styled.ImageBackground<ViewType>`
 	border-radius: 10px;
 	margin-top: 25px;
 	height: ${(props) => (props.isCover ? '120px' : '240px')};
@@ -31,10 +35,10 @@ export const StyledTextContainer = styled.View`
 	height: 120px;
 	margin-top: 120px;
 	padding: 10px;
-	opacity: 0.8;
+	opacity: 0.95;
 	border-top-right-radius: 15px;
 	border-top-left-radius: 15px;
-	background-color: ${theme.colors.catskill_white};
+	background-color: ${theme.colors.white};
 `;
 
 export const StyledNewsContainer = styled.View`
