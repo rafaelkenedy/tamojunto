@@ -16,6 +16,7 @@ import RedGreenButton from '../../components/RedGreenButton';
 import CommentCard from '../../components/CommentCard';
 import theme from '../../styles/theme';
 import ToggleSwitch from 'toggle-switch-react-native';
+import TurnOnNotifications from '../../components/TurnOnNotifications';
 
 const PostComments = () => {
 	return (
@@ -30,25 +31,7 @@ const PostComments = () => {
 					<CommentCard />
 					<CommentCard />
 					<CommentCard />
-					<StyledAlertContainer>
-						{/* <StyledText textColor={theme.colors.black_pearl} textWeight={'400'}>
-							Ativar notificações de comentários
-						</StyledText> */}
-						<ToggleSwitch
-							label="Ativar notificações de comentários"
-							labelStyle={{
-								color: theme.colors.black_pearl,
-								fontWeight: '400',
-								fontSize: 16,
-								right: 7,
-								bottom: 2,
-								paddingRight: 15,
-							}}
-							isOn={false}
-							onColor={theme.colors.eden}
-							offColor={theme.colors.tide}
-						/>
-					</StyledAlertContainer>
+					<TurnOnNotifications />
 					<LoadButton isComment />
 					<RedGreenButton />
 				</ScrollView>

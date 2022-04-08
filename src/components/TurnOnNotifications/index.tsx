@@ -6,7 +6,7 @@ const TurnOnNotifications = () => {
 	return (
 		<StyledViewContainer>
 			<StyledText>Ativar notificações de comentários</StyledText>
-			<StyledToggle />
+			<StyledToggle disabled />
 		</StyledViewContainer>
 	);
 };
