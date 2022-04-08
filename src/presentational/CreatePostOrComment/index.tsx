@@ -9,6 +9,7 @@ import theme from '../../styles/theme';
 import TextArea from '../../components/TextArea';
 import TurnOnNotifications from '../../components/TurnOnNotifications';
 import RedGreenButton from '../../components/RedGreenButton';
+import Select from '../../components/Select';
 
 const CreatePostOrComment = () => {
 	return (
@@ -28,10 +29,10 @@ const CreatePostOrComment = () => {
 					<StyledText textWeight={'bold'} textColor={theme.colors.black_pearl}>
 						Escolha o tema da sua aplicação:
 					</StyledText>
+					<Select />
 					<TurnOnNotifications />
 					<RedGreenButton greenTitle="Publicar" redTitle="Cancelar" />
 				</ScrollView>
-				<NewTopicShortcut />
 			</StyledContainer>
 		</StyledView>
 	);

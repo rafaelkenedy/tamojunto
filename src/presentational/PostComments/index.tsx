@@ -1,11 +1,6 @@
 import React from 'react';
 
-import {
-	StyledContainer,
-	StyledView,
-	StyledText,
-	StyledAlertContainer,
-} from './styles';
+import {StyledContainer, StyledView, StyledText} from './styles';
 import Header from '../../components/Header';
 import {ScrollView} from 'react-native';
 import NewTopicShortcut from '../../components/NewTopicShortcut';
@@ -14,8 +9,6 @@ import ForumCard from '../../components/ForumCard';
 import LoadButton from '../../components/LoadButton';
 import RedGreenButton from '../../components/RedGreenButton';
 import CommentCard from '../../components/CommentCard';
-import theme from '../../styles/theme';
-import ToggleSwitch from 'toggle-switch-react-native';
 import TurnOnNotifications from '../../components/TurnOnNotifications';
 
 const PostComments = () => {
