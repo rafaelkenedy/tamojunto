@@ -8,8 +8,11 @@ import Breadcrumb from '../../components/Breadcrumb';
 import ForumCard from '../../components/ForumCard';
 import LoadButton from '../../components/LoadButton';
 import RedGreenButton from '../../components/RedGreenButton';
+import {useNavigation} from '@react-navigation/native';
 
 const PostFront = () => {
+	const {navigate} = useNavigation();
+
 	return (
 		<StyledView>
 			<Header />
@@ -17,8 +20,8 @@ const PostFront = () => {
 				<ScrollView>
 					<Breadcrumb />
 					<ForumCard fullScream />
-					<LoadButton isComment />
-					<RedGreenButton />
+					<LoadButton buttomTitle={'Exibir comentários'} isComment />
+					<RedGreenButton greenAction={() => navigate('CreatePostOrComment')} />
 				</ScrollView>
 				<NewTopicShortcut />
 			</StyledContainer>

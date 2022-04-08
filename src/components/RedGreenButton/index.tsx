@@ -7,8 +7,12 @@ import {
 	StyledButtonText,
 } from './styles';
 
-const RedGreenButton = ({redTitle = 'voltar', greenTitle = 'comentar'}) => {
-	const {navigate, goBack} = useNavigation();
+const RedGreenButton = ({
+	redTitle = 'voltar',
+	greenTitle = 'comentar',
+	greenAction = () => {},
+}) => {
+	const {goBack} = useNavigation();
 	return (
 		<>
 			<StyledContainer>
@@ -17,7 +21,7 @@ const RedGreenButton = ({redTitle = 'voltar', greenTitle = 'comentar'}) => {
 						{redTitle}
 					</StyledButtonText>
 				</StyledButtonContainer>
-				<StyledButtonContainer onPress={() => navigate('CreatePostOrComment')}>
+				<StyledButtonContainer onPress={greenAction}>
 					<StyledButtonText>{greenTitle}</StyledButtonText>
 				</StyledButtonContainer>
 			</StyledContainer>

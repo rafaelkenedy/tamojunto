@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 
 import {
@@ -16,6 +17,8 @@ import {
 } from './styles';
 
 const DrawlerMenu = ({show = false}) => {
+	const {navigate} = useNavigation();
+
 	return (
 		<>
 			{show && (
@@ -27,7 +30,7 @@ const DrawlerMenu = ({show = false}) => {
 							<StyledText isEmail>oi@oi.com.br</StyledText>
 						</StyledInfo>
 					</StyledHeaderContainer>
-					<StyledButton>
+					<StyledButton onPress={() => navigate('Home')}>
 						<StyledIcon source={require('../../assets/icons/Home.png')} />
 						<StyledText>Inicio</StyledText>
 					</StyledButton>
