@@ -14,8 +14,7 @@ interface NightModeType extends TextProps {
 export const StyledDrawlerContainer = styled.View`
 	height: 100%;
 	width: 75%;
-	padding-left: 25px;
-	padding-right: 25px;
+	padding-left: 20px;
 	border-top-right-radius: 16px;
 	border-bottom-right-radius: 16px;
 	background-color: ${theme.colors.white};
@@ -78,6 +77,7 @@ export const StyledFooterContainer = styled.View`
 	align-items: center;
 	border-top-width: 0.5px;
 	border-top-color: ${theme.colors.tide};
+	width: 240px;
 	padding-top: 15px;
 	margin-top: 55px;
 `;
@@ -89,7 +89,7 @@ export const StyledNightModeContainer = styled.View`
 	padding-left: 5px;
 	padding-right: 5px;
 	height: 40px;
-	width: 95%;
+	width: 100%;
 	background-color: ${theme.colors.catskill_white};
 	margin-bottom: 15px;
 `;

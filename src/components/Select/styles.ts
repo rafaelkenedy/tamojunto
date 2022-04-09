@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 import theme from '../../styles/theme';
-import Picker from 'react-native-picker-select';
+import {Picker} from '@react-native-community/picker';
 
 export const StyledViewContainer = styled.View`
 	margin-top: 12px;
@@ -13,9 +13,8 @@ export const StyledViewContainer = styled.View`
 `;
 
 export const StyledSelect = styled(Picker).attrs(() => ({
-	placeholder: {
-		label: 'Selecione um tema',
-		value: null,
-	},
-	useNativeAndroidPickerStyle: false,
-}))(() => '');
+	mode: 'dialog',
+}))`
+	color: ${theme.colors.black_pearl};
+	font-size: 16px;
+`;

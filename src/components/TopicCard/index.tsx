@@ -11,12 +11,16 @@ import {
 	StyledBorderContainer,
 } from './styles';
 
-const TopicCard = ({name, isFooter = false}: any) => {
+const TopicCard = ({thread, isFooter = false, action = () => {}}: any) => {
 	return (
 		<>
-			<StyleButton>
+			<StyleButton onPress={action}>
 				<StyledCardContainer
-					source={require('../../assets/images/not_found.png')}
+					source={
+						isFooter
+							? require('../../assets/images/not_found.png')
+							: {uri: thread.picture.url}
+					}
 					isFooter={isFooter}>
 					{!isFooter ? (
 						<StyledTextContainer>
@@ -24,7 +28,7 @@ const TopicCard = ({name, isFooter = false}: any) => {
 								<StyledText
 									textWeight={'bold'}
 									textColor={theme.colors.catskill_white}>
-									3
+									0
 								</StyledText>
 								<StyledText
 									textWeight={'bold'}
@@ -33,15 +37,17 @@ const TopicCard = ({name, isFooter = false}: any) => {
 									novos
 								</StyledText>
 							</StyledNewsContainer>
-							<StyledText textWeight={'bold'}>{name}</StyledText>
+							<StyledText textWeight={'bold'}>{thread.name}</StyledText>
 							<StyledFooter>
-								<StyledText textWeight={'bold'}>12</StyledText>
-								<StyledText textSize={'14px'}>Tópicos</StyledText>
+								<StyledText textWeight={'bold'}>
+									{thread.threadCount}
+								</StyledText>
+								<StyledText textSize={'14px'}> Tópicos</StyledText>
 							</StyledFooter>
 						</StyledTextContainer>
 					) : (
 						<StyledBorderContainer>
-							<StyledText textWeight={'bold'}>Finanças</StyledText>
+							<StyledText textWeight={'bold'}>Administração</StyledText>
 						</StyledBorderContainer>
 					)}
 				</StyledCardContainer>

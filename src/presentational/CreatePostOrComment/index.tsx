@@ -12,22 +12,18 @@ import RedGreenButton from '../../components/RedGreenButton';
 import Select from '../../components/Select';
 import ForumCard from '../../components/ForumCard';
 
-const CreatePostOrComment = () => {
+const CreatePostOrComment = ({navigation}: any) => {
 	const [title, setTitle] = useState<String>('');
 	const [content, setContent] = useState<String>('');
 	const {params}: any = useRoute();
 
-	useEffect(() => {
-		console.log(params);
-	}, []);
+	useEffect(() => {}, []);
 
-	const post = () => {
-		console.log('call');
-	};
+	const post = () => {};
 
 	return (
 		<StyledView>
-			<Header />
+			<Header navigation={navigation} />
 			<StyledContainer>
 				<ScrollView>
 					<Breadcrumb />

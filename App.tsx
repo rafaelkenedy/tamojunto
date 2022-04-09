@@ -6,7 +6,13 @@ import {StatusBar} from 'react-native';
 import Routes from './src/routes/routes';
 import store from './src/store';
 import theme from './src/styles/theme';
+import {LogBox} from 'react-native';
+
 const App = () => {
+	LogBox.ignoreLogs([
+		"[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
+	]);
+
 	return (
 		<Provider store={store}>
 			<ThemeProvider theme={theme}>

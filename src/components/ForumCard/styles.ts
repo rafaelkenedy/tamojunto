@@ -22,7 +22,7 @@ export const StyledContainer = styled.View<ViewType>`
 `;
 
 export const StyledHeaderContainer = styled.View<ViewType>`
-	padding-top: 15px;
+	padding-top: ${(props) => (props.postSize ? '15px' : '8px')};
 	border-bottom-width: ${(props) => (props.line ? '0.2px' : '0')};
 	border-bottom-color: ${theme.colors.granny_smith};
 `;

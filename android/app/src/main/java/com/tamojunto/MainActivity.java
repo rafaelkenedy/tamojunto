@@ -14,8 +14,8 @@ public class MainActivity extends ReactActivity {
     return "tamojunto";
   }
 
-   @Override
+  @Override
   protected void onCreate(Bundle savedInstanceState) {
-  super.onCreate(null);
+    super.onCreate(null);
   }
 }

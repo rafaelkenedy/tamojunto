@@ -1,5 +1,6 @@
 import React from 'react';
 import {useNavigation} from '@react-navigation/native';
+import moment from 'moment';
 
 import {
 	StyleButton,
@@ -11,8 +12,9 @@ import {
 	StyledText,
 } from './styles';
 
-const ForumCard = ({fullScream = false}) => {
+const ForumCard = ({home = false, fullScream = false, content}: any) => {
 	const {navigate} = useNavigation();
+	const date = moment(content.createdAt).format('DD/MM/YYYY');
 
 	return (
 		<>
@@ -21,24 +23,23 @@ const ForumCard = ({fullScream = false}) => {
 					<StyledButton>
 						<StyledIcon source={require('../../assets/icons/more.png')} />
 					</StyledButton>
-					<StyledHeaderContainer line>
-						{!fullScream && <StyledTitle>Tema do tópico</StyledTitle>}
-						<StyledText>Autor do Post em dd/mm/aa</StyledText>
+					<StyledHeaderContainer postSize={home} line>
+						{!fullScream && <StyledTitle>{content.subject}</StyledTitle>}
+						<StyledText>
+							{`${content.user.firstName} ${content.user.lastName} em ${date}`}
+						</StyledText>
 					</StyledHeaderContainer>
 					<StyledHeaderContainer>
 						<StyledTitle numberOfLines={!fullScream ? 2 : undefined}>
-							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad illum
-							inventore provident delectus natus quibusdam exercitationem eaque
-							quas! Doloribus, a dignissimos. Alias distinctio molestias
-							consequatur iure illum ipsa eius quos.
+							{content.title}
 						</StyledTitle>
 						{fullScream && <StyledTitle>12 comentários</StyledTitle>}
 						<StyledText numberOfLines={!fullScream ? 2 : undefined}>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo id
-							quod facere tempora odio laborum quibusdam voluptates quia
-							repudiandae esse dignissimos nulla, cupiditate magni? Vel iusto
-							neque modi esse sequi?
+							{content.content}
 						</StyledText>
+						{!fullScream && !home && (
+							<StyledTitle>{content.commentCount} comentários</StyledTitle>
+						)}
 					</StyledHeaderContainer>
 				</StyledContainer>
 			</StyleButton>

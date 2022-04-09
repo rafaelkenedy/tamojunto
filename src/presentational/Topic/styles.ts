@@ -35,3 +35,7 @@ export const StyledLocker = styled.View`
 	margin-top: 15px;
 	margin-bottom: 80px;
 `;
+
+export const StyledFlatList = styled.FlatList`
+	margin-top: 5px;
+`;

@@ -10,14 +10,11 @@ import LoadButton from '../../components/LoadButton';
 import RedGreenButton from '../../components/RedGreenButton';
 import CommentCard from '../../components/CommentCard';
 import TurnOnNotifications from '../../components/TurnOnNotifications';
-import {useNavigation} from '@react-navigation/native';
 
-const PostComments = () => {
-	const {navigate} = useNavigation();
-
+const PostComments = ({navigation}: any) => {
 	return (
 		<StyledView>
-			<Header />
+			<Header navigation={navigation} />
 			<StyledContainer>
 				<ScrollView>
 					<Breadcrumb />
@@ -29,7 +26,9 @@ const PostComments = () => {
 					<CommentCard />
 					<TurnOnNotifications />
 					<LoadButton buttomTitle="exibir mais comentários" isComment />
-					<RedGreenButton greenAction={() => navigate('CreatePostOrComment')} />
+					<RedGreenButton
+						greenAction={() => navigation.navigate('CreatePostOrComment')}
+					/>
 				</ScrollView>
 				<NewTopicShortcut />
 			</StyledContainer>

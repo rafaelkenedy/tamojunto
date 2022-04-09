@@ -16,8 +16,10 @@ import ForumCard from '../../components/ForumCard';
 import NewTopicShortcut from '../../components/NewTopicShortcut';
 import LoadButton from '../../components/LoadButton';
 import {getSubjects} from '../../services/subjects';
+import {getRecentThreads} from '../../services/threads';
 
-const Home = () => {
+const Home = ({navigation}: any) => {
+	const [themes, setThemes] = useState([]);
 	const [post, setPost] = useState([]);
 
 	useEffect(() => {
@@ -25,14 +27,15 @@ const Home = () => {
 	}, []);
 
 	const loadData = async () => {
-		const result = await getSubjects();
-		console.log(result);
-		setPost(result);
+		const subjects = await getSubjects();
+		const {data} = await getRecentThreads();
+		setThemes(subjects);
+		setPost(data);
 	};
 
 	return (
 		<StyledView>
-			<Header />
+			<Header navigation={navigation} />
 			<StyledContainer>
 				<ScrollView>
 					<SearchBar />
@@ -40,16 +43,23 @@ const Home = () => {
 						Escolha um tema para conversar:
 					</StyledText>
 					<FlatList
-						data={post}
+						data={themes}
 						style={{marginTop: 15}}
 						horizontal
-						renderItem={({item}: any) => <TopicCard name={item.name} />}
+						renderItem={({item}: any) => (
+							<TopicCard
+								thread={item}
+								action={() => navigation.navigate('Topic', item.id)}
+							/>
+						)}
 					/>
 					<LargeCard />
 					<StyledText textWeight={'bold'}>
 						Publicações mais recentes:
 					</StyledText>
-					<ForumCard />
+					{post.map((item: any) => (
+						<ForumCard key={item.id} content={item} home />
+					))}
 					<StyledLocker>
 						<LoadButton />
 					</StyledLocker>

@@ -9,6 +9,15 @@ const getSubjects = async () => {
 	}
 };
 
+const getSubjectsById = async (id: string) => {
+	try {
+		const {data} = await api.get(`/subjects/${id}`);
+		return data;
+	} catch (e) {
+		return e;
+	}
+};
+
 const postSubjects = () => {};
 
-export {getSubjects, postSubjects};
+export {getSubjects, getSubjectsById, postSubjects};
