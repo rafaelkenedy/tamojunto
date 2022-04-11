@@ -4,11 +4,17 @@ import React from 'react';
 import {StyledButton, StyledIcon} from './styles';
 
 const NewTopicShortcut = () => {
-	const {navigate} = useNavigation();
+	const {navigate}: any = useNavigation();
 
 	return (
 		<>
-			<StyledButton onPress={() => navigate('CreatePostOrComment', 'create')}>
+			<StyledButton
+				onPress={() =>
+					navigate('Stack', {
+						screen: 'CreatePostOrComment',
+						params: {type: 'create'},
+					})
+				}>
 				<StyledIcon source={require('../../assets/icons/Add.png')} />
 			</StyledButton>
 		</>

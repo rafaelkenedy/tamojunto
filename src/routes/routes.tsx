@@ -5,10 +5,7 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 import theme from '../styles/theme';
 import DrawerMenu from '../components/DrawerMenu';
 import Home from '../presentational/Home';
-import Topic from '../presentational/Topic';
-import PostFront from '../presentational/PostFront';
-import PostComments from '../presentational/PostComments';
-import CreatePostOrComment from '../presentational/CreatePostOrComment';
+import Stack from './stack';
 
 const Routes = () => {
 	const Drawer: any = createDrawerNavigator();
@@ -22,13 +19,7 @@ const Routes = () => {
 				}}
 				drawerContent={(props: any) => <DrawerMenu {...props} />}>
 				<Drawer.Screen name="Home" component={Home} />
-				<Drawer.Screen name="Topic" component={Topic} />
-				<Drawer.Screen name="PostFront" component={PostFront} />
-				<Drawer.Screen name="PostComments" component={PostComments} />
-				<Drawer.Screen
-					name="CreatePostOrComment"
-					component={CreatePostOrComment}
-				/>
+				<Drawer.Screen name="Stack" component={Stack} />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);

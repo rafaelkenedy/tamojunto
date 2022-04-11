@@ -12,13 +12,17 @@ import {
 	StyledText,
 } from './styles';
 
-const ForumCard = ({home = false, fullScream = false, content}: any) => {
-	const {navigate} = useNavigation();
+const ForumCard = ({
+	home = false,
+	fullScream = false,
+	content,
+	action = () => {},
+}: any) => {
 	const date = moment(content.createdAt).format('DD/MM/YYYY');
 
 	return (
 		<>
-			<StyleButton onPress={() => navigate('PostFront')}>
+			<StyleButton onPress={action}>
 				<StyledContainer postSize={fullScream}>
 					<StyledButton>
 						<StyledIcon source={require('../../assets/icons/more.png')} />
@@ -33,7 +37,9 @@ const ForumCard = ({home = false, fullScream = false, content}: any) => {
 						<StyledTitle numberOfLines={!fullScream ? 2 : undefined}>
 							{content.title}
 						</StyledTitle>
-						{fullScream && <StyledTitle>12 comentários</StyledTitle>}
+						{fullScream && (
+							<StyledTitle>{content.commentCount} comentários</StyledTitle>
+						)}
 						<StyledText numberOfLines={!fullScream ? 2 : undefined}>
 							{content.content}
 						</StyledText>

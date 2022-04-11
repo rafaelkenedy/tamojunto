@@ -12,7 +12,7 @@ import RedGreenButton from '../../components/RedGreenButton';
 import Select from '../../components/Select';
 import ForumCard from '../../components/ForumCard';
 
-const CreatePostOrComment = ({navigation}: any) => {
+const CreatePostOrComment = () => {
 	const [title, setTitle] = useState<String>('');
 	const [content, setContent] = useState<String>('');
 	const {params}: any = useRoute();
@@ -23,11 +23,11 @@ const CreatePostOrComment = ({navigation}: any) => {
 
 	return (
 		<StyledView>
-			<Header navigation={navigation} />
+			<Header />
 			<StyledContainer>
 				<ScrollView>
 					<Breadcrumb />
-					{params === 'create' ? (
+					{params.type === 'create' ? (
 						<>
 							<StyledText
 								textWeight={'bold'}

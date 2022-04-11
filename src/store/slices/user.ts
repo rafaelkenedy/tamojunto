@@ -6,6 +6,7 @@ const user = createSlice({
 		nightMode: false,
 		loading: false,
 		search: false,
+		theme: '',
 	},
 	reducers: {
 		changeTheme: (state) => {
@@ -17,8 +18,11 @@ const user = createSlice({
 		searchAction: (state, {payload}) => {
 			state.search = payload;
 		},
+		setTheme: (state, {payload}) => {
+			state.theme = payload;
+		},
 	},
 });
 
-export const {changeTheme, startLoading, searchAction} = user.actions;
+export const {changeTheme, startLoading, searchAction, setTheme} = user.actions;
 export default user.reducer;

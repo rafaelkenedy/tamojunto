@@ -17,10 +17,13 @@ import NewTopicShortcut from '../../components/NewTopicShortcut';
 import LoadButton from '../../components/LoadButton';
 import {getSubjects} from '../../services/subjects';
 import {getRecentThreads} from '../../services/threads';
+import {useDispatch} from 'react-redux';
+import {setTheme} from '../../store/slices/user';
 
 const Home = ({navigation}: any) => {
 	const [themes, setThemes] = useState([]);
 	const [post, setPost] = useState([]);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		loadData();
@@ -35,7 +38,7 @@ const Home = ({navigation}: any) => {
 
 	return (
 		<StyledView>
-			<Header navigation={navigation} />
+			<Header />
 			<StyledContainer>
 				<ScrollView>
 					<SearchBar />
@@ -49,7 +52,13 @@ const Home = ({navigation}: any) => {
 						renderItem={({item}: any) => (
 							<TopicCard
 								thread={item}
-								action={() => navigation.navigate('Topic', item.id)}
+								action={() => {
+									dispatch(setTheme(item.name as string));
+									navigation.navigate('Stack', {
+										screen: 'Topic',
+										params: {id: item.id as string},
+									});
+								}}
 							/>
 						)}
 					/>

@@ -13,12 +13,6 @@ export const StyledView = styled.View`
 	flex: 1;
 `;
 
-export const StyledContainer = styled.View`
-	flex: 1;
-	padding-left: 25px;
-	padding-right: 25px;
-`;
-
 export const StyledText = styled.Text<TextType>`
 	margin-top: 15px;
 	color: ${(props) => props.textColor || theme.colors.eden};
@@ -27,15 +21,14 @@ export const StyledText = styled.Text<TextType>`
 	font-weight: ${(props) => props.textWeight || 300};
 `;
 
-export const StyledRow = styled.ScrollView`
-	margin-top: 10px;
-`;
-
 export const StyledLocker = styled.View`
 	margin-top: 15px;
 	margin-bottom: 80px;
 `;
 
 export const StyledFlatList = styled.FlatList`
+	flex: 1;
+	padding-left: 25px;
+	padding-right: 25px;
 	margin-top: 5px;
 `;

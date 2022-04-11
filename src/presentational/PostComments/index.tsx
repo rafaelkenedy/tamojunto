@@ -14,7 +14,7 @@ import TurnOnNotifications from '../../components/TurnOnNotifications';
 const PostComments = ({navigation}: any) => {
 	return (
 		<StyledView>
-			<Header navigation={navigation} />
+			<Header />
 			<StyledContainer>
 				<ScrollView>
 					<Breadcrumb />
@@ -25,7 +25,7 @@ const PostComments = ({navigation}: any) => {
 					<CommentCard />
 					<CommentCard />
 					<TurnOnNotifications />
-					<LoadButton buttomTitle="exibir mais comentários" isComment />
+					<LoadButton buttonTitle="exibir mais comentários" isComment />
 					<RedGreenButton
 						greenAction={() => navigation.navigate('CreatePostOrComment')}
 					/>
