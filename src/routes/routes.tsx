@@ -9,6 +9,7 @@ import Topic from '../presentational/Topic';
 import PostFront from '../presentational/PostFront';
 import PostComments from '../presentational/PostComments';
 import CreatePostOrComment from '../presentational/CreatePostOrComment';
+//import Splash from '../presentational/Splash';
 
 const Routes = () => {
 	const Drawer: any = createDrawerNavigator();

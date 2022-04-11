@@ -17,10 +17,12 @@ import NewTopicShortcut from '../../components/NewTopicShortcut';
 import LoadButton from '../../components/LoadButton';
 import {getSubjects} from '../../services/subjects';
 import {getRecentThreads} from '../../services/threads';
+import Splash from '../Splash';
 
 const Home = ({navigation}: any) => {
 	const [themes, setThemes] = useState([]);
 	const [post, setPost] = useState([]);
+	const [isLoading, setLoading] = useState(true);
 
 	useEffect(() => {
 		loadData();
@@ -31,8 +33,12 @@ const Home = ({navigation}: any) => {
 		const {data} = await getRecentThreads();
 		setThemes(subjects);
 		setPost(data);
+		setLoading(false);
 	};
 
+	if (isLoading)
+		return <Splash />
+		
 	return (
 		<StyledView>
 			<Header navigation={navigation} />
