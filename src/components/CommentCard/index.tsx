@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React from 'react';
 
 import {
@@ -8,7 +9,9 @@ import {
 	StyledText,
 } from './styles';
 
-const CommentCard = () => {
+const CommentCard = ({commentContent}: any) => {
+	const date = moment(commentContent.createdAt).format('DD/MM/YYYY');
+
 	return (
 		<>
 			<StyledContainer>
@@ -16,13 +19,9 @@ const CommentCard = () => {
 					<StyledIcon source={require('../../assets/icons/more.png')} />
 				</StyledButton>
 				<StyledHeaderContainer>
-					<StyledText isGreen>Autor do Comentário em dd/mm/aa</StyledText>
-					<StyledText>
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo id
-						quod facere tempora odio laborum quibusdam voluptates quia
-						repudiandae esse dignissimos nulla, cupiditate magni? Vel iusto
-						neque modi esse sequi?
-					</StyledText>
+					<StyledText
+						isGreen>{`${commentContent.user.firstName} ${commentContent.user.lastName} em ${date}`}</StyledText>
+					<StyledText>{commentContent.content}</StyledText>
 				</StyledHeaderContainer>
 			</StyledContainer>
 		</>

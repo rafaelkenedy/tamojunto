@@ -1,8 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {useRoute} from '@react-navigation/native';
-import {getSubjectsById} from '../../services/subjects';
+import {getSubjects, getSubjectsById} from '../../services/subjects';
+import {useDispatch, useSelector} from 'react-redux';
+import {setTheme} from '../../store/slices/user';
 
-import {StyledView, StyledText, StyledLocker, StyledFlatList} from './styles';
+import {
+	StyledView,
+	StyledText,
+	StyledLocker,
+	StyledFlatList,
+	StyledFooterFlatList,
+} from './styles';
 import Header from '../../components/Header';
 import SearchBar from '../../components/SearchBar';
 import LargeCard from '../../components/LargeCard';
@@ -11,10 +19,12 @@ import NewTopicShortcut from '../../components/NewTopicShortcut';
 import LoadButton from '../../components/LoadButton';
 import Breadcrumb from '../../components/Breadcrumb';
 import TopicCard from '../../components/TopicCard';
-import {useSelector} from 'react-redux';
+import * as applicationTheme from '../../styles/theme';
 
 const Topic = ({navigation}: any) => {
 	const [content, setContent] = useState();
+	const [others, setOthers] = useState([]);
+	const dispatch = useDispatch();
 	const {theme}: any = useSelector((handleUserChoices) => handleUserChoices);
 	const {params}: any = useRoute();
 
@@ -24,9 +34,9 @@ const Topic = ({navigation}: any) => {
 
 	const getData = async (id: string) => {
 		const {data} = await getSubjectsById(id);
-		console.log('topic', data);
-
+		const subjects = await getSubjects();
 		setContent(data);
+		setOthers(subjects.filter((item: any) => item.name !== theme));
 	};
 
 	return (
@@ -58,7 +68,30 @@ const Topic = ({navigation}: any) => {
 						<LoadButton />
 						<StyledText textWeight={'bold'}>Explore outros temas:</StyledText>
 						<StyledLocker>
-							<TopicCard isFooter />
+							<StyledFooterFlatList
+								data={others}
+								horizontal
+								ListEmptyComponent={
+									<StyledText
+										textWeight={'bold'}
+										textColor={applicationTheme.default.colors.black_pearl}>
+										Nenhum tema encontrado!
+									</StyledText>
+								}
+								renderItem={({item}: any) => (
+									<TopicCard
+										thread={item}
+										isFooter
+										action={() => {
+											dispatch(setTheme(item.name as string));
+											navigation.navigate('Stack', {
+												screen: 'Topic',
+												params: {id: item.id as string},
+											});
+										}}
+									/>
+								)}
+							/>
 						</StyledLocker>
 					</>
 				}

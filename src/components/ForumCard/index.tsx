@@ -1,5 +1,4 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
 import moment from 'moment';
 
 import {
@@ -15,6 +14,7 @@ import {
 const ForumCard = ({
 	home = false,
 	fullScream = false,
+	commentsCount = false,
 	content,
 	action = () => {},
 }: any) => {
@@ -34,10 +34,10 @@ const ForumCard = ({
 						</StyledText>
 					</StyledHeaderContainer>
 					<StyledHeaderContainer>
-						<StyledTitle numberOfLines={!fullScream ? 2 : undefined}>
+						<StyledTitle isBlack numberOfLines={!fullScream ? 2 : undefined}>
 							{content.title}
 						</StyledTitle>
-						{fullScream && (
+						{fullScream && commentsCount && (
 							<StyledTitle>{content.commentCount} comentários</StyledTitle>
 						)}
 						<StyledText numberOfLines={!fullScream ? 2 : undefined}>

@@ -11,9 +11,7 @@ import {
 } from './styles';
 import theme from '../../styles/theme';
 
-const LargeCard = ({isCover = false}) => {
-	const {navigate} = useNavigation();
-
+const LargeCard = ({isCover = false, action = () => {}}) => {
 	return (
 		<>
 			<StyledCardContainer
@@ -26,7 +24,7 @@ const LargeCard = ({isCover = false}) => {
 				}
 				isCover={isCover}>
 				{!isCover && (
-					<StyleButton onPress={() => navigate('Topic')}>
+					<StyleButton onPress={action}>
 						<StyledTextContainer>
 							<StyledNewsContainer>
 								<StyledText

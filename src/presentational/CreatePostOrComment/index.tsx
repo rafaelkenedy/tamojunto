@@ -11,6 +11,7 @@ import TurnOnNotifications from '../../components/TurnOnNotifications';
 import RedGreenButton from '../../components/RedGreenButton';
 import Select from '../../components/Select';
 import ForumCard from '../../components/ForumCard';
+import {postComment} from '../../services/comments';
 
 const CreatePostOrComment = () => {
 	const [title, setTitle] = useState<String>('');
@@ -19,7 +20,18 @@ const CreatePostOrComment = () => {
 
 	useEffect(() => {}, []);
 
-	const post = () => {};
+	const postResponse = async () => {
+		if (content.length <= 3) return;
+		const data: any = {};
+		data.content = content;
+		data.threadId = params.id;
+		const response = await postComment(data);
+		console.log(response);
+	};
+
+	const postTopic = async () => {
+		if (content.length <= 3 || title.length <= 3) return;
+	};
 
 	return (
 		<StyledView>
@@ -59,12 +71,12 @@ const CreatePostOrComment = () => {
 							<RedGreenButton
 								greenTitle="Publicar"
 								redTitle="Cancelar"
-								greenAction={post}
+								greenAction={postTopic}
 							/>
 						</>
 					) : (
 						<>
-							<ForumCard />
+							<ForumCard content={params.content} fullScream />
 							<StyledText
 								textWeight={'bold'}
 								textColor={theme.colors.black_pearl}>
@@ -80,7 +92,7 @@ const CreatePostOrComment = () => {
 							<RedGreenButton
 								greenTitle="Enviar"
 								redTitle="Voltar"
-								greenAction={post}
+								greenAction={postResponse}
 							/>
 						</>
 					)}

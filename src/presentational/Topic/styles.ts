@@ -32,3 +32,7 @@ export const StyledFlatList = styled.FlatList`
 	padding-right: 25px;
 	margin-top: 5px;
 `;
+
+export const StyledFooterFlatList = styled.FlatList`
+	margin-top: 15px;
+`;

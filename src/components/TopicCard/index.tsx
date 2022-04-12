@@ -16,11 +16,7 @@ const TopicCard = ({thread, isFooter = false, action = () => {}}: any) => {
 		<>
 			<StyleButton onPress={action}>
 				<StyledCardContainer
-					source={
-						isFooter
-							? require('../../assets/images/not_found.png')
-							: {uri: thread.picture.url}
-					}
+					source={{uri: thread.picture.url}}
 					isFooter={isFooter}>
 					{!isFooter ? (
 						<StyledTextContainer>

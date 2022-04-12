@@ -7,6 +7,10 @@ interface ViewType extends ViewProps {
 	postSize?: boolean;
 }
 
+interface FontType {
+	isBlack?: boolean;
+}
+
 export const StyleButton = styled.TouchableOpacity.attrs(() => ({
 	activeOpacity: 0.95,
 }))(() => '');
@@ -42,8 +46,9 @@ export const StyledIcon = styled.Image`
 	tint-color: ${theme.colors.eden};
 `;
 
-export const StyledTitle = styled.Text`
-	color: ${theme.colors.eden};
+export const StyledTitle = styled.Text<FontType>`
+	color: ${(props) =>
+		props.isBlack ? theme.colors.black_pearl : theme.colors.eden};
 	font-size: 13px;
 	font-weight: bold;
 	margin-bottom: 5px;
