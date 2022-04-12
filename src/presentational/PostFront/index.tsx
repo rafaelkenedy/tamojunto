@@ -1,7 +1,6 @@
 import React from 'react';
 import {useRoute} from '@react-navigation/native';
 
-import {ScrollView} from 'react-native';
 import {StyledContainer, StyledView} from './styles';
 import Header from '../../components/Header';
 import NewTopicShortcut from '../../components/NewTopicShortcut';

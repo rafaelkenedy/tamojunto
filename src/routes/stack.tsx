@@ -7,6 +7,7 @@ import Topic from '../presentational/Topic';
 import PostFront from '../presentational/PostFront';
 import PostComments from '../presentational/PostComments';
 import CreatePostOrComment from '../presentational/CreatePostOrComment';
+import SearchScreen from '../presentational/SearchScreen';
 
 const Stack = () => {
 	const StackRoutes: any = createNativeStackNavigator();
@@ -25,6 +26,7 @@ const Stack = () => {
 				name="CreatePostOrComment"
 				component={CreatePostOrComment}
 			/>
+			<StackRoutes.Screen name="SearchScreen" component={SearchScreen} />
 		</StackRoutes.Navigator>
 	);
 };
