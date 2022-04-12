@@ -12,6 +12,15 @@ export const StyledViewContainer = styled.View`
 	padding-left: 15px;
 `;
 
+export const StyledIcon = styled.Image`
+	tint-color: ${theme.colors.black_pearl};
+	height: 10px;
+	width: 20px;
+	position: absolute;
+	right: 29px;
+	top: 25px;
+`;
+
 export const StyledSelect = styled(Picker).attrs(() => ({
 	mode: 'dialog',
 }))`

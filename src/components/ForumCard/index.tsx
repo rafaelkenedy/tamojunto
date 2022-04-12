@@ -1,5 +1,4 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
 import moment from 'moment';
 
 import {
@@ -12,13 +11,18 @@ import {
 	StyledText,
 } from './styles';
 
-const ForumCard = ({home = false, fullScream = false, content}: any) => {
-	const {navigate} = useNavigation();
+const ForumCard = ({
+	home = false,
+	fullScream = false,
+	commentsCount = false,
+	content,
+	action = () => {},
+}: any) => {
 	const date = moment(content.createdAt).format('DD/MM/YYYY');
 
 	return (
 		<>
-			<StyleButton onPress={() => navigate('PostFront')}>
+			<StyleButton onPress={action}>
 				<StyledContainer postSize={fullScream}>
 					<StyledButton>
 						<StyledIcon source={require('../../assets/icons/more.png')} />
@@ -30,10 +34,12 @@ const ForumCard = ({home = false, fullScream = false, content}: any) => {
 						</StyledText>
 					</StyledHeaderContainer>
 					<StyledHeaderContainer>
-						<StyledTitle numberOfLines={!fullScream ? 2 : undefined}>
+						<StyledTitle isBlack numberOfLines={!fullScream ? 2 : undefined}>
 							{content.title}
 						</StyledTitle>
-						{fullScream && <StyledTitle>12 comentários</StyledTitle>}
+						{fullScream && commentsCount && (
+							<StyledTitle>{content.commentCount} comentários</StyledTitle>
+						)}
 						<StyledText numberOfLines={!fullScream ? 2 : undefined}>
 							{content.content}
 						</StyledText>

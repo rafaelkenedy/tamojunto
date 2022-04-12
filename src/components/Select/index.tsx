@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {StyledViewContainer, StyledSelect} from './styles';
+import {StyledViewContainer, StyledSelect, StyledIcon} from './styles';
 
 const Select = () => {
 	const [select, setSelect] = useState();
@@ -20,6 +20,7 @@ const Select = () => {
 						<StyledSelect.Item key={value} label={label} value={value} />
 					))}
 				</StyledSelect>
+				<StyledIcon source={require('../../assets/icons/Expand_down.png')} />
 			</StyledViewContainer>
 		</>
 	);

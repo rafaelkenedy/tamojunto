@@ -2,9 +2,12 @@ import React from 'react';
 import {useNavigation} from '@react-navigation/native';
 
 import {StyledContainer, StyledIcon, StyledButton, StyledText} from './styles';
+import {useSelector} from 'react-redux';
 
 const Breadcrumb = () => {
+	const {theme}: any = useSelector((handleUserChoices) => handleUserChoices);
 	const {navigate} = useNavigation();
+
 	return (
 		<>
 			<StyledContainer>
@@ -12,8 +15,14 @@ const Breadcrumb = () => {
 				<StyledButton onPress={() => navigate('Home')}>
 					<StyledText>Home</StyledText>
 				</StyledButton>
-				<StyledIcon source={require('../../assets/icons/Chevron-right.png')} />
-				<StyledText isActive>Administração</StyledText>
+				{theme !== '' && (
+					<>
+						<StyledIcon
+							source={require('../../assets/icons/Chevron-right.png')}
+						/>
+						<StyledText isActive>{theme}</StyledText>
+					</>
+				)}
 			</StyledContainer>
 		</>
 	);

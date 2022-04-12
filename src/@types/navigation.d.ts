@@ -5,6 +5,8 @@ export declare global {
 			PostFront: undefined;
 			Topic: undefined;
 			PostComments: undefined;
+			CreatePostOrComment: undefined;
+			Stack: undefined;
 		}
 	}
 }

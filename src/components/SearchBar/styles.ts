@@ -8,7 +8,7 @@ export const StyledContainer = styled.View`
 	border-color: ${theme.colors.tide};
 	align-items: center;
 	margin-top: 10px;
-	background-color: ${theme.colors.catskill_white};
+	background-color: ${theme.colors.white};
 `;
 
 export const StyledInput = styled.TextInput.attrs({

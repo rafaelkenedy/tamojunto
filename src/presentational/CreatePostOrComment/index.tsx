@@ -11,23 +11,35 @@ import TurnOnNotifications from '../../components/TurnOnNotifications';
 import RedGreenButton from '../../components/RedGreenButton';
 import Select from '../../components/Select';
 import ForumCard from '../../components/ForumCard';
+import {postComment} from '../../services/comments';
 
-const CreatePostOrComment = ({navigation}: any) => {
+const CreatePostOrComment = () => {
 	const [title, setTitle] = useState<String>('');
 	const [content, setContent] = useState<String>('');
 	const {params}: any = useRoute();
 
 	useEffect(() => {}, []);
 
-	const post = () => {};
+	const postResponse = async () => {
+		if (content.length <= 3) return;
+		const data: any = {};
+		data.content = content;
+		data.threadId = params.id;
+		const response = await postComment(data);
+		console.log(response);
+	};
+
+	const postTopic = async () => {
+		if (content.length <= 3 || title.length <= 3) return;
+	};
 
 	return (
 		<StyledView>
-			<Header navigation={navigation} />
+			<Header />
 			<StyledContainer>
 				<ScrollView>
 					<Breadcrumb />
-					{params === 'create' ? (
+					{params.type === 'create' ? (
 						<>
 							<StyledText
 								textWeight={'bold'}
@@ -59,12 +71,12 @@ const CreatePostOrComment = ({navigation}: any) => {
 							<RedGreenButton
 								greenTitle="Publicar"
 								redTitle="Cancelar"
-								greenAction={post}
+								greenAction={postTopic}
 							/>
 						</>
 					) : (
 						<>
-							<ForumCard />
+							<ForumCard content={params.content} fullScream />
 							<StyledText
 								textWeight={'bold'}
 								textColor={theme.colors.black_pearl}>
@@ -80,7 +92,7 @@ const CreatePostOrComment = ({navigation}: any) => {
 							<RedGreenButton
 								greenTitle="Enviar"
 								redTitle="Voltar"
-								greenAction={post}
+								greenAction={postResponse}
 							/>
 						</>
 					)}

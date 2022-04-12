@@ -13,19 +13,6 @@ export const StyledView = styled.View`
 	flex: 1;
 `;
 
-export const StyledText = styled.Text<TextType>`
-	margin-top: 15px;
-	color: ${(props) => props.textColor || theme.colors.eden};
-	font-weight: bold;
-	font-size: ${(props) => props.textSize || '16px'};
-	font-weight: ${(props) => props.textWeight || 300};
-`;
-
-export const StyledLocker = styled.View`
-	margin-top: 15px;
-	margin-bottom: 80px;
-`;
-
 export const StyledFlatList = styled.FlatList`
 	flex: 1;
 	padding-left: 25px;
@@ -33,6 +20,13 @@ export const StyledFlatList = styled.FlatList`
 	margin-top: 5px;
 `;
 
-export const StyledFooterFlatList = styled.FlatList`
+export const StyleImage = styled.Image`
+	margin-top: 45px;
+`;
+
+export const StyledText = styled.Text<TextType>`
 	margin-top: 15px;
+	color: ${(props) => props.textColor || theme.colors.eden};
+	font-size: ${(props) => props.textSize || '16px'};
+	font-weight: ${(props) => props.textWeight || 300};
 `;

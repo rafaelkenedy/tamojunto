@@ -1,17 +1,18 @@
 import React, {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {setTheme} from '../../store/slices/user';
 
 import {
-	StyledContainer,
 	StyledView,
+	StyledFlatList,
 	StyledText,
-	StyledRow,
+	StyledHeaderFlatList,
 	StyledLocker,
 } from './styles';
 import Header from '../../components/Header';
 import SearchBar from '../../components/SearchBar';
 import TopicCard from '../../components/TopicCard';
 import LargeCard from '../../components/LargeCard';
-import {FlatList, ScrollView} from 'react-native';
 import ForumCard from '../../components/ForumCard';
 import NewTopicShortcut from '../../components/NewTopicShortcut';
 import LoadButton from '../../components/LoadButton';
@@ -22,7 +23,7 @@ import Splash from '../Splash';
 const Home = ({navigation}: any) => {
 	const [themes, setThemes] = useState([]);
 	const [post, setPost] = useState([]);
-	const [isLoading, setLoading] = useState(true);
+  const dispatch = useDispatch();
 
 	useEffect(() => {
 		loadData();
@@ -41,37 +42,57 @@ const Home = ({navigation}: any) => {
 		
 	return (
 		<StyledView>
-			<Header navigation={navigation} />
-			<StyledContainer>
-				<ScrollView>
-					<SearchBar />
-					<StyledText textWeight={'bold'}>
-						Escolha um tema para conversar:
-					</StyledText>
-					<FlatList
-						data={themes}
-						style={{marginTop: 15}}
-						horizontal
-						renderItem={({item}: any) => (
-							<TopicCard
-								thread={item}
-								action={() => navigation.navigate('Topic', item.id)}
-							/>
-						)}
+			<Header />
+			<StyledFlatList
+				ListHeaderComponent={
+					<>
+						<SearchBar />
+						<StyledText textWeight={'bold'}>
+							Escolha um tema para conversar:
+						</StyledText>
+						<StyledHeaderFlatList
+							data={themes}
+							horizontal
+							renderItem={({item}: any) => (
+								<TopicCard
+									thread={item}
+									action={() => {
+										dispatch(setTheme(item.name as string));
+										navigation.navigate('Stack', {
+											screen: 'Topic',
+											params: {id: item.id as string},
+										});
+									}}
+								/>
+							)}
+						/>
+						<LargeCard />
+						<StyledText textWeight={'bold'}>
+							Publicações mais recentes:
+						</StyledText>
+					</>
+				}
+				data={post}
+				renderItem={({item}: any) => (
+					<ForumCard
+						content={item}
+						home
+						action={() => {
+							dispatch(setTheme(item.subject as string));
+							navigation.navigate('Stack', {
+								screen: 'PostFront',
+								params: {content: item},
+							});
+						}}
 					/>
-					<LargeCard />
-					<StyledText textWeight={'bold'}>
-						Publicações mais recentes:
-					</StyledText>
-					{post.map((item: any) => (
-						<ForumCard key={item.id} content={item} home />
-					))}
+				)}
+				ListFooterComponent={
 					<StyledLocker>
 						<LoadButton />
 					</StyledLocker>
-				</ScrollView>
-				<NewTopicShortcut />
-			</StyledContainer>
+				}
+			/>
+			<NewTopicShortcut />
 		</StyledView>
 	);
 };

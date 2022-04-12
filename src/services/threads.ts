@@ -9,4 +9,13 @@ const getRecentThreads = async () => {
 	}
 };
 
-export {getRecentThreads};
+const getThreadsById = async (id: string) => {
+	try {
+		const {data} = await api.get(`/threads/${id}`);
+		return data;
+	} catch (e) {
+		return e;
+	}
+};
+
+export {getRecentThreads, getThreadsById};
