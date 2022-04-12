@@ -23,6 +23,7 @@ import Splash from '../Splash';
 const Home = ({navigation}: any) => {
 	const [themes, setThemes] = useState([]);
 	const [post, setPost] = useState([]);
+	const [isLoading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
 	useEffect(() => {
