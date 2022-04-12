@@ -23,7 +23,8 @@ import Splash from '../Splash';
 const Home = ({navigation}: any) => {
 	const [themes, setThemes] = useState([]);
 	const [post, setPost] = useState([]);
-  const dispatch = useDispatch();
+	const [isLoading, setLoading] = useState(true);
+	const dispatch = useDispatch();
 
 	useEffect(() => {
 		loadData();
@@ -39,7 +40,7 @@ const Home = ({navigation}: any) => {
 
 	if (isLoading)
 		return <Splash />
-		
+
 	return (
 		<StyledView>
 			<Header />
