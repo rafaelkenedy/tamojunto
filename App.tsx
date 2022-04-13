@@ -8,6 +8,8 @@ import store from './src/store';
 import theme from './src/styles/theme';
 import {LogBox} from 'react-native';
 //import Splash from './src/presentational/Splash'
+import { Welcome } from './src/presentational/Welcome';
+import { Login } from './src/presentational/Login';
 
 const App = () => {
 	LogBox.ignoreLogs([
@@ -15,6 +17,7 @@ const App = () => {
 	]);
 
 	return (
+		//<Login />
 		//<Splash/>
 		<Provider store={store}>
 			<ThemeProvider theme={theme}>

@@ -2,6 +2,7 @@ const colors = {
 	// Primary
 	black_pearl: '#02120F',
 	eden: '#0D4A4E',
+	border_gray: '#B7B6AD',
 	granny_smith: '#87A0A7',
 	athens_gray: '#E5E9EC',
 
