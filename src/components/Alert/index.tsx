@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
 	StyledContainer,
 	StyledAlertContainer,
@@ -8,14 +8,13 @@ import {
 	StyledIcon,
 } from './styles';
 
-const Alert = ({active}) => {
-	const [visible, setVisible] = useState<Boolean>(active);
+const Alert = ({active, cancel = () => {}}) => {
 	let owner = true;
 	return (
 		<>
-			{visible && (
+			{active && (
 				<>
-					<StyledContainer />
+					<StyledContainer onPress={cancel} />
 					<StyledAlertContainer>
 						{owner ? (
 							<>

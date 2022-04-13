@@ -12,9 +12,11 @@ import TurnOnNotifications from '../../components/TurnOnNotifications';
 import {useRoute} from '@react-navigation/native';
 import {getThreadsById} from '../../services/threads';
 import theme from '../../styles/theme';
+import Alert from '../../components/Alert';
 
 const PostComments = ({navigation}: any) => {
 	const [data, setData] = useState([]);
+	const [alert, setAlert] = useState<boolean>();
 	const {params}: any = useRoute();
 
 	useEffect(() => {
@@ -28,19 +30,26 @@ const PostComments = ({navigation}: any) => {
 
 	return (
 		<StyledView>
+			<Alert active={alert} cancel={() => setAlert(false)} />
 			<Header />
 			<StyledFlatList
 				ListHeaderComponent={
 					<>
 						<Breadcrumb />
-						<ForumCard content={params.content} fullScream />
+						<ForumCard
+							content={params.content}
+							dotAction={() => setAlert(true)}
+							fullScream
+						/>
 						<StyledText textWeight={'bold'}>
 							{params.content.commentCount} Comentários:
 						</StyledText>
 					</>
 				}
 				data={data}
-				renderItem={({item}) => <CommentCard commentContent={item} />}
+				renderItem={({item}) => (
+					<CommentCard dotAction={() => setAlert(true)} commentContent={item} />
+				)}
 				ListEmptyComponent={
 					<StyledText textWeight={'bold'} textColor={theme.colors.black_pearl}>
 						Seja o primeiro a comentar

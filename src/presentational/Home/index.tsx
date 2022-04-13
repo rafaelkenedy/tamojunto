@@ -44,7 +44,7 @@ const Home = ({navigation}: any) => {
 
 	return (
 		<StyledView>
-			<Alert active={alert} />
+			<Alert active={alert} cancel={() => setAlert(false)} />
 			<Header />
 			<StyledFlatList
 				ListHeaderComponent={

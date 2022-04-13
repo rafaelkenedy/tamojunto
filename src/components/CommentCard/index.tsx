@@ -9,13 +9,13 @@ import {
 	StyledText,
 } from './styles';
 
-const CommentCard = ({commentContent}: any) => {
+const CommentCard = ({commentContent, dotAction = () => {}}: any) => {
 	const date = moment(commentContent.createdAt).format('DD/MM/YYYY');
 
 	return (
 		<>
 			<StyledContainer>
-				<StyledButton>
+				<StyledButton onPress={dotAction}>
 					<StyledIcon source={require('../../assets/icons/more.png')} />
 				</StyledButton>
 				<StyledHeaderContainer>
