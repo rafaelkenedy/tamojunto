@@ -9,6 +9,7 @@ const SearchBar = ({textPlaceholder = 'Buscar...'}) => {
 
 	const find = () => {
 		if (search === '') return;
+		setSearch('');
 		navigation.navigate('Stack', {
 			screen: 'SearchScreen',
 			params: {query: search},

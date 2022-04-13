@@ -19,11 +19,13 @@ import LoadButton from '../../components/LoadButton';
 import {getSubjects} from '../../services/subjects';
 import {getRecentThreads} from '../../services/threads';
 import Splash from '../Splash';
+import Alert from '../../components/Alert';
 
 const Home = ({navigation}: any) => {
 	const [themes, setThemes] = useState([]);
 	const [post, setPost] = useState([]);
 	const [isLoading, setLoading] = useState(true);
+	const [alert, setAlert] = useState<boolean>();
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -38,11 +40,11 @@ const Home = ({navigation}: any) => {
 		setLoading(false);
 	};
 
-	if (isLoading)
-		return <Splash />
+	if (isLoading) return <Splash />;
 
 	return (
 		<StyledView>
+			<Alert active={alert} />
 			<Header />
 			<StyledFlatList
 				ListHeaderComponent={
@@ -78,6 +80,7 @@ const Home = ({navigation}: any) => {
 					<ForumCard
 						content={item}
 						home
+						dotAction={() => setAlert(true)}
 						action={() => {
 							dispatch(setTheme(item.subject as string));
 							navigation.navigate('Stack', {

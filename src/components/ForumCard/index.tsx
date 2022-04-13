@@ -17,6 +17,7 @@ const ForumCard = ({
 	commentsCount = false,
 	content,
 	action = () => {},
+	dotAction = () => {},
 }: any) => {
 	const date = moment(content.createdAt).format('DD/MM/YYYY');
 
@@ -24,7 +25,7 @@ const ForumCard = ({
 		<>
 			<StyleButton onPress={action}>
 				<StyledContainer postSize={fullScream}>
-					<StyledButton>
+					<StyledButton onPress={dotAction}>
 						<StyledIcon source={require('../../assets/icons/more.png')} />
 					</StyledButton>
 					<StyledHeaderContainer postSize={home} line>
