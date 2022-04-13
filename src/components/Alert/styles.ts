@@ -10,7 +10,7 @@ export const StyledContainer = styled.TouchableOpacity.attrs(() => ({
 	activeOpacity: 0.95,
 }))`
 	flex: 1;
-	background-color: ${theme.colors.black_pearl};
+	background-color: ${theme.colors.white};
 	height: 100%;
 	width: 100%;
 	opacity: 0.7;
