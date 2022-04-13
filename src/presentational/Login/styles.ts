@@ -28,10 +28,10 @@ export const StyledFormContainer = styled.View`
 
 export const StyledInputEmail = styled(TextArea).attrs({
 	placeholder: 'Digite seu email...',
-	
-	
+	borderSize: '1px',
 })`
-	align-self: center;	
+	
+	align-self: center;
 	color: ${(props) => props.textColor || theme.colors.black_pearl};
 	font-size: ${(props) => props.textSize || '20px'};
 	font-weight: ${(props) => props.textWeight || 400};
@@ -39,7 +39,7 @@ export const StyledInputEmail = styled(TextArea).attrs({
 
 export const StyledLabel = styled.Text`
 	font-size: 16px;
-	color: ${theme.colors.black_pearl};	
+	color: ${() => theme.colors.black_pearl};	
 	font-weight: 700;
 	margin-top: 24px;
 	margin-bottom: 12px;
@@ -48,15 +48,11 @@ export const StyledLabel = styled.Text`
 
 export const StyledInputPass = styled(TextArea).attrs({
 	placeholder: 'Digite sua senha...',
-	multiline: false,	
-})`	
+})`
 	align-self: center;
-	borderSize: ${(props) => props.borderSize || '1px'};
 	color: ${(props) => props.textColor || theme.colors.black_pearl};
 	font-size: ${(props) => props.textSize || '20px'};
 	font-weight: ${(props) => props.textWeight || 400};
-	isMultiline: ${(props) => props.isMultiline || true};
-	//border: 1px;
 `;
 
 export const StyledButtonContainer = styled.View`
@@ -66,11 +62,27 @@ export const StyledButtonContainer = styled.View`
 	//background-color: red;
 `;
 
+export const StyledLogosBtnContainer = styled.View`
+	background-color: red;	
+	height: 48px;
+	margin-horizontal: 18px;
+	align-self: center;
+	align-items: center;
+	align-content: center;
+	flex-direction: row;
+	margin-bottom: 64px;
+`;
+
 export const StyledFlatList = styled.FlatList`
 	flex: 1;
 	padding-left: 25px;
 	padding-right: 25px;
 	margin-top: 5px;
+`;
+
+export const StyledLogo = styled.Image`
+	width: 48px;
+	height: 48px;
 `;
 
 export const StyledImage = styled.Image`
@@ -83,6 +95,16 @@ export const StyledImage = styled.Image`
 export const StyledText = styled.Text<TextType>`
 	align-self: center;
 	margin-top: 20px;
+	color: ${(props) => props.textColor || theme.colors.black_pearl};
+	font-size: ${(props) => props.textSize || '20px'};
+	font-weight: ${(props) => props.textWeight || 400};
+`;
+
+export const StyledFooter = styled.Text<TextType>`
+	
+	background: red;
+	margin-top: 20px;
+	margin-right: 24px;
 	color: ${(props) => props.textColor || theme.colors.black_pearl};
 	font-size: ${(props) => props.textSize || '20px'};
 	font-weight: ${(props) => props.textWeight || 400};

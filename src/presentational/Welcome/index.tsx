@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {StatusBar, View} from 'react-native';
+import {ScrollView} from 'react-native-gesture-handler';
 import LoadButton from '../../components/LoadButton';
 import {
 	StyledView,
@@ -12,14 +13,17 @@ import {
 export function Welcome() {
 	return (
 		<StyledView>
-			<StatusBar  hidden/>
+			<StatusBar hidden />
 			<StyledBackground
 				source={require('../../assets/images/img_background.png')}>
-				<StyledImage source={require('../../assets/images/logo.png')}/>
-                <StyledButtonContainer>                
-                    <LoadButton buttonTitle="ENTRAR" />
-                    <LoadButton buttonTitle="CRIAR CONTA" />
-				</StyledButtonContainer>
+				<ScrollView>
+					<StyledImage source={require('../../assets/images/logo.png')} />
+
+					<StyledButtonContainer>
+						<LoadButton buttonTitle="ENTRAR" />
+						<LoadButton buttonTitle="CRIAR CONTA" />
+					</StyledButtonContainer>
+				</ScrollView>
 			</StyledBackground>
 		</StyledView>
 	);

@@ -24,7 +24,7 @@ export const StyledButtonContainer = styled.View`
 	margin-horizontal: 24px;
 	//background-color: ${theme.colors.athens_gray};  
 	
-	
+	margin-bottom: 64px;
     //background-color: red;
 	
 	
