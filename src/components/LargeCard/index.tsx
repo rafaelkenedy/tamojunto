@@ -44,7 +44,7 @@ const LargeCard = ({isCover = false, action = () => {}}) => {
 							</StyledText>
 							<StyledFooter>
 								<StyledText textWeight={'bold'}>12</StyledText>
-								<StyledText textSize={'14px'}>Tópicos</StyledText>
+								<StyledText textSize={'14px'}> Tópicos</StyledText>
 							</StyledFooter>
 						</StyledTextContainer>
 					</StyleButton>

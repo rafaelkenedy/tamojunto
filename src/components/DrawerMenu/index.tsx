@@ -1,5 +1,6 @@
-import {useNavigation} from '@react-navigation/native';
 import React from 'react';
+import {useNavigation} from '@react-navigation/native';
+import Share from 'react-native-share';
 
 import {
 	StyledDrawlerContainer,
@@ -19,6 +20,14 @@ import {
 const DrawerMenu = () => {
 	const {navigate} = useNavigation();
 
+	const shared = async () => {
+		await Share.open({
+			message: 'Venha fazer parte do tamojunto!',
+		}).catch((e) => {
+			console.log(e);
+		});
+	};
+
 	return (
 		<StyledDrawlerContainer>
 			<StyledHeaderContainer>
@@ -37,7 +46,7 @@ const DrawerMenu = () => {
 				<StyledText>Ajustes</StyledText>
 			</StyledButton>
 			<StyledButton>
-				<StyledIcon source={require('../../assets/icons/Bell.png')} />
+				<StyledIcon source={require('../../assets/icons/MiniBell.png')} />
 				<StyledText>Notificações</StyledText>
 				<StyledNotify>
 					<StyledNotifyText>75</StyledNotifyText>
@@ -47,7 +56,7 @@ const DrawerMenu = () => {
 				<StyledIcon source={require('../../assets/icons/Saved.png')} />
 				<StyledText>Publicações Salvas</StyledText>
 			</StyledButton>
-			<StyledButton>
+			<StyledButton onPress={shared}>
 				<StyledIcon source={require('../../assets/icons/Invite.png')} />
 				<StyledText>Convide um amigo</StyledText>
 			</StyledButton>

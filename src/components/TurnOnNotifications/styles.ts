@@ -15,6 +15,7 @@ export const StyledText = styled.Text`
 	color: ${theme.colors.black_pearl};
 `;
 
+// @ts-ignore
 export const StyledToggle = styled(ToggleSwitch).attrs(() => ({
 	isOn: false,
 	onColor: theme.colors.eden,

@@ -19,11 +19,13 @@ import NewTopicShortcut from '../../components/NewTopicShortcut';
 import LoadButton from '../../components/LoadButton';
 import Breadcrumb from '../../components/Breadcrumb';
 import TopicCard from '../../components/TopicCard';
+import Alert from '../../components/Alert';
 import * as applicationTheme from '../../styles/theme';
 
 const Topic = ({navigation}: any) => {
 	const [content, setContent] = useState();
 	const [others, setOthers] = useState([]);
+	const [alert, setAlert] = useState<boolean>();
 	const dispatch = useDispatch();
 	const {theme}: any = useSelector((handleUserChoices) => handleUserChoices);
 	const {params}: any = useRoute();
@@ -41,6 +43,7 @@ const Topic = ({navigation}: any) => {
 
 	return (
 		<StyledView>
+			<Alert active={alert} cancel={() => setAlert(false)} />
 			<Header />
 			<StyledFlatList
 				ListHeaderComponent={
@@ -55,6 +58,7 @@ const Topic = ({navigation}: any) => {
 				renderItem={({item}: any) => (
 					<ForumCard
 						content={item}
+						dotAction={() => setAlert(true)}
 						action={() =>
 							navigation.navigate('Stack', {
 								screen: 'PostFront',
