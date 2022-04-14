@@ -25,8 +25,12 @@ const Home = ({navigation}: any) => {
 	const [themes, setThemes] = useState([]);
 	const [post, setPost] = useState([]);
 	const [isLoading, setLoading] = useState(true);
+<<<<<<< HEAD
+  const dispatch = useDispatch();
+=======
 	const [alert, setAlert] = useState<boolean>();
 	const dispatch = useDispatch();
+>>>>>>> d12f00394410e8c9d6c3dbb177045a8408a970fa
 
 	useEffect(() => {
 		loadData();
