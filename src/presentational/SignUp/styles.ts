@@ -14,14 +14,44 @@ interface TextType extends TextProps {
 interface ButtonProps extends TouchableOpacityProps{
 	isDisabled?: boolean;
 	color?: string;
-	children?: string;
-
-	
+	children?: string;	
 }
 
 export const StyledView = styled.View`
 	flex: 1;
 `;
+
+export const StyledStepHeader = styled.View`
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 50px;	
+	margin: 40px;
+`;
+
+export const StyledStepWrap = styled.View`
+	width: 48px;
+	height: 100%;
+	align-items: center;
+	justify-content: flex-end;
+`;
+
+export const StyledCheckTitle = styled.Text<TextType>`
+	
+	color: ${(props) => props.textColor || theme.colors.black_pearl};
+	font-size: ${(props) => props.textSize || '13px'};
+	font-weight: ${(props) => props.textWeight || 400};
+	width: 48px;
+`;
+
+export const StyledStepIcon = styled.Image`	
+	height: 24px;
+	width: 24px;
+	
+	
+	
+`;
+
 
 export const StyledBackground = styled.ImageBackground`
     flex: 1;
@@ -32,6 +62,18 @@ export const StyledBackground = styled.ImageBackground`
 
 export const StyledFormContainer = styled.View`
 	margin-horizontal: 24px;
+`;
+
+export const StyledInputName = styled(TextArea).attrs({
+	placeholder: 'Insira seu nome e sobrenome...',
+	borderColor: theme.colors.border_gray,
+	borderSize: '1px',
+	shadowBox: elevationValue,
+})`
+	align-self: center;
+	color: ${(props) => props.textColor || theme.colors.black_pearl};
+	font-size: ${(props) => props.textSize || '20px'};
+	font-weight: ${(props) => props.textWeight || 400};
 `;
 
 export const StyledInputEmail = styled(TextArea).attrs({
@@ -67,7 +109,7 @@ export const StyledInputPass = styled(TextArea).attrs({
 `;
 
 export const StyledButtonContainer = styled.View`
-	margin-horizontal: 24px;
+	margin-horizontal: 34px;
 	//background-color: ${theme.colors.athens_gray};
 
 	//background-color: red;

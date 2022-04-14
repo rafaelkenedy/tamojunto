@@ -4,10 +4,13 @@ import theme from '../../styles/theme';
 interface TextSizeProps {
 	sizeArea?: string;
 	borderSize?: string;
+	borderColor?: string;
+	shadowBox?: number;
 }
 
-export const StyledViewContainer = styled.View<TextSizeProps>`
-	border-width: ${(props) => props.borderSize || '0px'} ;
+export const StyledViewContainer = styled.View<TextSizeProps>`	
+	elevation: ${(props) => props.shadowBox || 0}
+	border-width: ${(props) => props.borderSize || '0px'};
 	width: 100%;
 	height: ${(props) => props.sizeArea};
 	border-radius: 16px;
@@ -18,6 +21,7 @@ export const StyledViewContainer = styled.View<TextSizeProps>`
 `;
 
 export const StyledText = styled.TextInput.attrs({
+	
 	placeholderTextColor: theme.colors.fuscous_gray,
 	maxLength: 400,
 	multiline: true,
