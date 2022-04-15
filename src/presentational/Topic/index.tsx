@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useRoute} from '@react-navigation/native';
+import {useIsFocused, useRoute} from '@react-navigation/native';
 import {getSubjects, getSubjectsById} from '../../services/subjects';
 import {useDispatch, useSelector} from 'react-redux';
 import {setTheme} from '../../store/slices/user';
@@ -22,17 +22,18 @@ import TopicCard from '../../components/TopicCard';
 import Alert from '../../components/Alert';
 import * as applicationTheme from '../../styles/theme';
 
-const Topic = ({navigation}: any) => {
+const Topic = ({navigation}) => {
 	const [content, setContent] = useState();
 	const [others, setOthers] = useState([]);
 	const [alert, setAlert] = useState<boolean>();
 	const dispatch = useDispatch();
 	const {theme}: any = useSelector((handleUserChoices) => handleUserChoices);
 	const {params}: any = useRoute();
+	const isFocused = useIsFocused();
 
 	useEffect(() => {
-		getData(params.id as unknown as string);
-	}, []);
+		getData(params.id as string);
+	}, [isFocused]);
 
 	const getData = async (id: string) => {
 		const {data} = await getSubjectsById(id);
@@ -50,7 +51,7 @@ const Topic = ({navigation}: any) => {
 					<>
 						<SearchBar />
 						<Breadcrumb />
-						<LargeCard isCover />
+						<LargeCard isCover image={params.image}/>
 						<StyledText textWeight={'bold'}>{theme}</StyledText>
 					</>
 				}

@@ -1,17 +1,16 @@
 import React from 'react';
 
 import {StyledViewContainer, StyledText} from './styles';
+import theme from '../../styles/theme';
 
-const TextArea = ({placeholder = 'Título...', size = '55px', borderSize, borderColor, shadowBox,...rest}) => {
+const TextArea = ({placeholder = 'Título...', size = '55px', borderColor = theme.colors.tide, ...rest}) => {
 	return (
 		<>
-			<StyledViewContainer 
-				sizeArea={size} 
-				borderSize={borderSize} 
+			<StyledViewContainer
+				sizeArea={size}
 				borderColor={borderColor}
-				shadowBox={shadowBox}
 			>
-				<StyledText placeholder={placeholder} {...rest} />
+				<StyledText {...rest} placeholder={placeholder} />
 			</StyledViewContainer>
 		</>
 	);

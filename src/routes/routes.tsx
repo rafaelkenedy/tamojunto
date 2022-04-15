@@ -18,8 +18,8 @@ const Routes = () => {
 					contentStyle: {backgroundColor: theme.colors.catskill_white},
 				}}
 				drawerContent={(props: any) => <DrawerMenu {...props} />}>
-				<Drawer.Screen name="Home" component={Home} />
 				<Drawer.Screen name="Stack" component={Stack} />
+				<Drawer.Screen name="Home" component={Home} />
 			</Drawer.Navigator>
 		</NavigationContainer>
 	);

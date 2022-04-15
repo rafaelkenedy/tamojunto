@@ -1,124 +1,61 @@
-import {TextProps} from 'react-native';
 import styled from 'styled-components/native';
 import theme from '../../styles/theme';
-import TextArea from '../../components/TextArea';
-import { TouchableOpacityProps } from 'react-native';
 
-const elevationValue = 3;
-interface TextType extends TextProps {
-	textWeight?: string;
-	textColor?: string;
-	textSize?: string;
+interface LoginStyleTypeProps {
+    textWeight?: string;
+    textSize?: string;
+    topDistance?: string;
 }
 
-interface ButtonProps extends TouchableOpacityProps{
-	isDisabled?: boolean;
-	color?: string;
-	children?: string;
-
-	
-}
-
-export const StyledView = styled.View`
-	flex: 1;
-`;
-
-export const StyledBackground = styled.ImageBackground`
-    flex: 1;
-    resizeMethod="resize";
-    justify-content: flex-end;
-	
-`;
-
-export const StyledFormContainer = styled.View`
-	margin-horizontal: 24px;
-`;
-
-export const StyledInputEmail = styled(TextArea).attrs({
-	placeholder: 'Digite seu email...',
-	borderColor: theme.colors.border_gray,
-	borderSize: '1px',
-	shadowBox: elevationValue,
+export const StyledContainer = styled.ImageBackground.attrs({
+    resizeMode: "cover"
 })`
-	align-self: center;
-	color: ${(props) => props.textColor || theme.colors.black_pearl};
-	font-size: ${(props) => props.textSize || '20px'};
-	font-weight: ${(props) => props.textWeight || 400};
+  flex: 1;
+  justify-content: center;
 `;
 
-export const StyledLabel = styled.Text`
-	font-size: 16px;
-	color: ${() => theme.colors.black_pearl};
-	font-weight: 700;
-	margin-top: 24px;
-	margin-bottom: 12px;
+export const StyledFormContainer = styled.ScrollView`
+  padding-left: 25px;
+  padding-right: 25px;
 `;
 
-export const StyledInputPass = styled(TextArea).attrs({
-	borderColor: theme.colors.border_gray,
-	borderSize: '1px',
-	placeholder: 'Digite sua senha...',
-	shadowBox: elevationValue,
-})`
-	align-self: center;
-	color: ${(props) => props.textColor || theme.colors.black_pearl};
-	font-size: ${(props) => props.textSize || '20px'};
-	font-weight: ${(props) => props.textWeight || 400};
+export const StyledViewLocker = styled.View`
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 `;
 
-export const StyledButtonContainer = styled.View`
-	margin-horizontal: 24px;
-	//background-color: ${theme.colors.athens_gray};
-
-	//background-color: red;
+export const StyledLogo = styled.Image`
+  margin-top: 90px;
 `;
 
-export const StyledLogosBtnContainer = styled.View`
-	margin: 24px;
-	padding-horizontal: 64px;
-	justify-content: space-between;
-	flex-direction: row;
+export const StyledSocialMediaLogo = styled.Image`
+  height: 48px;
+  width: 48px;
+  margin-left: 15px;
+  margin-right: 15px;
 `;
 
-export const StyledFooterContainer = styled.View`
-	margin-horizontal: 24px;
-	margin-bottom: 41px;
+export const StyledText = styled.Text<LoginStyleTypeProps>`
+  margin-top: ${props => props.topDistance || '1px'};
+  color: ${theme.colors.black_pearl};
+  font-size: ${(props) => props.textSize || '20px'};
+  font-weight: ${(props) => props.textWeight || 400};
 `;
 
-export const StyledLogo = styled.Image<ButtonProps>`
-	
-  
-	width: 48px;
-	height: 48px;
+export const StyledInputContainer = styled.View`
+  width: 100%;
+  margin-bottom: 5px;
 `;
 
-export const StyledImage = styled.Image`
-	width: 120px;
-	height: 146.3px;
-	align-self: center;
-	margin-top: 78px;
+export const StyledButtonsContainer = styled.View`
+  margin: 24px;
+  padding-left: 64px;
+  padding-right: 64px;
+  justify-content: space-between;
+  flex-direction: row;
 `;
 
-export const StyledText = styled.Text<TextType>`
-	align-self: center;
-	margin-top: 20px;
-	color: ${(props) => props.textColor || theme.colors.black_pearl};
-	font-size: ${(props) => props.textSize || '20px'};
-	font-weight: ${(props) => props.textWeight || 400};
-`;
-
-export const StyledFooter = styled.Text<TextType>`
-	margin-top: 20px;
-	margin-right: 24px;
-	color: ${(props) => props.textColor || theme.colors.black_pearl};
-	font-size: ${(props) => props.textSize || '20px'};
-	font-weight: ${(props) => props.textWeight || 400};
-`;
-
-export const StyledFooterLink = styled.Text<TextType>`
-	margin-top: 12px;
-	margin-right: 24px;
-	color: ${(props) => props.textColor || theme.colors.black_pearl};
-	font-size: ${(props) => props.textSize || '20px'};
-	font-weight: ${(props) => props.textWeight || 700};
-`;
+export const StyleButton = styled.TouchableOpacity.attrs(() => ({
+    activeOpacity: 0.5,
+}))(() => '');

@@ -1,12 +1,15 @@
 export declare global {
 	namespace ReactNavigation {
-		interface RootParamList {
+		interface RootDrawerParamList {
+			Home: undefined;
+			Stack: undefined;
+		}
+		interface RootStackParamList {
 			Home: undefined;
 			PostFront: undefined;
-			Topic: undefined;
+			Topic: {id?: string, image?: string};
 			PostComments: undefined;
 			CreatePostOrComment: undefined;
-			Stack: undefined;
 		}
 	}
 }

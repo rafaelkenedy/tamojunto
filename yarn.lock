@@ -5847,6 +5847,11 @@ react-native-share@^7.3.7:
   resolved "https://registry.yarnpkg.com/react-native-share/-/react-native-share-7.3.7.tgz#f5eed0bf657ec8c5c45e3fe7a88611d28cc8f734"
   integrity sha512-WYXAqyNZeKKk3Kvsv4N3tJuLNw8k+HM+ymKnWFRomoSerD5syJqmBHgw1HwED8iV3zH11lXJw3rha9+H80XUHQ==
 
+react-native-system-navigation-bar@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-system-navigation-bar/-/react-native-system-navigation-bar-1.0.4.tgz#547c7ebf71c4186c277f95a6e79e3c2a8ae76e55"
+  integrity sha512-qgDjk9bm7UGdBxNQXIw0/Dh64vEBFFGU3v9IDdnCIbKKhx7M5KoZQo0C0PYuejdJ0F1VcEJYVWkqyGNJjKmZQA==
+
 react-native-typescript-transformer@^1.2.13:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/react-native-typescript-transformer/-/react-native-typescript-transformer-1.2.13.tgz#be92a3d110dbb2cf2f4aebe60a935be124cfb7ed"

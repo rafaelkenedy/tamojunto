@@ -8,12 +8,15 @@ import PostFront from '../presentational/PostFront';
 import PostComments from '../presentational/PostComments';
 import CreatePostOrComment from '../presentational/CreatePostOrComment';
 import SearchScreen from '../presentational/SearchScreen';
+import Welcome from "../presentational/Welcome";
+import Login from "../presentational/Login";
 
 const Stack = () => {
 	const StackRoutes: any = createNativeStackNavigator();
 
 	return (
 		<StackRoutes.Navigator
+			initialRouteName="Welcome"
 			screenOptions={{
 				headerShown: false,
 				contentStyle: {backgroundColor: theme.colors.catskill_white},
@@ -27,6 +30,8 @@ const Stack = () => {
 				component={CreatePostOrComment}
 			/>
 			<StackRoutes.Screen name="SearchScreen" component={SearchScreen} />
+			<StackRoutes.Screen name="Welcome" component={Welcome} />
+			<StackRoutes.Screen name="Login" component={Login} />
 		</StackRoutes.Navigator>
 	);
 };

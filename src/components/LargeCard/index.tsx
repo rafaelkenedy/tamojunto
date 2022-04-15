@@ -1,6 +1,7 @@
 import React from 'react';
-import {useNavigation} from '@react-navigation/native';
+import {SubjectCardPropsType} from "../../@types/types";
 
+import theme from '../../styles/theme';
 import {
 	StyleButton,
 	StyledText,
@@ -9,19 +10,13 @@ import {
 	StyledNewsContainer,
 	StyledFooter,
 } from './styles';
-import theme from '../../styles/theme';
 
-const LargeCard = ({isCover = false, action = () => {}}) => {
+const LargeCard = ({thread, isCover = false, image, action = () => {}}: SubjectCardPropsType) => {
+
 	return (
 		<>
 			<StyledCardContainer
-				source={
-					!isCover
-						? require('../../assets/images/deal.png')
-						: {
-								uri: 'https://h3z9a9c5.rocketcdn.me/wp-content/uploads/2020/05/Administracao.jpg',
-						  }
-				}
+				source={isCover ? {uri: image} : {uri: thread?.picture.url}}
 				isCover={isCover}>
 				{!isCover && (
 					<StyleButton onPress={action}>
@@ -40,10 +35,11 @@ const LargeCard = ({isCover = false, action = () => {}}) => {
 								</StyledText>
 							</StyledNewsContainer>
 							<StyledText textWeight={'bold'}>
-								Compra, Venda e Aluguel
+								{thread?.name}
 							</StyledText>
 							<StyledFooter>
-								<StyledText textWeight={'bold'}>12</StyledText>
+								<StyledText textWeight={'bold'}>
+									{thread?.threadCount}</StyledText>
 								<StyledText textSize={'14px'}> Tópicos</StyledText>
 							</StyledFooter>
 						</StyledTextContainer>

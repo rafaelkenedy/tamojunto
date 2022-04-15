@@ -1,67 +1,83 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {StatusBar} from 'react-native';
 
-import {StatusBar, View, Text} from 'react-native';
-import LoadButton from '../../components/LoadButton';
 import {
-	ScrollView,
-	TouchableHighlight,
-	TouchableOpacity,
-} from 'react-native-gesture-handler';
-import {
-	StyledView,
-	StyledBackground,
-	StyledImage,
-	StyledText,
-	StyledInputEmail,
-	StyledLabel,
-	StyledInputPass,
+	StyledContainer,
 	StyledFormContainer,
-	StyledButtonContainer,
-	StyledLogosBtnContainer,
+	StyledViewLocker,
 	StyledLogo,
-	StyledFooter,
-	StyledFooterContainer,
-	StyledFooterLink,
+	StyledSocialMediaLogo,
+	StyledText,
+	StyledInputContainer,
+	StyledButtonsContainer,
+	StyleButton,
 } from './styles';
+import LoadButton from '../../components/LoadButton';
+import TextArea from '../../components/TextArea';
+import {postLogin} from '../../services/auth';
 
-export function Login() {
+const Login = () => {
+	const [email, setEmail] = useState<string>('');
+	const [password, setPassword] = useState<string>('');
+
+	const login = async () => {
+		const result = await postLogin({email, password});
+		console.log(result);
+	};
+
 	return (
-		<StyledView>
+		<StyledContainer source={require('../../assets/images/background_variation.png')}>
 			<StatusBar hidden />
-			<StyledBackground
-				source={require('../../assets/images/background_variation.png')}>
-				<ScrollView>
-					<StyledImage source={require('../../assets/images/logo.png')} />
-					<StyledText>{'Que bom te ver de novo!'}</StyledText>
-					<StyledFormContainer>
-						<StyledLabel>{'Email:'}</StyledLabel>
-						<StyledInputEmail />
-						<StyledLabel>{'Senha:'}</StyledLabel>
-						<StyledInputPass />
-					</StyledFormContainer>
-					<StyledButtonContainer>
-						<LoadButton buttonTitle="ENTRAR" />
-					</StyledButtonContainer>
-					<StyledText>{'Ou use suas redes sociais:'}</StyledText>
-
-					<StyledLogosBtnContainer>
-						<StyledLogo
-							source={require('../../assets/images/lg_facebook.png')}
-						/>
-						<StyledLogo
-							source={require('../../assets/images/lg_instagram.png')}
-						/>
-
-						<StyledLogo 
-							source={require('../../assets/images/lg_google.png')} 
-						/>
-					</StyledLogosBtnContainer>
-					<StyledFooterContainer>
-						<StyledFooter>{'Ainda não tem cadastro? Então'}</StyledFooter>
-						<StyledFooterLink>{'cadastra-se aqui'}</StyledFooterLink>
-					</StyledFooterContainer>
-				</ScrollView>
-			</StyledBackground>
-		</StyledView>
+			<StyledFormContainer>
+				<StyledViewLocker>
+					<StyledLogo source={require('../../assets/icons/LoginLogo.png')} />
+					<StyledText topDistance='10px'>Que bom te ver de novo!</StyledText>
+				</StyledViewLocker>
+				<StyledInputContainer>
+					<StyledText textSize='16px' textWeight='bold' topDistance='30px'>Email:</StyledText>
+					<TextArea
+						autoCapitalize='none'
+						keyboardType='email-address'
+						placeholder='Digite seu email...'
+						value={email}
+						onChangeText={(text) => setEmail(text)}
+						blurOnSubmit={false}
+						autoCorrect={false}
+						returnKeyType='next'
+						onSubmitEditing={login}
+					/>
+					<StyledText
+						textSize='16px'
+						textWeight='bold'
+						topDistance='15px'
+					>Senha:</StyledText>
+					<TextArea
+						autoCapitalize='none'
+						secureTextEntry
+						value={password}
+						onChangeText={(text) => setPassword(text)}
+						placeholder='Digite sua senha...'
+						onSubmitEditing={login}
+					/>
+					<LoadButton buttonTitle='Entrar' action={login} />
+				</StyledInputContainer>
+				<StyledViewLocker>
+					<StyledText>Ou use suas redes sociais:</StyledText>
+					<StyledButtonsContainer>
+						<StyleButton><StyledSocialMediaLogo
+							source={require('../../assets/icons/Facebook.png')} /></StyleButton>
+						<StyleButton><StyledSocialMediaLogo
+							source={require('../../assets/icons/Instagram.png')} /></StyleButton>
+						<StyleButton><StyledSocialMediaLogo
+							source={require('../../assets/icons/Google.png')} /></StyleButton>
+					</StyledButtonsContainer>
+					<StyledText textSize='18px'>Ainda não tem cadastro? Então</StyledText>
+					<StyleButton>
+						<StyledText textSize='18px' textWeight='bold'>cadastre-se aqui</StyledText></StyleButton>
+				</StyledViewLocker>
+			</StyledFormContainer>
+		</StyledContainer>
 	);
-}
+};
+
+export default Login;

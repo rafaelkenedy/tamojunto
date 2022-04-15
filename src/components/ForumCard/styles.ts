@@ -21,6 +21,7 @@ export const StyledContainer = styled.View<ViewType>`
 	border-radius: 12px;
 	margin-top: 15px;
 	padding-right: 25px;
+	overflow: hidden;
 	padding-left: 25px;
 	background-color: ${theme.colors.white};
 `;
@@ -32,17 +33,19 @@ export const StyledHeaderContainer = styled.View<ViewType>`
 `;
 
 export const StyledButton = styled.TouchableOpacity`
-	height: 25px;
-	width: 15px;
+	height: 48px;
+	width: 48px;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	left: 330px;
-	top: 10px;
+	border-bottom-left-radius: 50px;
+	left: 315px;
+	background-color: ${theme.colors.tide};
 `;
 
 export const StyledIcon = styled.Image`
-	left: 5px;
+	width: 20px;
+	height: 5px;
 	tint-color: ${theme.colors.eden};
 `;
 
