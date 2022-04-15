@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
 import {StatusBar} from 'react-native';
-import {ProgressSteps, ProgressStep} from '../../components/react-native-progress-steps';
+import {ProgressSteps, ProgressStep} from '../../components/ProgressSteps';
 import {StyledView, StyledContainer, StyledText} from './styles';
 import TextArea from '../../components/TextArea';
 
