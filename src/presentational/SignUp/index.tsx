@@ -2,17 +2,30 @@ import React, {useState} from 'react';
 
 import {StatusBar} from 'react-native';
 import {ProgressSteps, ProgressStep} from '../../components/ProgressSteps';
-import {StyledView, StyledContainer, StyledText} from './styles';
+import {
+	StyledView,
+	StyledContainer,
+	StyledText,
+	StyledTermsWrap,
+} from './styles';
 import TextArea from '../../components/TextArea';
-
+import CheckBox from '@react-native-community/checkbox';
 
 export function SignUp() {
 	const [isformComplete, setFormComplete] = useState(true);
 	const [email, setEmail] = useState<string>('');
 	const [userName, setUserName] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
-
+	const [passConfirmation, setPassConfirmation] = useState<string>('');
 	const [checked, setChecked] = useState<boolean>(false);
+	const [fantasyName, setFantasyName] = useState<string>('');
+	const [cnpj, setCnpj] = useState<string>('');
+	const [ramoAtuacao, setRamoAtuacao] = useState<string>('');
+	const [toggleCheckBox, setToggleCheckBox] = useState(false);
+	const [cep, setCep] = useState<string>('');
+	const [address, setAddress] = useState<string>('');
+	const [addressNum, setAddressNum] = useState<string>('');
+	const [addressComplement, setAddressComplement] = useState<string>('');
 
 	return (
 		<StyledContainer
@@ -20,7 +33,6 @@ export function SignUp() {
 			<StatusBar hidden />
 
 			<ProgressSteps
-				
 				progressBarColor="#827E75"
 				completedProgressBarColor="#0D4A4E"
 				activeStepNumColor="#827E75"
@@ -30,7 +42,7 @@ export function SignUp() {
 				activeLabelColor="#0D4A4E"
 				labelFontSize={18}
 				disabledStepIconColor="#827E75">
-				<ProgressStep label="Passo 1" nextBtnText="Próximo">
+				<ProgressStep label="Passo 1" nextBtnText="Próximo" errors={false}>
 					<StyledView>
 						<StyledText topDistance="10px">
 							{
@@ -48,7 +60,7 @@ export function SignUp() {
 							placeholder="insira nome e sobrenome"
 							value={userName}
 							onChangeText={(text) => setUserName(text)}
-							blurOnSubmit={false}
+							blurOnSubmit={false}							
 						/>
 						<StyledText textSize="16px" textWeight="bold" topDistance="24px">
 							{'E-mail:'}
@@ -79,15 +91,21 @@ export function SignUp() {
 						<TextArea
 							autoCapitalize="none"
 							secureTextEntry
-							value={password}
-							onChangeText={(text) => setPassword(text)}
+							value={passConfirmation}
+							onChangeText={(text) => setPassConfirmation(text)}
 							placeholder="repita a senha definida acima"
 						/>
 
-						<StyledText topDistance="10px">
-							{'Todos os campos são obrigatórios.'}
-						</StyledText>
-						{/* <LoadButton buttonTitle="Continuar" /> */}
+						{!userName && (
+							<StyledText topDistance="10px">
+								{'Todos os campos são obrigatórios.'}
+							</StyledText>
+							
+						)}
+						
+						
+						
+						
 					</StyledView>
 				</ProgressStep>
 
@@ -108,8 +126,8 @@ export function SignUp() {
 
 						<TextArea
 							placeholder="Nome que seus clientes conhecem"
-							value={userName}
-							onChangeText={(text) => setUserName(text)}
+							value={fantasyName}
+							onChangeText={(text) => setFantasyName(text)}
 							blurOnSubmit={false}
 						/>
 						<StyledText textSize="16px" textWeight="bold" topDistance="24px">
@@ -118,26 +136,54 @@ export function SignUp() {
 
 						<TextArea
 							placeholder="00.000.000/0000-00"
-							value={email}
-							onChangeText={(text) => setEmail(text)}
+							value={cnpj}
+							onChangeText={(text) => setCnpj(text)}
 							blurOnSubmit={false}
 						/>
 						<StyledText textSize="16px" textWeight="bold" topDistance="24px">
 							{'Ramo de atuação'}
 						</StyledText>
 						<TextArea
-							value={password}
-							onChangeText={(text) => setPassword(text)}
+							value={ramoAtuacao}
+							onChangeText={(text) => setRamoAtuacao(text)}
 							placeholder="Restaurante"
 						/>
-
-						
+						<StyledTermsWrap>
+							<CheckBox
+								disabled={false}
+								value={toggleCheckBox}
+								onValueChange={(newValue) => setToggleCheckBox(newValue)}
+							/>
+							<StyledText textSize="16px">
+								{'Declaro que sou responsável legal pela empresa'}
+							</StyledText>
+						</StyledTermsWrap>
+						<StyledTermsWrap>
+							<CheckBox
+								disabled={false}
+								value={toggleCheckBox}
+								onValueChange={(newValue) => setToggleCheckBox(newValue)}
+							/>
+							<StyledText textSize="16px">
+								{'Concordo com os temos e condições do tamo junto'}
+							</StyledText>
+						</StyledTermsWrap>
+						<StyledTermsWrap>
+							<CheckBox
+								disabled={false}
+								value={toggleCheckBox}
+								onValueChange={(newValue) => setToggleCheckBox(newValue)}
+							/>
+							<StyledText textSize="16px">
+								{'Concordo com a política de privacidade do tamojunto.'}
+							</StyledText>
+						</StyledTermsWrap>
 					</StyledView>
 				</ProgressStep>
 
-				< ProgressStep
+				<ProgressStep
 					label="Passo 3"
-					finishBtnText="Enviar"
+					finishBtnText="Finalizar"
 					previousBtnText="Anterior">
 					<StyledView>
 						<StyledText topDistance="10px">
@@ -152,10 +198,9 @@ export function SignUp() {
 
 						<TextArea
 							autoCapitalize="none"
-							keyboardType="email-address"
 							placeholder="00000-000"
-							value={userName}
-							onChangeText={(text) => setUserName(text)}
+							value={cep}
+							onChangeText={(text) => setCep(text)}
 							blurOnSubmit={false}
 						/>
 						<StyledText textSize="16px" textWeight="bold" topDistance="24px">
@@ -164,20 +209,17 @@ export function SignUp() {
 
 						<TextArea
 							autoCapitalize="none"
-							keyboardType="email-address"
 							placeholder="Rua Fulana de Tal"
-							value={email}
-							onChangeText={(text) => setEmail(text)}
+							value={address}
+							onChangeText={(text) => setAddress(text)}
 							blurOnSubmit={false}
 						/>
 						<StyledText textSize="16px" textWeight="bold" topDistance="24px">
 							{'Número'}
 						</StyledText>
 						<TextArea
-							autoCapitalize="none"
-							secureTextEntry
-							value={password}
-							onChangeText={(text) => setPassword(text)}
+							value={addressNum}
+							onChangeText={(text) => setAddressNum(text)}
 							placeholder="XX"
 						/>
 
@@ -187,8 +229,8 @@ export function SignUp() {
 						<TextArea
 							autoCapitalize="none"
 							secureTextEntry
-							value={password}
-							onChangeText={(text) => setPassword(text)}
+							value={addressComplement}
+							onChangeText={(text) => setAddressComplement(text)}
 							placeholder="Loja XX"
 						/>
 

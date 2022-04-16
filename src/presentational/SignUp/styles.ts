@@ -33,8 +33,13 @@ export const StyledText = styled.Text<TextType>`
 	font-size: ${(props) => props.textSize || '20px'};
 	font-weight: ${(props) => props.textWeight || 400};
 `;
+export const StyledTermsWrap = styled.View`
+	margin-vertical: 10px;
+	align-items: center;
+	padding-right: 25px;	
+	flex-direction: row;
 
-
+`;
 export const StyledButton = styled.TouchableOpacity.attrs(() => ({
     activeOpacity: 0.5,
 }))(() => '');
