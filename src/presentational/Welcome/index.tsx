@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useIsFocused} from '@react-navigation/native';
 import SystemNavigationBar from 'react-native-system-navigation-bar';
 
 import {StatusBar} from 'react-native';
@@ -10,10 +11,14 @@ import {
 } from './styles';
 
 const Welcome = ({navigation}) => {
+  const isFocused = useIsFocused();
+
+  useEffect(() => {
     SystemNavigationBar.navigationHide();
+  }, [isFocused]);
 
     return (
-        <StyledContainer source={require('../../assets/images/img_background.png')}>
+        <StyledContainer>
             <StatusBar hidden/>
             <StyledImage source={require('../../assets/images/logo.png')}/>
             <StyledButtonContainer>
@@ -21,7 +26,10 @@ const Welcome = ({navigation}) => {
                     navigation.navigate('Stack', {
                         screen: 'Login'
                     })}/>
-                <LoadButton isComment buttonTitle="CRIAR CONTA"/>
+                <LoadButton isComment buttonTitle="CRIAR CONTA" action={() =>
+                  navigation.navigate('Stack', {
+                    screen: 'SignUp'
+                  })}/>
             </StyledButtonContainer>
         </StyledContainer>
     );

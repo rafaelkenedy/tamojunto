@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import theme from '../../styles/theme';
+import {ViewProps} from 'react-native';
 
 interface LoginStyleTypeProps {
     textWeight?: string;
@@ -8,8 +9,8 @@ interface LoginStyleTypeProps {
 }
 
 export const StyledContainer = styled.ImageBackground.attrs({
-    resizeMode: "cover"
-})`
+    source: require('../../assets/images/background_variation.png'),
+})<ViewProps>`
   flex: 1;
   justify-content: center;
 `;

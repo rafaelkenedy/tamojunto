@@ -10,6 +10,7 @@ import CreatePostOrComment from '../presentational/CreatePostOrComment';
 import SearchScreen from '../presentational/SearchScreen';
 import Welcome from "../presentational/Welcome";
 import Login from "../presentational/Login";
+import SignUp from '../presentational/SignUp';
 
 const Stack = () => {
 	const StackRoutes: any = createNativeStackNavigator();
@@ -32,6 +33,7 @@ const Stack = () => {
 			<StackRoutes.Screen name="SearchScreen" component={SearchScreen} />
 			<StackRoutes.Screen name="Welcome" component={Welcome} />
 			<StackRoutes.Screen name="Login" component={Login} />
+			<StackRoutes.Screen name="SignUp" component={SignUp} />
 		</StackRoutes.Navigator>
 	);
 };

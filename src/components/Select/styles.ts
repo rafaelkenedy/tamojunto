@@ -21,6 +21,7 @@ export const StyledIcon = styled.Image`
 	top: 25px;
 `;
 
+// @ts-ignore
 export const StyledSelect = styled(Picker).attrs(() => ({
 	mode: 'dialog',
 }))`

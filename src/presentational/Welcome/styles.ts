@@ -1,8 +1,9 @@
 import styled from 'styled-components/native';
+import {ViewProps} from 'react-native';
 
 export const StyledContainer = styled.ImageBackground.attrs({
-    resizeMode: "cover"
-})`
+    source: require('../../assets/images/img_background.png'),
+})<ViewProps>`
   flex: 1;
   justify-content: center;
   align-items: center;

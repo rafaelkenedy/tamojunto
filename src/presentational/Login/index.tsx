@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {StatusBar} from 'react-native';
 
 import {
@@ -15,18 +15,25 @@ import {
 import LoadButton from '../../components/LoadButton';
 import TextArea from '../../components/TextArea';
 import {postLogin} from '../../services/auth';
+import {useIsFocused} from '@react-navigation/native';
+import SystemNavigationBar from 'react-native-system-navigation-bar';
 
 const Login = () => {
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
+	const isFocused = useIsFocused();
 
-	const login = async () => {
+	useEffect(() => {
+		SystemNavigationBar.navigationHide();
+	}, [isFocused]);
+
+	const requestLogin = async () => {
 		const result = await postLogin({email, password});
 		console.log(result);
 	};
 
 	return (
-		<StyledContainer source={require('../../assets/images/background_variation.png')}>
+		<StyledContainer>
 			<StatusBar hidden />
 			<StyledFormContainer>
 				<StyledViewLocker>
@@ -44,7 +51,6 @@ const Login = () => {
 						blurOnSubmit={false}
 						autoCorrect={false}
 						returnKeyType='next'
-						onSubmitEditing={login}
 					/>
 					<StyledText
 						textSize='16px'
@@ -57,9 +63,9 @@ const Login = () => {
 						value={password}
 						onChangeText={(text) => setPassword(text)}
 						placeholder='Digite sua senha...'
-						onSubmitEditing={login}
+						onSubmitEditing={requestLogin}
 					/>
-					<LoadButton buttonTitle='Entrar' action={login} />
+					<LoadButton buttonTitle='Entrar' action={requestLogin} />
 				</StyledInputContainer>
 				<StyledViewLocker>
 					<StyledText>Ou use suas redes sociais:</StyledText>

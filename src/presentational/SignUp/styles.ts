@@ -1,45 +1,25 @@
-import {TextProps} from 'react-native';
+import {ProgressSteps} from 'react-native-progress-steps';
 import styled from 'styled-components/native';
 import theme from '../../styles/theme';
+import {ViewProps} from 'react-native';
 
-const elevationValue = 3;
-interface TextType extends TextProps {
-	textWeight?: string;
-	textSize?: string;
-	topDistance?: string;
-}
-
-export const StyledView = styled.View`
-	flex: 1;
-	margin-horizontal: 24px;
+export const StyledContainer = styled.ImageBackground.attrs({
+	source: require('../../assets/images/background_variation.png'),
+})<ViewProps>`
+  flex: 1;
 `;
 
-export const StyledStepWrap = styled.View`
-	width: 48px;
-	height: 100%;
-	align-items: center;
-	justify-content: flex-end;
-`;
-
-export const StyledContainer = styled.ImageBackground`
-    flex: 1;
-    resizeMethod="resize";
-    justify-content: flex-end;	
-`;
-
-export const StyledText = styled.Text<TextType>`
-	margin-top: ${(props) => props.topDistance || '1px'};
-	color: ${theme.colors.black_pearl};
-	font-size: ${(props) => props.textSize || '20px'};
-	font-weight: ${(props) => props.textWeight || 400};
-`;
-export const StyledTermsWrap = styled.View`
-	margin-vertical: 10px;
-	align-items: center;
-	padding-right: 25px;	
-	flex-direction: row;
-
-`;
-export const StyledButton = styled.TouchableOpacity.attrs(() => ({
-    activeOpacity: 0.5,
-}))(() => '');
+export const StyledSteps = styled(ProgressSteps).attrs(() => ({
+	progressBarColor: theme.colors.tide,
+	completedProgressBarColor: theme.colors.eden,
+	activeStepNumColor: theme.colors.eden,
+	completedStepIconColor: theme.colors.eden,
+	labelColor: theme.colors.tide,
+	activeStepIconBorderColor: theme.colors.eden,
+	activeLabelColor: theme.colors.eden,
+	labelFontSize: 15,
+	disabledStepIconColor: theme.colors.tide,
+	borderWidth: 8,
+	topOffset: 30,
+	marginBottom: 10,
+}))``;
