@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import {SubjectCardPropsType} from "../../@types/types";
 
-import theme from '../../styles/theme';
+import theme from "../../styles/theme";
 import {
 	StyleButton,
 	StyledText,
@@ -10,41 +10,48 @@ import {
 	StyledNewsContainer,
 	StyledFooter,
 	StyledBorderContainer,
-} from './styles';
+} from "./styles";
 
-const TopicCard = ({thread, isFooter = false, action = () => {}}: SubjectCardPropsType) => {
+const TopicCard = ({
+	thread,
+	isFooter = false,
+	action = () => {},
+}: SubjectCardPropsType) => {
 	return (
 		<>
 			<StyleButton onPress={action}>
 				<StyledCardContainer
 					source={{uri: thread?.picture.url}}
-					isFooter={isFooter}>
+					isFooter={isFooter}
+				>
 					{!isFooter ? (
 						<StyledTextContainer>
 							<StyledNewsContainer>
 								<StyledText
-									textWeight={'bold'}
-									textColor={theme.colors.catskill_white}>
+									textWeight={"bold"}
+									textColor={theme.colors.catskill_white}
+								>
 									0
 								</StyledText>
 								<StyledText
-									textWeight={'bold'}
+									textWeight={"bold"}
 									textColor={theme.colors.catskill_white}
-									textSize={'12px'}>
+									textSize={"12px"}
+								>
 									novos
 								</StyledText>
 							</StyledNewsContainer>
-							<StyledText textWeight={'bold'}>{thread?.name}</StyledText>
+							<StyledText textWeight={"bold"}>{thread?.name}</StyledText>
 							<StyledFooter>
-								<StyledText textWeight={'bold'}>
+								<StyledText textWeight={"bold"}>
 									{thread?.threadCount}
 								</StyledText>
-								<StyledText textSize={'14px'}> Tópicos</StyledText>
+								<StyledText textSize={"14px"}> Tópicos</StyledText>
 							</StyledFooter>
 						</StyledTextContainer>
 					) : (
 						<StyledBorderContainer>
-							<StyledText textWeight={'bold'}>{thread?.name}</StyledText>
+							<StyledText textWeight={"bold"}>{thread?.name}</StyledText>
 						</StyledBorderContainer>
 					)}
 				</StyledCardContainer>

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import {StyledToggle, StyledText, StyledViewContainer} from './styles';
+import {StyledToggle, StyledText, StyledViewContainer} from "./styles";
 
 const TurnOnNotifications = () => {
 	return (

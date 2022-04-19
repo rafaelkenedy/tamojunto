@@ -1,5 +1,5 @@
-import moment from 'moment';
-import React from 'react';
+import moment from "moment";
+import React from "react";
 
 import {
 	StyledContainer,
@@ -7,20 +7,21 @@ import {
 	StyledButton,
 	StyledIcon,
 	StyledText,
-} from './styles';
+} from "./styles";
 
 const CommentCard = ({commentContent, dotAction = () => {}}: any) => {
-	const date = moment(commentContent.createdAt).format('DD/MM/YYYY');
+	const date = moment(commentContent.createdAt).format("DD/MM/YYYY");
 
 	return (
 		<>
 			<StyledContainer>
 				<StyledButton onPress={dotAction}>
-					<StyledIcon source={require('../../assets/icons/more.png')} />
+					<StyledIcon source={require("../../assets/icons/more.png")} />
 				</StyledButton>
 				<StyledHeaderContainer>
 					<StyledText
-						isGreen>{`${commentContent.user.firstName} ${commentContent.user.lastName} em ${date}`}</StyledText>
+						isGreen
+					>{`${commentContent.user.firstName} ${commentContent.user.lastName} em ${date}`}</StyledText>
 					<StyledText>{commentContent.content}</StyledText>
 				</StyledHeaderContainer>
 			</StyledContainer>

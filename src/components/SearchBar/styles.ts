@@ -1,5 +1,5 @@
-import styled from 'styled-components/native';
-import theme from '../../styles/theme';
+import styled from "styled-components/native";
+import theme from "../../styles/theme";
 
 export const StyledContainer = styled.View`
 	border-radius: 16px;

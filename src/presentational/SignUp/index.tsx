@@ -1,21 +1,16 @@
-import React, {useEffect} from 'react';
+import React from "react";
 
-import {StatusBar} from 'react-native';
-import {
-	StyledContainer,StyledSteps,
-} from './styles';
-import {useIsFocused} from '@react-navigation/native';
-import SystemNavigationBar from 'react-native-system-navigation-bar';
-import Step1 from './components/Step1';
-import Step2 from './components/Step2';
-import Step3 from './components/Step3';
+import {Keyboard, StatusBar} from 'react-native';
+import {StyledContainer, StyledSteps} from "./styles";
+import SystemNavigationBar from "react-native-system-navigation-bar";
+import Step1 from "./components/Step1";
+import Step2 from "./components/Step2";
+import Step3 from "./components/Step3";
 
 const SignUp = () => {
-	const isFocused = useIsFocused();
-
-	useEffect(() => {
+	Keyboard.addListener('keyboardDidHide', () => {
 		SystemNavigationBar.navigationHide();
-	}, [isFocused]);
+	});
 
 	return (
 		<StyledContainer>
@@ -27,6 +22,6 @@ const SignUp = () => {
 			</StyledSteps>
 		</StyledContainer>
 	);
-}
+};
 
 export default SignUp;

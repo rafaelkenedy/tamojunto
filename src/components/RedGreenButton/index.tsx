@@ -1,15 +1,15 @@
-import React from 'react';
-import {useNavigation} from '@react-navigation/native';
+import React from "react";
+import {useNavigation} from "@react-navigation/native";
 
 import {
 	StyledContainer,
 	StyledButtonContainer,
 	StyledButtonText,
-} from './styles';
+} from "./styles";
 
 const RedGreenButton = ({
-	redTitle = 'voltar',
-	greenTitle = 'comentar',
+	redTitle = "voltar",
+	greenTitle = "comentar",
 	greenAction = () => {},
 }) => {
 	const {goBack} = useNavigation();

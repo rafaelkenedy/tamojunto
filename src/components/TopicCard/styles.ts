@@ -1,6 +1,6 @@
-import {TextProps, ViewProps} from 'react-native';
-import styled from 'styled-components/native';
-import theme from '../../styles/theme';
+import {TextProps, ViewProps} from "react-native";
+import styled from "styled-components/native";
+import theme from "../../styles/theme";
 
 interface TextType extends TextProps {
 	textWeight?: string;
@@ -14,12 +14,12 @@ interface ViewType extends ViewProps {
 
 export const StyleButton = styled.TouchableOpacity.attrs(() => ({
 	activeOpacity: 0.95,
-}))(() => '');
+}))(() => "");
 
 export const StyledCardContainer = styled.ImageBackground<ViewType>`
 	border-radius: 10px;
 	margin-right: 15px;
-	height: ${(props) => (props.isFooter ? '120px' : '240px')};
+	height: ${(props) => (props.isFooter ? "120px" : "240px")};
 	width: 160px;
 	overflow: hidden;
 `;
@@ -47,8 +47,7 @@ export const StyledTextContainer = styled.View`
 
 export const StyledText = styled.Text<TextType>`
 	color: ${(props) => props.textColor || theme.colors.eden};
-	font-weight: bold;
-	font-size: ${(props) => props.textSize || '16px'};
+	font-size: ${(props) => props.textSize || "16px"};
 	font-weight: ${(props) => props.textWeight || 300};
 `;
 

@@ -1,6 +1,6 @@
-import {TextProps} from 'react-native';
-import styled from 'styled-components/native';
-import theme from '../../styles/theme';
+import {TextProps} from "react-native";
+import styled from "styled-components/native";
+import theme from "../../styles/theme";
 
 interface TextType extends TextProps {
 	textWeight?: string;

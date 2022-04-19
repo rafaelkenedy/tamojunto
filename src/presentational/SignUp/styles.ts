@@ -1,12 +1,12 @@
-import {ProgressSteps} from 'react-native-progress-steps';
-import styled from 'styled-components/native';
-import theme from '../../styles/theme';
-import {ViewProps} from 'react-native';
+import {ProgressSteps} from "react-native-progress-steps";
+import styled from "styled-components/native";
+import theme from "../../styles/theme";
+import {ViewProps} from "react-native";
 
 export const StyledContainer = styled.ImageBackground.attrs({
-	source: require('../../assets/images/background_variation.png'),
+	source: require("../../assets/images/background_variation.png"),
 })<ViewProps>`
-  flex: 1;
+	flex: 1;
 `;
 
 export const StyledSteps = styled(ProgressSteps).attrs(() => ({

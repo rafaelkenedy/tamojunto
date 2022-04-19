@@ -1,5 +1,5 @@
-import React from 'react';
-import moment from 'moment';
+import React from "react";
+import moment from "moment";
 
 import {
 	StyleButton,
@@ -9,7 +9,7 @@ import {
 	StyledIcon,
 	StyledTitle,
 	StyledText,
-} from './styles';
+} from "./styles";
 
 const ForumCard = ({
 	home = false,
@@ -19,14 +19,14 @@ const ForumCard = ({
 	action = () => {},
 	dotAction = () => {},
 }: any) => {
-	const date = moment(content.createdAt).format('DD/MM/YYYY');
+	const date = moment(content.createdAt).format("DD/MM/YYYY");
 
 	return (
 		<>
 			<StyleButton onPress={action}>
 				<StyledContainer postSize={fullScream}>
 					<StyledButton onPress={dotAction}>
-						<StyledIcon source={require('../../assets/icons/more.png')} />
+						<StyledIcon source={require("../../assets/icons/more.png")} />
 					</StyledButton>
 					<StyledHeaderContainer postSize={home} line>
 						{!fullScream && <StyledTitle>{content.subject}</StyledTitle>}

@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 
-import {StyledButton, StyledTitle} from './styles';
+import {StyledButton, StyledTitle} from "./styles";
 
 const LoadButton = ({
 	isComment = false,
 	action = () => {},
-	buttonTitle = 'Carregar Mais Tópicos',
+	buttonTitle = "Carregar Mais Tópicos",
 }) => {
 	return (
 		<>

@@ -1,5 +1,5 @@
-import LottieView from 'lottie-react-native';
-import styled from 'styled-components/native';
+import LottieView from "lottie-react-native";
+import styled from "styled-components/native";
 
 export const StyledContainer = styled.View`
 	flex: 1;
@@ -12,4 +12,4 @@ export const StyledLottie = styled(LottieView).attrs(() => ({
 	autoPlay: true,
 	loop: true,
 	autoSize: true,
-}))(() => '');
+}))(() => "");

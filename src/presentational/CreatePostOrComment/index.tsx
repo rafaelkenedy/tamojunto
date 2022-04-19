@@ -1,21 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import {useRoute} from '@react-navigation/native';
+import React, {useEffect, useState} from "react";
+import {useRoute} from "@react-navigation/native";
 
-import {StyledContainer, StyledView, StyledText} from './styles';
-import Header from '../../components/Header';
-import {ScrollView} from 'react-native';
-import Breadcrumb from '../../components/Breadcrumb';
-import theme from '../../styles/theme';
-import TextArea from '../../components/TextArea';
-import TurnOnNotifications from '../../components/TurnOnNotifications';
-import RedGreenButton from '../../components/RedGreenButton';
-import Select from '../../components/Select';
-import ForumCard from '../../components/ForumCard';
-import {postComment} from '../../services/comments';
+import {StyledContainer, StyledView, StyledText} from "./styles";
+import Header from "../../components/Header";
+import {ScrollView} from "react-native";
+import Breadcrumb from "../../components/Breadcrumb";
+import theme from "../../styles/theme";
+import TextArea from "../../components/TextArea";
+import TurnOnNotifications from "../../components/TurnOnNotifications";
+import RedGreenButton from "../../components/RedGreenButton";
+import Select from "../../components/Select";
+import ForumCard from "../../components/ForumCard";
+import {postComment} from "../../services/comments";
 
 const CreatePostOrComment = () => {
-	const [title, setTitle] = useState<String>('');
-	const [content, setContent] = useState<String>('');
+	const [title, setTitle] = useState<string>("");
+	const [content, setContent] = useState<string>("");
 	const {params}: any = useRoute();
 
 	useEffect(() => {}, []);
@@ -39,11 +39,12 @@ const CreatePostOrComment = () => {
 			<StyledContainer>
 				<ScrollView>
 					<Breadcrumb />
-					{params.type === 'create' ? (
+					{params.type === "create" ? (
 						<>
 							<StyledText
-								textWeight={'bold'}
-								textColor={theme.colors.black_pearl}>
+								textWeight={"bold"}
+								textColor={theme.colors.black_pearl}
+							>
 								Escolha um título:
 							</StyledText>
 							<TextArea
@@ -51,8 +52,9 @@ const CreatePostOrComment = () => {
 								onChangeText={(text: string) => setTitle(text)}
 							/>
 							<StyledText
-								textWeight={'bold'}
-								textColor={theme.colors.black_pearl}>
+								textWeight={"bold"}
+								textColor={theme.colors.black_pearl}
+							>
 								Escreva sua mensagem:
 							</StyledText>
 							<TextArea
@@ -62,8 +64,9 @@ const CreatePostOrComment = () => {
 								onChangeText={(text: string) => setContent(text)}
 							/>
 							<StyledText
-								textWeight={'bold'}
-								textColor={theme.colors.black_pearl}>
+								textWeight={"bold"}
+								textColor={theme.colors.black_pearl}
+							>
 								Escolha o tema da sua publicação:
 							</StyledText>
 							<Select />
@@ -78,8 +81,9 @@ const CreatePostOrComment = () => {
 						<>
 							<ForumCard content={params.content} fullScream />
 							<StyledText
-								textWeight={'bold'}
-								textColor={theme.colors.black_pearl}>
+								textWeight={"bold"}
+								textColor={theme.colors.black_pearl}
+							>
 								Escreva seu comentário abaixo:
 							</StyledText>
 							<TextArea

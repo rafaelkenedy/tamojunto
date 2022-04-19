@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {useIsFocused, useRoute} from '@react-navigation/native';
-import {getSubjects, getSubjectsById} from '../../services/subjects';
-import {useDispatch, useSelector} from 'react-redux';
-import {setTheme} from '../../store/slices/user';
+import React, {useEffect, useState} from "react";
+import {useIsFocused, useRoute} from "@react-navigation/native";
+import {getSubjects, getSubjectsById} from "../../services/subjects";
+import {useDispatch, useSelector} from "react-redux";
+import {setTheme} from "../../store/slices/user";
 
 import {
 	StyledView,
@@ -10,17 +10,17 @@ import {
 	StyledLocker,
 	StyledFlatList,
 	StyledFooterFlatList,
-} from './styles';
-import Header from '../../components/Header';
-import SearchBar from '../../components/SearchBar';
-import LargeCard from '../../components/LargeCard';
-import ForumCard from '../../components/ForumCard';
-import NewTopicShortcut from '../../components/NewTopicShortcut';
-import LoadButton from '../../components/LoadButton';
-import Breadcrumb from '../../components/Breadcrumb';
-import TopicCard from '../../components/TopicCard';
-import Alert from '../../components/Alert';
-import * as applicationTheme from '../../styles/theme';
+} from "./styles";
+import Header from "../../components/Header";
+import SearchBar from "../../components/SearchBar";
+import LargeCard from "../../components/LargeCard";
+import ForumCard from "../../components/ForumCard";
+import NewTopicShortcut from "../../components/NewTopicShortcut";
+import LoadButton from "../../components/LoadButton";
+import Breadcrumb from "../../components/Breadcrumb";
+import TopicCard from "../../components/TopicCard";
+import Alert from "../../components/Alert";
+import * as applicationTheme from "../../styles/theme";
 
 const Topic = ({navigation}) => {
 	const [content, setContent] = useState();
@@ -51,8 +51,8 @@ const Topic = ({navigation}) => {
 					<>
 						<SearchBar />
 						<Breadcrumb />
-						<LargeCard isCover image={params.image}/>
-						<StyledText textWeight={'bold'}>{theme}</StyledText>
+						<LargeCard isCover image={params.image} />
+						<StyledText textWeight={"bold"}>{theme}</StyledText>
 					</>
 				}
 				data={content}
@@ -61,8 +61,8 @@ const Topic = ({navigation}) => {
 						content={item}
 						dotAction={() => setAlert(true)}
 						action={() =>
-							navigation.navigate('Stack', {
-								screen: 'PostFront',
+							navigation.navigate("Stack", {
+								screen: "PostFront",
 								params: {content: item},
 							})
 						}
@@ -71,15 +71,16 @@ const Topic = ({navigation}) => {
 				ListFooterComponent={
 					<>
 						<LoadButton />
-						<StyledText textWeight={'bold'}>Explore outros temas:</StyledText>
+						<StyledText textWeight={"bold"}>Explore outros temas:</StyledText>
 						<StyledLocker>
 							<StyledFooterFlatList
 								data={others}
 								horizontal
 								ListEmptyComponent={
 									<StyledText
-										textWeight={'bold'}
-										textColor={applicationTheme.default.colors.black_pearl}>
+										textWeight={"bold"}
+										textColor={applicationTheme.default.colors.black_pearl}
+									>
 										Nenhum tema encontrado!
 									</StyledText>
 								}
@@ -89,8 +90,8 @@ const Topic = ({navigation}) => {
 										isFooter
 										action={() => {
 											dispatch(setTheme(item.name as string));
-											navigation.navigate('Stack', {
-												screen: 'Topic',
+											navigation.navigate("Stack", {
+												screen: "Topic",
 												params: {id: item.id as string},
 											});
 										}}

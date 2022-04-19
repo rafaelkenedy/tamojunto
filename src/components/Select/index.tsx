@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React, {useState} from "react";
 
-import {StyledViewContainer, StyledSelect, StyledIcon} from './styles';
+import {StyledViewContainer, StyledSelect, StyledIcon} from "./styles";
 
 const Select = () => {
 	const [select, setSelect] = useState();
 
 	const data = [
-		{label: 'Administração', value: 'Administração'},
-		{label: 'Finanças', value: 'Finanças'},
+		{label: "Administração", value: "Administração"},
+		{label: "Finanças", value: "Finanças"},
 	];
 
 	return (
@@ -15,12 +15,13 @@ const Select = () => {
 			<StyledViewContainer>
 				<StyledSelect
 					selectedValue={select}
-					onValueChange={(item: any) => setSelect(item)}>
+					onValueChange={(item: any) => setSelect(item)}
+				>
 					{data.map(({label, value}) => (
 						<StyledSelect.Item key={value} label={label} value={value} />
 					))}
 				</StyledSelect>
-				<StyledIcon source={require('../../assets/icons/Expand_down.png')} />
+				<StyledIcon source={require("../../assets/icons/Expand_down.png")} />
 			</StyledViewContainer>
 		</>
 	);

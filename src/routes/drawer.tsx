@@ -1,9 +1,9 @@
-import React from 'react';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import React from "react";
+import {createDrawerNavigator} from "@react-navigation/drawer";
 
-import DrawerMenu from '../components/DrawerMenu';
-import theme from '../styles/theme';
-import Home from '../presentational/Home';
+import DrawerMenu from "../components/DrawerMenu";
+import theme from "../styles/theme";
+import Home from "../presentational/Home";
 
 const Drawer = () => {
 	const SideMenu: any = createDrawerNavigator();
@@ -15,7 +15,8 @@ const Drawer = () => {
 				headerShown: false,
 				contentStyle: {backgroundColor: theme.colors.catskill_white},
 			}}
-			drawerContent={(props: any) => <DrawerMenu {...props} />}>
+			drawerContent={(props: any) => <DrawerMenu {...props} />}
+		>
 			<SideMenu.Screen name="Home" component={Home} />
 		</SideMenu.Navigator>
 	);

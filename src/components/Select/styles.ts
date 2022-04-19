@@ -1,6 +1,6 @@
-import styled from 'styled-components/native';
-import theme from '../../styles/theme';
-import {Picker} from '@react-native-community/picker';
+import styled from "styled-components/native";
+import theme from "../../styles/theme";
+import {Picker} from "@react-native-community/picker";
 
 export const StyledViewContainer = styled.View`
 	margin-top: 12px;
@@ -23,7 +23,7 @@ export const StyledIcon = styled.Image`
 
 // @ts-ignore
 export const StyledSelect = styled(Picker).attrs(() => ({
-	mode: 'dialog',
+	mode: "dialog",
 }))`
 	color: ${theme.colors.black_pearl};
 	font-size: 16px;

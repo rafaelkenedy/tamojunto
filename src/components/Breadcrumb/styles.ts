@@ -1,6 +1,6 @@
-import {TextProps} from 'react-native';
-import styled from 'styled-components/native';
-import theme from '../../styles/theme';
+import {TextProps} from "react-native";
+import styled from "styled-components/native";
+import theme from "../../styles/theme";
 
 interface TextType extends TextProps {
 	isActive?: boolean;
@@ -25,7 +25,7 @@ export const StyledText = styled.Text<TextType>`
 	color: ${(props) =>
 		props.isActive ? theme.colors.eden : theme.colors.friar_gray};
 	margin-right: 10px;
-	font-weight: ${(props) => (props.isActive ? 'bold' : 400)};
+	font-weight: ${(props) => (props.isActive ? "bold" : 400)};
 	font-size: 15px;
 	bottom: 1px;
 `;

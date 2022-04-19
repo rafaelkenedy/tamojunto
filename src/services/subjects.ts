@@ -1,8 +1,8 @@
-import api from './api';
+import api from "./api";
 
 const getSubjects = async () => {
 	try {
-		const {data} = await api.get(`/subjects`);
+		const {data} = await api.get("/subjects");
 		return data;
 	} catch (e) {
 		return e;

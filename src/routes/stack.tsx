@@ -1,16 +1,16 @@
-import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import React from "react";
+import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
-import theme from '../styles/theme';
-import Home from '../presentational/Home';
-import Topic from '../presentational/Topic';
-import PostFront from '../presentational/PostFront';
-import PostComments from '../presentational/PostComments';
-import CreatePostOrComment from '../presentational/CreatePostOrComment';
-import SearchScreen from '../presentational/SearchScreen';
+import theme from "../styles/theme";
+import Home from "../presentational/Home";
+import Topic from "../presentational/Topic";
+import PostFront from "../presentational/PostFront";
+import PostComments from "../presentational/PostComments";
+import CreatePostOrComment from "../presentational/CreatePostOrComment";
+import SearchScreen from "../presentational/SearchScreen";
 import Welcome from "../presentational/Welcome";
 import Login from "../presentational/Login";
-import SignUp from '../presentational/SignUp';
+import SignUp from "../presentational/SignUp";
 
 const Stack = () => {
 	const StackRoutes: any = createNativeStackNavigator();
@@ -21,7 +21,8 @@ const Stack = () => {
 			screenOptions={{
 				headerShown: false,
 				contentStyle: {backgroundColor: theme.colors.catskill_white},
-			}}>
+			}}
+		>
 			<StackRoutes.Screen name="Home" component={Home} />
 			<StackRoutes.Screen name="Topic" component={Topic} />
 			<StackRoutes.Screen name="PostFront" component={PostFront} />

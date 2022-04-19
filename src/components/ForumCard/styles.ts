@@ -1,6 +1,6 @@
-import {ViewProps} from 'react-native';
-import styled from 'styled-components/native';
-import theme from '../../styles/theme';
+import {ViewProps} from "react-native";
+import styled from "styled-components/native";
+import theme from "../../styles/theme";
 
 interface ViewType extends ViewProps {
 	line?: boolean;
@@ -13,10 +13,10 @@ interface FontType {
 
 export const StyleButton = styled.TouchableOpacity.attrs(() => ({
 	activeOpacity: 0.95,
-}))(() => '');
+}))(() => "");
 
 export const StyledContainer = styled.View<ViewType>`
-	height: ${(props) => (props.postSize ? 'auto' : '173px')};
+	height: ${(props) => (props.postSize ? "auto" : "173px")};
 	width: 100%;
 	border-radius: 12px;
 	margin-top: 15px;
@@ -27,8 +27,8 @@ export const StyledContainer = styled.View<ViewType>`
 `;
 
 export const StyledHeaderContainer = styled.View<ViewType>`
-	padding-top: ${(props) => (props.postSize ? '15px' : '8px')};
-	border-bottom-width: ${(props) => (props.line ? '0.2px' : '0')};
+	padding-top: ${(props) => (props.postSize ? "15px" : "8px")};
+	border-bottom-width: ${(props) => (props.line ? "0.2px" : "0")};
 	border-bottom-color: ${theme.colors.granny_smith};
 `;
 

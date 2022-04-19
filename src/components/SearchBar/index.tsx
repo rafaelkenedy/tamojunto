@@ -1,17 +1,17 @@
-import {useNavigation} from '@react-navigation/native';
-import React, {useState} from 'react';
+import {useNavigation} from "@react-navigation/native";
+import React, {useState} from "react";
 
-import {StyledContainer, StyledInput, StyledLogo} from './styles';
+import {StyledContainer, StyledInput, StyledLogo} from "./styles";
 
-const SearchBar = ({textPlaceholder = 'Buscar...'}) => {
-	const [search, setSearch] = useState('');
+const SearchBar = ({textPlaceholder = "Buscar..."}) => {
+	const [search, setSearch] = useState("");
 	const navigation: any = useNavigation();
 
 	const find = () => {
-		if (search === '') return;
-		setSearch('');
-		navigation.navigate('Stack', {
-			screen: 'SearchScreen',
+		if (search === "") return;
+		setSearch("");
+		navigation.navigate("Stack", {
+			screen: "SearchScreen",
 			params: {query: search},
 		});
 	};
@@ -19,7 +19,7 @@ const SearchBar = ({textPlaceholder = 'Buscar...'}) => {
 	return (
 		<>
 			<StyledContainer>
-				<StyledLogo source={require('../../assets/icons/iconoir_search.png')} />
+				<StyledLogo source={require("../../assets/icons/iconoir_search.png")} />
 				<StyledInput
 					placeholder={textPlaceholder}
 					value={search}
@@ -27,7 +27,7 @@ const SearchBar = ({textPlaceholder = 'Buscar...'}) => {
 					onSubmitEditing={find}
 					onChangeText={(text: string) => setSearch(text)}
 				/>
-				<StyledLogo source={require('../../assets/icons/filter.png')} />
+				<StyledLogo source={require("../../assets/icons/filter.png")} />
 			</StyledContainer>
 		</>
 	);

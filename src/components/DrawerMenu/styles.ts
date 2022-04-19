@@ -1,6 +1,6 @@
-import {TextProps} from 'react-native';
-import styled from 'styled-components/native';
-import theme from '../../styles/theme';
+import {TextProps} from "react-native";
+import styled from "styled-components/native";
+import theme from "../../styles/theme";
 
 interface TextType extends TextProps {
 	isBold?: boolean;
@@ -52,8 +52,8 @@ export const StyledIcon = styled.Image`
 
 export const StyledText = styled.Text<TextType>`
 	color: ${theme.colors.black_pearl};
-	font-weight: ${(props) => (props.isBold ? 'bold' : 400)};
-	font-size: ${(props) => (props.isEmail ? '13px' : '16px')};
+	font-weight: ${(props) => (props.isBold ? "bold" : 400)};
+	font-size: ${(props) => (props.isEmail ? "13px" : "16px")};
 `;
 
 export const StyledNotify = styled.View`

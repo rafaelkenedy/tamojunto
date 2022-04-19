@@ -1,7 +1,7 @@
-import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import {useNavigation} from "@react-navigation/native";
+import React from "react";
 
-import {StyledButton, StyledIcon} from './styles';
+import {StyledButton, StyledIcon} from "./styles";
 
 const NewTopicShortcut = () => {
 	const {navigate}: any = useNavigation();
@@ -10,12 +10,13 @@ const NewTopicShortcut = () => {
 		<>
 			<StyledButton
 				onPress={() =>
-					navigate('Stack', {
-						screen: 'CreatePostOrComment',
-						params: {type: 'create'},
+					navigate("Stack", {
+						screen: "CreatePostOrComment",
+						params: {type: "create"},
 					})
-				}>
-				<StyledIcon source={require('../../assets/icons/Add.png')} />
+				}
+			>
+				<StyledIcon source={require("../../assets/icons/Add.png")} />
 			</StyledButton>
 		</>
 	);

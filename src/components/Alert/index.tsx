@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
 	StyledContainer,
 	StyledAlertContainer,
@@ -6,10 +6,10 @@ import {
 	StyledView,
 	StyledText,
 	StyledIcon,
-} from './styles';
+} from "./styles";
 
 const Alert = ({active, cancel = () => {}}) => {
-	let owner = true;
+	const owner = true;
 	return (
 		<>
 			{active && (
@@ -19,14 +19,14 @@ const Alert = ({active, cancel = () => {}}) => {
 						{owner ? (
 							<>
 								<StyledButton>
-									<StyledIcon source={require('../../assets/icons/Chat.png')} />
+									<StyledIcon source={require("../../assets/icons/Chat.png")} />
 									<StyledView>
 										<StyledText textWeight="bold">Editar ou Excluir</StyledText>
 										<StyledText>Modificar sua publicação</StyledText>
 									</StyledView>
 								</StyledButton>
 								<StyledButton>
-									<StyledIcon source={require('../../assets/icons/Bell.png')} />
+									<StyledIcon source={require("../../assets/icons/Bell.png")} />
 									<StyledView>
 										<StyledText textWeight="bold">Notificações</StyledText>
 										<StyledText>Ativar notificações</StyledText>
@@ -37,7 +37,7 @@ const Alert = ({active, cancel = () => {}}) => {
 							<>
 								<StyledButton>
 									<StyledIcon
-										source={require('../../assets/icons/Bookmark.png')}
+										source={require("../../assets/icons/Bookmark.png")}
 									/>
 									<StyledView>
 										<StyledText textWeight="bold">Salvar</StyledText>
@@ -45,7 +45,7 @@ const Alert = ({active, cancel = () => {}}) => {
 									</StyledView>
 								</StyledButton>
 								<StyledButton>
-									<StyledIcon source={require('../../assets/icons/Flag.png')} />
+									<StyledIcon source={require("../../assets/icons/Flag.png")} />
 									<StyledView>
 										<StyledText textWeight="bold">Denunciar</StyledText>
 										<StyledText>Esta publicação é ofensiva?</StyledText>

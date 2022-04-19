@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 import {SubjectCardPropsType} from "../../@types/types";
 
-import theme from '../../styles/theme';
+import theme from "../../styles/theme";
 import {
 	StyleButton,
 	StyledText,
@@ -9,38 +9,44 @@ import {
 	StyledTextContainer,
 	StyledNewsContainer,
 	StyledFooter,
-} from './styles';
+} from "./styles";
 
-const LargeCard = ({thread, isCover = false, image, action = () => {}}: SubjectCardPropsType) => {
-
+const LargeCard = ({
+	thread,
+	isCover = false,
+	image,
+	action = () => {},
+}: SubjectCardPropsType) => {
 	return (
 		<>
 			<StyledCardContainer
 				source={isCover ? {uri: image} : {uri: thread?.picture.url}}
-				isCover={isCover}>
+				isCover={isCover}
+			>
 				{!isCover && (
 					<StyleButton onPress={action}>
 						<StyledTextContainer>
 							<StyledNewsContainer>
 								<StyledText
-									textWeight={'bold'}
-									textColor={theme.colors.catskill_white}>
+									textWeight={"bold"}
+									textColor={theme.colors.catskill_white}
+								>
 									6
 								</StyledText>
 								<StyledText
-									textWeight={'bold'}
+									textWeight={"bold"}
 									textColor={theme.colors.catskill_white}
-									textSize={'12px'}>
+									textSize={"12px"}
+								>
 									novos
 								</StyledText>
 							</StyledNewsContainer>
-							<StyledText textWeight={'bold'}>
-								{thread?.name}
-							</StyledText>
+							<StyledText textWeight={"bold"}>{thread?.name}</StyledText>
 							<StyledFooter>
-								<StyledText textWeight={'bold'}>
-									{thread?.threadCount}</StyledText>
-								<StyledText textSize={'14px'}> Tópicos</StyledText>
+								<StyledText textWeight={"bold"}>
+									{thread?.threadCount}
+								</StyledText>
+								<StyledText textSize={"14px"}> Tópicos</StyledText>
 							</StyledFooter>
 						</StyledTextContainer>
 					</StyleButton>

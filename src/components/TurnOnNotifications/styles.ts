@@ -1,6 +1,6 @@
-import styled from 'styled-components/native';
-import theme from '../../styles/theme';
-import ToggleSwitch from 'toggle-switch-react-native';
+import styled from "styled-components/native";
+import theme from "../../styles/theme";
+import ToggleSwitch from "toggle-switch-react-native";
 
 export const StyledViewContainer = styled.View`
 	flex-direction: row;
@@ -20,4 +20,4 @@ export const StyledToggle = styled(ToggleSwitch).attrs(() => ({
 	isOn: false,
 	onColor: theme.colors.eden,
 	offColor: theme.colors.tide,
-}))(() => '');
+}))(() => "");

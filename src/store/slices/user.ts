@@ -1,12 +1,12 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {createSlice} from "@reduxjs/toolkit";
 
 const user = createSlice({
-	name: 'handleUserChoices',
+	name: "handleUserChoices",
 	initialState: {
 		nightMode: false,
 		loading: false,
 		search: false,
-		theme: '',
+		theme: "",
 	},
 	reducers: {
 		changeTheme: (state) => {
