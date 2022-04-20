@@ -6028,6 +6028,11 @@ react-native-gesture-handler@^2.3.2:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
+react-native-mask-input@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-mask-input/-/react-native-mask-input-1.2.0.tgz#08da62742b34697d1e42d086fb4640951caea5a2"
+  integrity sha512-0bLJ9Szlly4tt59RrbLBS5TSJAGVoH22Hpka85HQ3q4qy10AH+UkcDkozXEonSY5oJK6sobnmzKQ4px5+mkCWg==
+
 react-native-picker-select@^8.0.4:
   version "8.0.4"
   resolved "https://registry.npmjs.org/react-native-picker-select/-/react-native-picker-select-8.0.4.tgz"

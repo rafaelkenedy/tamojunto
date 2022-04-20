@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Keyboard, StatusBar} from 'react-native';
+import {Keyboard, StatusBar} from "react-native";
 
 import {
 	StyledContainer,
@@ -21,7 +21,7 @@ const Login = () => {
 	const [email, setEmail] = useState<string>("");
 	const [password, setPassword] = useState<string>("");
 
-	Keyboard.addListener('keyboardDidHide', () => {
+	Keyboard.addListener("keyboardDidHide", () => {
 		SystemNavigationBar.navigationHide();
 	});
 

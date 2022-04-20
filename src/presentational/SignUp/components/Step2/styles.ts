@@ -13,7 +13,6 @@ export const StyledContainer = styled(ProgressStep).attrs(() => ({
 	label: "Passo 2",
 	nextBtnText: "CONTINUAR",
 	previousBtnText: "VOLTAR",
-	errors: false,
 	nextBtnStyle: {
 		backgroundColor: theme.colors.eden,
 		borderRadius: 16,

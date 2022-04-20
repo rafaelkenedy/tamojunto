@@ -7,6 +7,7 @@ const user = createSlice({
 		loading: false,
 		search: false,
 		theme: "",
+		register: {},
 	},
 	reducers: {
 		changeTheme: (state) => {
@@ -21,8 +22,12 @@ const user = createSlice({
 		setTheme: (state, {payload}) => {
 			state.theme = payload;
 		},
+		setData: (state, {payload}) => {
+			state.register = {...state.register, ...payload};
+		},
 	},
 });
 
-export const {changeTheme, startLoading, searchAction, setTheme} = user.actions;
+export const {changeTheme, startLoading, searchAction, setTheme, setData} =
+	user.actions;
 export default user.reducer;

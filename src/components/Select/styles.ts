@@ -6,10 +6,12 @@ export const StyledViewContainer = styled.View`
 	margin-top: 12px;
 	width: 100%;
 	height: 55px;
+	border-width: 1px;
 	background-color: ${theme.colors.white};
+	border-color: ${theme.colors.tide};
 	border-radius: 16px;
-	padding-top: 3px;
-	padding-left: 15px;
+	justify-content: center;
+	padding-left: 14px;
 `;
 
 export const StyledIcon = styled.Image`

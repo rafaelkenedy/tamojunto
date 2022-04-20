@@ -11,7 +11,6 @@ export const StyledContainer = styled(ProgressStep).attrs(() => ({
 	label: "Passo 2",
 	finishBtnText: "FINALIZAR",
 	previousBtnText: "VOLTAR",
-	errors: false,
 	nextBtnStyle: {
 		backgroundColor: theme.colors.eden,
 		borderRadius: 16,
@@ -53,6 +52,16 @@ export const StyledText = styled.Text<Step1StylePropsType>`
 	color: ${theme.colors.black_pearl};
 	font-size: ${(props) => (props.isBold ? "16px" : "18px")};
 	font-weight: ${(props) => (props.isBold ? "bold" : 400)};
+`;
+
+export const StyledButton = styled.TouchableOpacity`
+	position: absolute;
+	right: 15px;
+	top: 135px;
+`;
+
+export const StyledIcon = styled.Image`
+	tint-color: ${theme.colors.eden};
 `;
 
 export const StyledFooter = styled.View`

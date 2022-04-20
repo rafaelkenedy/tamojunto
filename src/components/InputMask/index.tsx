@@ -3,17 +3,18 @@ import React from "react";
 import {StyledViewContainer, StyledText} from "./styles";
 import theme from "../../styles/theme";
 
-const TextArea = ({
+const InputMask = ({
 	placeholder = "Título...",
-	size = "55px",
 	borderColor = theme.colors.tide,
 	placeholderTextColor = theme.colors.fuscous_gray,
+	value,
 	...rest
 }) => {
 	return (
 		<>
-			<StyledViewContainer sizeArea={size} borderColor={borderColor}>
+			<StyledViewContainer borderColor={borderColor}>
 				<StyledText
+					value={value}
 					{...rest}
 					placeholder={placeholder}
 					placeholderTextColor={placeholderTextColor}
@@ -23,4 +24,4 @@ const TextArea = ({
 	);
 };
 
-export default TextArea;
+export default InputMask;

@@ -1,0 +1,15 @@
+export const businessType = [
+	{label: "Açaí", value: "579d84d6-e23d-4ccf-b5a0-c4beeb2905eb"},
+	{label: "Bar/Pub", value: "4bf9c4a7-441a-4caa-9452-05c13910ba1a"},
+	{label: "Cafeteria", value: "74adf0d2-027a-4e9d-8010-0af12757ef58"},
+	{label: "Churrascaria", value: "de0acacf-3261-4d7b-b692-2ffe9b311800"},
+	{label: "Depósito de bebidas", value: "a8b2df5d-be9f-4cbc-b114-19f2ebdaa992"},
+	{label: "Doces/Bolos", value: "a1a227cc-02a2-439d-9022-db916280d957"},
+	{label: "Lancheria", value: "de99f97a-b209-4674-8c31-bba33968a1e8"},
+	{label: "Marmitex", value: "9e131293-04be-4d25-893f-9b9372d1719f"},
+	{label: "Oriental", value: "a5b23d85-a7fb-4b67-b6be-b315e0bda9cf"},
+	{label: "Outros", value: "8daa03ed-0936-48b9-8d6a-693606523557"},
+	{label: "Pizzaria", value: "824e6daf-0f6a-4f0f-a39f-6c4e3ad501b7"},
+	{label: "Vegana", value: "54898326-5b28-42ff-a6ed-81b79ab981c3"},
+	{label: "Restaurante", value: "b6e158c4-83db-4fdf-aa7c-70f6c8b0dbd8"},
+];
