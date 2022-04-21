@@ -36,6 +36,13 @@ const user = createSlice({
 	},
 });
 
-export const {changeTheme, startLoading, searchAction, setTheme, setData, setUserData, setLogged} =
-	user.actions;
+export const {
+	changeTheme,
+	startLoading,
+	searchAction,
+	setTheme,
+	setData,
+	setUserData,
+	setLogged,
+} = user.actions;
 export default user.reducer;

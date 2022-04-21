@@ -131,7 +131,8 @@ const Step2 = ({...rest}) => {
 						Concordo com os Termos e Condições do tamo
 						<StyledText isBold textSize="16px">
 							junto
-						</StyledText>.
+						</StyledText>
+						.
 					</StyledText>
 				</StyledRowView>
 				<StyledRowView topDistance="16px">

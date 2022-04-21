@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from "react";
 import {Keyboard, StatusBar} from "react-native";
 
 import {
@@ -16,11 +16,11 @@ import LoadButton from "../../components/LoadButton";
 import TextArea from "../../components/TextArea";
 import {postLogin} from "../../services/auth";
 import SystemNavigationBar from "react-native-system-navigation-bar";
-import Loading from '../../components/Loading';
-import {ReduxType} from '../../@types/types';
-import {useDispatch, useSelector} from 'react-redux';
-import {setLogged, setUserData, startLoading} from '../../store/slices/user';
-import CustomAlert from '../../components/CustomAlert';
+import Loading from "../../components/Loading";
+import {ReduxType} from "../../@types/types";
+import {useDispatch, useSelector} from "react-redux";
+import {setLogged, setUserData, startLoading} from "../../store/slices/user";
+import CustomAlert from "../../components/CustomAlert";
 
 const Login = ({navigation}) => {
 	const [email, setEmail] = useState<string>("");
@@ -28,7 +28,8 @@ const Login = ({navigation}) => {
 	const [showAlert, setShowAlert] = useState<boolean>(false);
 	const [alertMessage, setAlertMessage] = useState<string>("");
 	const dispatch = useDispatch();
-	const user: ReduxType = useSelector((handleUserChoices) => handleUserChoices
+	const user: ReduxType = useSelector(
+		(handleUserChoices) => handleUserChoices
 	) as ReduxType;
 
 	useEffect(() => {
@@ -52,14 +53,14 @@ const Login = ({navigation}) => {
 			dispatch(setUserData(result.user));
 			dispatch(setLogged(true));
 			navigation.navigate("Stack", {
-				screen: "Home"
-			})
+				screen: "Home",
+			});
 		}
 	};
 
 	return (
 		<StyledContainer>
-			<Loading visible={user.loading}/>
+			<Loading visible={user.loading} />
 			<CustomAlert visible={showAlert} message={alertMessage} />
 			<StatusBar hidden />
 			<StyledFormContainer>
@@ -115,9 +116,15 @@ const Login = ({navigation}) => {
 					</StyledButtonsContainer>
 					<StyledText textSize="18px">Ainda não tem cadastro? Então</StyledText>
 					<StyleButton>
-						<StyledText textSize="18px" textWeight="bold" onPress={() => navigation.navigate("Stack", {
-							screen: "SignUp"
-						})}>
+						<StyledText
+							textSize="18px"
+							textWeight="bold"
+							onPress={() =>
+								navigation.navigate("Stack", {
+									screen: "SignUp",
+								})
+							}
+						>
 							cadastre-se aqui
 						</StyledText>
 					</StyleButton>

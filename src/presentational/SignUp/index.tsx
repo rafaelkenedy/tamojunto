@@ -6,12 +6,13 @@ import SystemNavigationBar from "react-native-system-navigation-bar";
 import Step1 from "./components/Step1";
 import Step2 from "./components/Step2";
 import Step3 from "./components/Step3";
-import Loading from '../../components/Loading';
-import {useSelector} from 'react-redux';
-import {ReduxType} from '../../@types/types';
+import Loading from "../../components/Loading";
+import {useSelector} from "react-redux";
+import {ReduxType} from "../../@types/types";
 
 const SignUp = ({navigation}) => {
-	const user: ReduxType = useSelector((handleUserChoices) => handleUserChoices
+	const user: ReduxType = useSelector(
+		(handleUserChoices) => handleUserChoices
 	) as ReduxType;
 
 	Keyboard.addListener("keyboardDidHide", () => {
@@ -20,7 +21,7 @@ const SignUp = ({navigation}) => {
 
 	return (
 		<StyledContainer>
-			<Loading visible={user.loading}/>
+			<Loading visible={user.loading} />
 			<StatusBar hidden />
 			<StyledSteps>
 				<Step1 />

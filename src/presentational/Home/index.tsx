@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from "react-redux";
 import {setTheme} from "../../store/slices/user";
-import {ReduxType, SubjectsType, ThreadsType} from '../../@types/types';
+import {ReduxType, SubjectsType, ThreadsType} from "../../@types/types";
 
 import {
 	StyledView,
@@ -21,9 +21,9 @@ import {getSubjects} from "../../services/subjects";
 import {getRecentThreads} from "../../services/threads";
 import Splash from "../Splash";
 import Alert from "../../components/Alert";
-import SystemNavigationBar from 'react-native-system-navigation-bar';
-import {StatusBar} from 'react-native';
-import {useIsFocused} from '@react-navigation/native';
+import SystemNavigationBar from "react-native-system-navigation-bar";
+import {StatusBar} from "react-native";
+import {useIsFocused} from "@react-navigation/native";
 
 const Home = ({navigation}) => {
 	const [subjects, setSubjects] = useState<SubjectsType[]>([]);
@@ -32,7 +32,8 @@ const Home = ({navigation}) => {
 	const [alert, setAlert] = useState<boolean>();
 	const [sellBuy, setSellBuy] = useState<SubjectsType>();
 	const sellBuyTitle = "Aluguel, compra e venda";
-	const user: ReduxType = useSelector((handleUserChoices) => handleUserChoices
+	const user: ReduxType = useSelector(
+		(handleUserChoices) => handleUserChoices
 	) as ReduxType;
 	const dispatch = useDispatch();
 	const focused = useIsFocused();
@@ -40,10 +41,10 @@ const Home = ({navigation}) => {
 	useEffect(() => {
 		if (!user.logged) {
 			navigation.navigate("Stack", {
-				screen: "Login"
-			})
+				screen: "Login",
+			});
 		}
-	}, [focused])
+	}, [focused]);
 
 	useEffect(() => {
 		loadData();

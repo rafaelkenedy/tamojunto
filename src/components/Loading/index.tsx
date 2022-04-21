@@ -1,7 +1,7 @@
-import React from 'react';
-import {StyledIcon, StyledText, StyledView} from './styles';
+import React from "react";
+import {StyledIcon, StyledText, StyledView} from "./styles";
 
-const Loading = ({visible= false}) => {
+const Loading = ({visible = false}) => {
 	return (
 		<>
 			{visible && (
@@ -11,7 +11,7 @@ const Loading = ({visible= false}) => {
 				</StyledView>
 			)}
 		</>
-	)
-}
+	);
+};
 
 export default Loading;

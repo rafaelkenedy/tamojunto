@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 import theme from "../../styles/theme";
 
 export const StyledView = styled.View`
-height: 100%;
+	height: 100%;
 	width: 100%;
 	background-color: ${theme.colors.black_pearl};
 	opacity: 0.9;
@@ -20,5 +20,5 @@ export const StyledText = styled.Text`
 `;
 
 export const StyledIcon = styled.Image`
-tint-color: ${theme.colors.white};
+	tint-color: ${theme.colors.white};
 `;

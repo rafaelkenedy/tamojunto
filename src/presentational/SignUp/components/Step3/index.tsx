@@ -5,7 +5,7 @@ import {schemaValidateStep3} from "../../../../helpers/schemasFormValidate";
 
 import {StyledContainer, StyledFooter, StyledText, StyledView} from "./styles";
 import TextArea from "../../../../components/TextArea";
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch, useSelector} from "react-redux";
 import InputMask from "../../../../components/InputMask";
 import theme from "../../../../styles/theme";
 import {Masks} from "react-native-mask-input";
@@ -15,8 +15,8 @@ import {statesId} from "../../../../helpers/states";
 import {getCities} from "../../../../services/locations";
 import {postUser} from "../../../../services/users";
 import {ReduxType} from "../../../../@types/types";
-import CustomAlert from '../../../../components/CustomAlert';
-import {startLoading} from '../../../../store/slices/user';
+import CustomAlert from "../../../../components/CustomAlert";
+import {startLoading} from "../../../../store/slices/user";
 
 const Step3 = ({navigation, ...rest}) => {
 	const [canContinue, setContinue] = useState<boolean>(true);
@@ -78,14 +78,16 @@ const Step3 = ({navigation, ...rest}) => {
 		});
 		dispatch(startLoading(false));
 		if (!response) {
-			setAlertMessage("Ocorreu um erro ao criar a conta, entre em contato com o SAC.");
+			setAlertMessage(
+				"Ocorreu um erro ao criar a conta, entre em contato com o SAC."
+			);
 			setShowAlert(true);
 			return;
 		} else {
 			setContinue(false);
 			navigation.navigate("Stack", {
-				screen: "Login"
-			})
+				screen: "Login",
+			});
 		}
 	};
 

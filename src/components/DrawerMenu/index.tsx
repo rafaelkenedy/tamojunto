@@ -1,8 +1,8 @@
 import React from "react";
 import Share from "react-native-share";
-import {ReduxType} from '../../@types/types';
-import {useDispatch, useSelector} from 'react-redux';
-import {setLogged} from '../../store/slices/user';
+import {ReduxType} from "../../@types/types";
+import {useDispatch, useSelector} from "react-redux";
+import {setLogged} from "../../store/slices/user";
 
 import {
 	StyledDrawlerContainer,
@@ -21,7 +21,8 @@ import {
 
 const DrawerMenu = ({navigation}) => {
 	const dispatch = useDispatch();
-	const user: ReduxType = useSelector((handleUserChoices) => handleUserChoices
+	const user: ReduxType = useSelector(
+		(handleUserChoices) => handleUserChoices
 	) as ReduxType;
 
 	const shared = async () => {
@@ -36,7 +37,7 @@ const DrawerMenu = ({navigation}) => {
 		dispatch(setLogged(false));
 		navigation.navigate("Stack", {
 			screen: "Welcome",
-		})
+		});
 	};
 	console.log(user);
 
@@ -45,13 +46,19 @@ const DrawerMenu = ({navigation}) => {
 			<StyledHeaderContainer>
 				<StyledUserImage source={require("../../assets/icons/User.png")} />
 				<StyledInfo>
-					<StyledText isBold>{`${user.user.firstName} ${user.user.lastName}`}</StyledText>
+					<StyledText
+						isBold
+					>{`${user.user.firstName} ${user.user.lastName}`}</StyledText>
 					<StyledText isEmail>{user.user.email}</StyledText>
 				</StyledInfo>
 			</StyledHeaderContainer>
-			<StyledButton onPress={() => navigation.navigate("Stack", {
-				screen: "Home",
-			})}>
+			<StyledButton
+				onPress={() =>
+					navigation.navigate("Stack", {
+						screen: "Home",
+					})
+				}
+			>
 				<StyledIcon source={require("../../assets/icons/Home.png")} />
 				<StyledText>Inicio</StyledText>
 			</StyledButton>
