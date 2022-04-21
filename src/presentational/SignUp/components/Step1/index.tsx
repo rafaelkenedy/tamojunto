@@ -4,13 +4,24 @@ import {useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {schemaValidateStep1} from "../../../../helpers/schemasFormValidate";
 
-import {StyledContainer, StyledText, StyledView} from "./styles";
+import {StyledContainer, StyledFooter, StyledText, StyledView} from "./styles";
 import TextArea from "../../../../components/TextArea";
 import {setData} from "../../../../store/slices/user";
 import theme from "../../../../styles/theme";
+import InputMask from "../../../../components/InputMask";
+import {Masks} from "react-native-mask-input";
+import {
+	nameValidator,
+	passwordValidator,
+} from "../../../../helpers/inputValidator";
+import {SplitNameType} from "../../../../@types/types";
+import CustomAlert from "../../../../components/CustomAlert";
 
 const Step1 = ({...rest}) => {
 	const [canContinue, setContinue] = useState<boolean>(true);
+	const [showAlert, setShowAlert] = useState<boolean>(false);
+	const [alertMessage, setAlertMessage] = useState<string>("");
+	const [phone, setPhone] = useState<string>("");
 	const dispatch = useDispatch();
 	const {
 		register,
@@ -25,6 +36,7 @@ const Step1 = ({...rest}) => {
 
 	useEffect(() => {
 		register("name");
+		register("phone");
 		register("email");
 		register("password");
 		register("repeatPassword");
@@ -34,12 +46,41 @@ const Step1 = ({...rest}) => {
 		getValues();
 	}, [watch()]);
 
+	useEffect(() => {
+		setTimeout(() => {
+			setShowAlert(false);
+		}, 3000);
+	}, [showAlert]);
+
 	const onSubmit = (data) => {
 		console.log(data);
-		if (data.password !== data.repeatPassword) return;
-		const firstName = data.name.split(" ")[0];
-		const lastName = data.name.split(" ")[data.name.split(" ").length - 1];
-		dispatch(setData(data));
+		const splitName: boolean | SplitNameType = nameValidator(data.name);
+		if (!splitName) {
+			setAlertMessage("Nome deve ser completo.");
+			setShowAlert(true);
+			return;
+		}
+		if (!passwordValidator(data.password)) {
+			setAlertMessage(
+				"Senha deve ter 8 dígitos, ter mais de 8 caracteres, possuir letras maiúsculas e mínulas."
+			);
+			setShowAlert(true);
+			return;
+		}
+		if (data.password !== data.repeatPassword) {
+			setAlertMessage("Senhas digitadas devem ser iguais.");
+			setShowAlert(true);
+			return;
+		}
+		dispatch(
+			setData({
+				firstName: splitName.firstName,
+				lastName: splitName.lastName,
+				email: data.email,
+				phone: data.phone,
+				password: data.password,
+			})
+		);
 		setContinue(false);
 	};
 
@@ -49,6 +90,7 @@ const Step1 = ({...rest}) => {
 			onNext={handleSubmit(onSubmit)}
 			errors={canContinue}
 		>
+			<CustomAlert visible={showAlert} message={alertMessage} />
 			<StyledView>
 				<StyledText>
 					Boas vindas! Informe seus dados abaixo para fazermos o seu cadastro.
@@ -67,6 +109,26 @@ const Step1 = ({...rest}) => {
 					}
 					label={"name"}
 					onChangeText={(text) => setValue("name", text)}
+				/>
+				<StyledText isBold topDistance="28px">
+					Telefone
+				</StyledText>
+				<InputMask
+					returnKeyType="next"
+					borderColor={errors.phone ? theme.colors.error : theme.colors.success}
+					placeholderTextColor={
+						errors.phone ? theme.colors.error : theme.colors.fuscous_gray
+					}
+					placeholder={errors.phone ? errors.phone.message : "(00) 00000-0000"}
+					value={phone}
+					label={"phone"}
+					keyboardType="number-pad"
+					maxLength={15}
+					onChangeText={(masked, unmasked) => {
+						setPhone(masked);
+						setValue("phone", unmasked);
+					}}
+					mask={Masks.BRL_PHONE}
 				/>
 				<StyledText isBold topDistance="28px">
 					Email
@@ -131,11 +193,10 @@ const Step1 = ({...rest}) => {
 					onChangeText={(text) => setValue("repeatPassword", text)}
 					onSubmitEditing={handleSubmit(onSubmit)}
 				/>
-				{errors && (
-					<StyledText topDistance="55px">
-						Todos os campos são obrigatórios.
-					</StyledText>
-				)}
+				<StyledText topDistance="55px">
+					Todos os campos são obrigatórios.
+				</StyledText>
+				<StyledFooter />
 			</StyledView>
 		</StyledContainer>
 	);

@@ -38,3 +38,8 @@ export const StyledText = styled.Text<Step1StylePropsType>`
 	font-size: ${(props) => (props.isBold ? "16px" : "18px")};
 	font-weight: ${(props) => (props.isBold ? "bold" : 400)};
 `;
+
+export const StyledFooter = styled.View`
+	height: 20px;
+	margin-bottom: 20px;
+`;

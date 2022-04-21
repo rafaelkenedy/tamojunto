@@ -1,12 +1,14 @@
 import api from "./api";
+import {PostUserType} from "../@types/types";
 
-const x = async (data: any) => {
+const postUser = async (data: PostUserType) => {
+	console.log(data);
 	try {
-		const response = await api.post("/x", data);
+		const response = await api.post("/users", data);
 		return response;
 	} catch (e) {
 		return e;
 	}
 };
 
-export {};
+export {postUser};

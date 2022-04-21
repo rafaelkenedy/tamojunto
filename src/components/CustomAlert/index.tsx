@@ -1,17 +1,22 @@
 import React from "react";
-import {StyledButtom, StyledText, StyledViewContainer} from "./styles";
+import {StyledText, StyledViewContainer} from "./styles";
+import {CustomAlertType} from "../../@types/types";
 
-const CustomAlert = ({action}) => {
+const CustomAlert = ({
+	visible,
+	title = "Erro",
+	message = "Erro",
+}: CustomAlertType) => {
 	return (
 		<>
-			<StyledViewContainer>
-				<StyledText>Titulo</StyledText>
-				<StyledText>corpo</StyledText>
-			</StyledViewContainer>
-
-			<StyledButtom onPress={action}>
-				<StyledText>nome do butão</StyledText>
-			</StyledButtom>
+			{visible && (
+				<>
+					<StyledViewContainer>
+						<StyledText isBold>{title}</StyledText>
+						<StyledText>{message}</StyledText>
+					</StyledViewContainer>
+				</>
+			)}
 		</>
 	);
 };

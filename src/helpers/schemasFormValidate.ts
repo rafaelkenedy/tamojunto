@@ -2,6 +2,9 @@ import * as Yup from "yup";
 
 const schemaValidateStep1 = Yup.object().shape({
 	name: Yup.string().required("Por favor insira seu nome"),
+	phone: Yup.string()
+		.min(10, "Telefone deve ter 10 dígitos")
+		.required("Por favor insira seu telefone"),
 	email: Yup.string()
 		.email("Por favor insira um email válido")
 		.required("Por favor insira seu email"),
@@ -21,12 +24,12 @@ const schemaValidateStep2 = Yup.object().shape({
 });
 
 const schemaValidateStep3 = Yup.object().shape({
-	cep: Yup.string().required("Por favor insira seu cep"),
+	zipcode: Yup.string().required("Por favor insira seu cep"),
 	address: Yup.string().required("Por favor insira seu endereço"),
 	number: Yup.string().required("Por favor insira seu número"),
-	complement: Yup.string().required("Por favor insira seu complemento"),
-	state: Yup.string().required("Por favor selecione seu estado"),
-	city: Yup.string().required("Por favor selecione sua cidade"),
+	complement: Yup.string().notRequired(),
+	stateId: Yup.string().notRequired(),
+	cityId: Yup.string().notRequired(),
 });
 
 export {schemaValidateStep1, schemaValidateStep2, schemaValidateStep3};
