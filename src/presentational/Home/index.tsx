@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from 'react-redux';
 import {setTheme} from "../../store/slices/user";
-import {SubjectsType, ThreadsType} from "../../@types/types";
+import {ReduxType, SubjectsType, ThreadsType} from '../../@types/types';
 
 import {
 	StyledView,
@@ -21,6 +21,9 @@ import {getSubjects} from "../../services/subjects";
 import {getRecentThreads} from "../../services/threads";
 import Splash from "../Splash";
 import Alert from "../../components/Alert";
+import SystemNavigationBar from 'react-native-system-navigation-bar';
+import {StatusBar} from 'react-native';
+import {useIsFocused} from '@react-navigation/native';
 
 const Home = ({navigation}) => {
 	const [subjects, setSubjects] = useState<SubjectsType[]>([]);
@@ -29,10 +32,22 @@ const Home = ({navigation}) => {
 	const [alert, setAlert] = useState<boolean>();
 	const [sellBuy, setSellBuy] = useState<SubjectsType>();
 	const sellBuyTitle = "Aluguel, compra e venda";
+	const user: ReduxType = useSelector((handleUserChoices) => handleUserChoices
+	) as ReduxType;
 	const dispatch = useDispatch();
+	const focused = useIsFocused();
+
+	useEffect(() => {
+		if (!user.logged) {
+			navigation.navigate("Stack", {
+				screen: "Login"
+			})
+		}
+	}, [focused])
 
 	useEffect(() => {
 		loadData();
+		SystemNavigationBar.navigationShow();
 	}, []);
 
 	const loadData = async () => {
@@ -48,6 +63,7 @@ const Home = ({navigation}) => {
 
 	return (
 		<StyledView>
+			<StatusBar hidden={false} />
 			<Alert active={alert} cancel={() => setAlert(false)} />
 			<Header />
 			<StyledFlatList

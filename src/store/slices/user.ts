@@ -8,6 +8,8 @@ const user = createSlice({
 		search: false,
 		theme: "",
 		register: {},
+		user: {},
+		logged: false,
 	},
 	reducers: {
 		changeTheme: (state) => {
@@ -25,9 +27,15 @@ const user = createSlice({
 		setData: (state, {payload}) => {
 			state.register = {...state.register, ...payload};
 		},
+		setUserData: (state, {payload}) => {
+			state.user = payload;
+		},
+		setLogged: (state, {payload}) => {
+			state.logged = payload;
+		},
 	},
 });
 
-export const {changeTheme, startLoading, searchAction, setTheme, setData} =
+export const {changeTheme, startLoading, searchAction, setTheme, setData, setUserData, setLogged} =
 	user.actions;
 export default user.reducer;

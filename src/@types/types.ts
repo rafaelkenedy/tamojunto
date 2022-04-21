@@ -35,13 +35,26 @@ export interface ReduxType {
 	loading: boolean;
 	nightMode: boolean;
 	register: RegisterReduxType;
+	user: UserReduxType;
 	search: boolean;
 	theme: string;
+	logged: boolean;
 }
+
+export interface UserReduxType {
+	avatar: string | null;
+	businessName: string;
+	cnpj: string;
+	email: string;
+	firstName: string;
+	lastName: string;
+	phone: string;
+}
+
 export interface RegisterReduxType {
 	businessName: string;
 	businessTypeId: string;
-	cnpj: number;
+	cnpj: string;
 	email: string;
 	firstName: string;
 	lastName: string;

@@ -6,7 +6,7 @@ const postLogin = async (data: AuthType) => {
 		const response = await api.post("/auth/login", data);
 		return response.data;
 	} catch (e) {
-		return e;
+		return false;
 	}
 };
 

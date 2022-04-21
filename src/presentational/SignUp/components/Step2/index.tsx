@@ -128,7 +128,10 @@ const Step2 = ({...rest}) => {
 						onValueChange={(value) => setTerms(value)}
 					/>
 					<StyledText textSize="16px">
-						Concordo com os Termos e Condições do tamojunto.
+						Concordo com os Termos e Condições do tamo
+						<StyledText isBold textSize="16px">
+							junto
+						</StyledText>.
 					</StyledText>
 				</StyledRowView>
 				<StyledRowView topDistance="16px">
@@ -137,7 +140,11 @@ const Step2 = ({...rest}) => {
 						onValueChange={(value) => setPrivacy(value)}
 					/>
 					<StyledText textSize="16px">
-						Concordo com a Política de Privacidade do tamojunto.
+						Concordo com a Política de Privacidade do tamo
+						<StyledText isBold textSize="16px">
+							junto
+						</StyledText>
+						.
 					</StyledText>
 				</StyledRowView>
 				<StyledFooter />

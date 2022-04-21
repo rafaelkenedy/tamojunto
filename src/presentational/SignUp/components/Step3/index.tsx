@@ -5,7 +5,7 @@ import {schemaValidateStep3} from "../../../../helpers/schemasFormValidate";
 
 import {StyledContainer, StyledFooter, StyledText, StyledView} from "./styles";
 import TextArea from "../../../../components/TextArea";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from 'react-redux';
 import InputMask from "../../../../components/InputMask";
 import theme from "../../../../styles/theme";
 import {Masks} from "react-native-mask-input";
@@ -15,11 +15,16 @@ import {statesId} from "../../../../helpers/states";
 import {getCities} from "../../../../services/locations";
 import {postUser} from "../../../../services/users";
 import {ReduxType} from "../../../../@types/types";
+import CustomAlert from '../../../../components/CustomAlert';
+import {startLoading} from '../../../../store/slices/user';
 
-const Step3 = ({...rest}) => {
+const Step3 = ({navigation, ...rest}) => {
 	const [canContinue, setContinue] = useState<boolean>(true);
+	const [showAlert, setShowAlert] = useState<boolean>(false);
+	const [alertMessage, setAlertMessage] = useState<string>("");
 	const [cities, setCities] = useState<{value: string; label: string}[]>([]);
 	const [zipcode, setZipcode] = useState<string>("");
+	const dispatch = useDispatch();
 	const user: ReduxType = useSelector(
 		(handleUserChoices) => handleUserChoices
 	) as ReduxType;
@@ -51,7 +56,14 @@ const Step3 = ({...rest}) => {
 		getCity();
 	}, [watch("stateId")]);
 
+	useEffect(() => {
+		setTimeout(() => {
+			setShowAlert(false);
+		}, 3000);
+	}, [showAlert]);
+
 	const onSubmit = async (data) => {
+		dispatch(startLoading(true));
 		const response = await postUser({
 			email: user.register.email,
 			password: user.register.password,
@@ -64,9 +76,17 @@ const Step3 = ({...rest}) => {
 			cityId: data.cityId,
 			stateId: data.stateId,
 		});
-		console.log(response);
-		return;
-		setContinue(false);
+		dispatch(startLoading(false));
+		if (!response) {
+			setAlertMessage("Ocorreu um erro ao criar a conta, entre em contato com o SAC.");
+			setShowAlert(true);
+			return;
+		} else {
+			setContinue(false);
+			navigation.navigate("Stack", {
+				screen: "Login"
+			})
+		}
 	};
 
 	const getCity = async () => {
@@ -95,6 +115,7 @@ const Step3 = ({...rest}) => {
 			onSubmit={handleSubmit(onSubmit)}
 			errors={canContinue}
 		>
+			<CustomAlert visible={showAlert} message={alertMessage} />
 			<StyledView>
 				<StyledText>
 					Para te ajudar a encontrar outros empreendedores próximos, por favor
