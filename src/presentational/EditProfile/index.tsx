@@ -46,9 +46,9 @@ const EditProfile = () => {
 	}, [watch()]);
 
 	return (
-		<StyledContainer>
+		<StyledView>
 			<Header />
-			<StyledView>
+			<StyledContainer>
 				<StyledText marginTop="25px">
 					Edite os dados desejados e clique em salvar.
 				</StyledText>
@@ -145,8 +145,8 @@ const EditProfile = () => {
 				<TextArea placeholder="Repita a nova senha" />
 				<StyledFooter />
 				<RedGreenButton redTitle="CANCELAR" greenTitle="SALVAR" />
-			</StyledView>
-		</StyledContainer>
+			</StyledContainer>
+		</StyledView>
 	);
 };
 

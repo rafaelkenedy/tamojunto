@@ -1,23 +1,20 @@
-import {TextProps} from "react-native";
 import styled from "styled-components/native";
 import theme from "../../styles/theme";
 
-interface TextType extends TextProps {
+interface DrawerMenuStyleProps {
+	nightMode?: boolean;
 	isBold?: boolean;
 	isEmail?: boolean;
 }
 
-interface NightModeType extends TextProps {
-	nightMode?: boolean;
-}
-
-export const StyledDrawlerContainer = styled.View`
+export const StyledDrawerContainer = styled.View<DrawerMenuStyleProps>`
 	height: 100%;
-	width: 75%;
+	width: 100%;
 	padding-left: 20px;
 	border-top-right-radius: 16px;
 	border-bottom-right-radius: 16px;
-	background-color: ${theme.colors.white};
+	background-color: ${(props) =>
+		props.nightMode ? theme.colors.dark_background : theme.colors.white};
 	justify-content: space-between;
 	position: absolute;
 	z-index: 2;
@@ -45,13 +42,15 @@ export const StyledUserImage = styled.Image`
 	background-color: ${theme.colors.granny_smith};
 `;
 
-export const StyledIcon = styled.Image`
+export const StyledIcon = styled.Image<DrawerMenuStyleProps>`
 	margin-right: 10px;
-	tint-color: ${theme.colors.black_pearl};
+	tint-color: ${(props) =>
+		props.nightMode ? theme.colors.dark_text : theme.colors.black_pearl};
 `;
 
-export const StyledText = styled.Text<TextType>`
-	color: ${theme.colors.black_pearl};
+export const StyledText = styled.Text<DrawerMenuStyleProps>`
+	color: ${(props) =>
+		props.nightMode ? theme.colors.dark_text : theme.colors.black_pearl};
 	font-weight: ${(props) => (props.isBold ? "bold" : 400)};
 	font-size: ${(props) => (props.isEmail ? "13px" : "16px")};
 `;
@@ -82,7 +81,7 @@ export const StyledFooterContainer = styled.View`
 	margin-top: 55px;
 `;
 
-export const StyledNightModeContainer = styled.View`
+export const StyledNightModeContainer = styled.View<DrawerMenuStyleProps>`
 	flex-direction: row;
 	justify-content: space-between;
 	border-radius: 40px;
@@ -90,11 +89,14 @@ export const StyledNightModeContainer = styled.View`
 	padding-right: 5px;
 	height: 40px;
 	width: 100%;
-	background-color: ${theme.colors.catskill_white};
+	background-color: ${(props) =>
+		props.nightMode
+			? theme.colors.dark_container
+			: theme.colors.catskill_white};
 	margin-bottom: 15px;
 `;
 
-export const StyledNightModeButton = styled.TouchableOpacity<NightModeType>`
+export const StyledNightModeButton = styled.TouchableOpacity<DrawerMenuStyleProps>`
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;

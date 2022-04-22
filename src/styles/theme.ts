@@ -32,6 +32,12 @@ const colors = {
 	springwood: "#F6F4ED",
 	white: "#FFFFFF",
 
+	// Dark mode
+	dark_background: "#0F1621",
+	dark_text: "#D1D3D4",
+	dark_container: "#18202E",
+	dark_contrast: "#29303C",
+
 	// State
 	success: "#4CB97A",
 	info: "#7EA9E3",

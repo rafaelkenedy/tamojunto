@@ -12,8 +12,8 @@ const user = createSlice({
 		logged: false,
 	},
 	reducers: {
-		changeTheme: (state) => {
-			state.nightMode = !state.nightMode;
+		darkMode: (state, {payload}) => {
+			state.nightMode = payload;
 		},
 		startLoading: (state, {payload}) => {
 			state.loading = payload;
@@ -37,7 +37,7 @@ const user = createSlice({
 });
 
 export const {
-	changeTheme,
+	darkMode,
 	startLoading,
 	searchAction,
 	setTheme,
