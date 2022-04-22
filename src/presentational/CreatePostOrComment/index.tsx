@@ -3,7 +3,7 @@ import {useRoute} from "@react-navigation/native";
 
 import {StyledContainer, StyledView, StyledText} from "./styles";
 import Header from "../../components/Header";
-import {ScrollView} from "react-native";
+import {Alert, ScrollView} from "react-native";
 import Breadcrumb from "../../components/Breadcrumb";
 import theme from "../../styles/theme";
 import TextArea from "../../components/TextArea";
@@ -12,30 +12,58 @@ import RedGreenButton from "../../components/RedGreenButton";
 import Select from "../../components/Select";
 import ForumCard from "../../components/ForumCard";
 import {postComment} from "../../services/comments";
+import {businessType} from "../../helpers/businessType";
+import {postThread} from "../../services/threads";
+import {ReduxType} from "../../@types/types";
+import {useDispatch, useSelector} from "react-redux";
+import {startLoading} from "../../store/slices/user";
+import Loading from "../../components/Loading";
 
 const CreatePostOrComment = () => {
 	const [title, setTitle] = useState<string>("");
 	const [content, setContent] = useState<string>("");
+	const [state, setState] = useState<string>("");
 	const {params}: any = useRoute();
+	const dispatch = useDispatch();
+	const user: ReduxType = useSelector(
+		(handleUserChoices) => handleUserChoices
+	) as ReduxType;
 
 	useEffect(() => {}, []);
 
 	const postResponse = async () => {
 		if (content.length <= 3) return;
-		const data: any = {};
-		data.content = content;
-		data.threadId = params.id;
-		const response = await postComment(data);
+		dispatch(startLoading(true));
+		const response = await postComment({
+			content,
+			threadId: params.id,
+			user: user.user,
+		});
+		dispatch(startLoading(false));
 		console.log(response);
 	};
 
 	const postTopic = async () => {
 		if (content.length <= 3 || title.length <= 3) return;
+		dispatch(startLoading(true));
+		const response = await postThread({
+			title,
+			content,
+			subjectId: state,
+			user: user.user,
+		});
+		dispatch(startLoading(false));
+		if (response) {
+		} else {
+			Alert.alert("Tente novamente mais tarde!");
+		}
+		console.log("post response", response);
 	};
 
 	return (
 		<StyledView>
 			<Header />
+			<Loading visible={user.loading} />
 			<StyledContainer>
 				<ScrollView>
 					<Breadcrumb />
@@ -60,6 +88,8 @@ const CreatePostOrComment = () => {
 							<TextArea
 								placeholder="Seu texto aqui..."
 								size="260px"
+								maxLength={400}
+								multiline
 								value={content}
 								onChangeText={(text: string) => setContent(text)}
 							/>
@@ -69,7 +99,11 @@ const CreatePostOrComment = () => {
 							>
 								Escolha o tema da sua publicação:
 							</StyledText>
-							<Select />
+							<Select
+								items={businessType}
+								selectedValue={state}
+								onValueChange={(text) => setState(text)}
+							/>
 							<TurnOnNotifications />
 							<RedGreenButton
 								greenTitle="Publicar"
@@ -89,6 +123,8 @@ const CreatePostOrComment = () => {
 							<TextArea
 								placeholder="Seu texto aqui..."
 								size="260px"
+								maxLength={400}
+								multiline
 								value={content}
 								onChangeText={(text: string) => setContent(text)}
 							/>

@@ -18,4 +18,13 @@ const getThreadsById = async (id: string) => {
 	}
 };
 
-export {getRecentThreads, getThreadsById};
+const postThread = async (data) => {
+	try {
+		const response = await api.post("/threads", data);
+		return response.data;
+	} catch (e) {
+		return false;
+	}
+};
+
+export {getRecentThreads, getThreadsById, postThread};

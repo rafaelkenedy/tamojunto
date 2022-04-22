@@ -68,7 +68,7 @@ export interface PostUserType {
 	firstName: string;
 	lastName: string;
 	businessName: string;
-	cnpj: number;
+	cnpj: number | string;
 	phone: string;
 	businessTypeId: string;
 	cityId: string;

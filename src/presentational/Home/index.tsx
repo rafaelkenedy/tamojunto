@@ -39,17 +39,14 @@ const Home = ({navigation}) => {
 	const focused = useIsFocused();
 
 	useEffect(() => {
+		loadData();
+		SystemNavigationBar.navigationShow();
 		if (!user.logged) {
 			navigation.navigate("Stack", {
 				screen: "Login",
 			});
 		}
 	}, [focused]);
-
-	useEffect(() => {
-		loadData();
-		SystemNavigationBar.navigationShow();
-	}, []);
 
 	const loadData = async () => {
 		const result = await getSubjects();
