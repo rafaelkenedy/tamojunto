@@ -27,7 +27,6 @@ const SearchBar = ({textPlaceholder = "Buscar..."}) => {
 					onSubmitEditing={find}
 					onChangeText={(text: string) => setSearch(text)}
 				/>
-				<StyledLogo source={require("../../assets/icons/filter.png")} />
 			</StyledContainer>
 		</>
 	);

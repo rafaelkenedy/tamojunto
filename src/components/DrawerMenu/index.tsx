@@ -62,7 +62,13 @@ const DrawerMenu = ({navigation}) => {
 				<StyledIcon source={require("../../assets/icons/Home.png")} />
 				<StyledText>Inicio</StyledText>
 			</StyledButton>
-			<StyledButton>
+			<StyledButton
+				onPress={() =>
+					navigation.navigate("Stack", {
+						screen: "EditProfile",
+					})
+				}
+			>
 				<StyledIcon source={require("../../assets/icons/Password.png")} />
 				<StyledText>Editar Dados e Senha</StyledText>
 			</StyledButton>

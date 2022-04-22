@@ -12,6 +12,7 @@ import Welcome from "../presentational/Welcome";
 import Login from "../presentational/Login";
 import SignUp from "../presentational/SignUp";
 import Contact from "../presentational/Contact";
+import EditProfile from "../presentational/EditProfile";
 
 const Stack = () => {
 	const StackRoutes: any = createNativeStackNavigator();
@@ -37,6 +38,7 @@ const Stack = () => {
 			<StackRoutes.Screen name="Login" component={Login} />
 			<StackRoutes.Screen name="SignUp" component={SignUp} />
 			<StackRoutes.Screen name="Contact" component={Contact} />
+			<StackRoutes.Screen name="EditProfile" component={EditProfile} />
 		</StackRoutes.Navigator>
 	);
 };

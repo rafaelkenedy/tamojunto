@@ -92,7 +92,7 @@ const Topic = ({navigation}) => {
 											dispatch(setTheme(item.name as string));
 											navigation.navigate("Stack", {
 												screen: "Topic",
-												params: {id: item.id as string},
+												params: {id: item.id, image: item.picture.url},
 											});
 										}}
 									/>

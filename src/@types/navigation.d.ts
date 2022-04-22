@@ -18,6 +18,7 @@ export declare global {
 			Login: undefined;
 			SignUp: undefined;
 			Contact: undefined;
+			EditProfile: undefined;
 		}
 	}
 }
