@@ -19,7 +19,12 @@ import SystemNavigationBar from "react-native-system-navigation-bar";
 import Loading from "../../components/Loading";
 import {ReduxType} from "../../@types/types";
 import {useDispatch, useSelector} from "react-redux";
-import {setLogged, setUserData, startLoading} from "../../store/slices/user";
+import {
+	setLogged,
+	setToken,
+	setUserData,
+	startLoading,
+} from "../../store/slices/user";
 import CustomAlert from "../../components/CustomAlert";
 
 const Login = ({navigation}) => {
@@ -50,6 +55,7 @@ const Login = ({navigation}) => {
 			setAlertMessage("Login e/ou senha incorretos");
 			setShowAlert(true);
 		} else {
+			dispatch(setToken(result.token));
 			dispatch(setUserData(result.user));
 			dispatch(setLogged(true));
 			navigation.navigate("Stack", {

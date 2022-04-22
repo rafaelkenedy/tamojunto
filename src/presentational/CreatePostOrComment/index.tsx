@@ -19,7 +19,7 @@ import {startLoading} from "../../store/slices/user";
 import Loading from "../../components/Loading";
 import {threadId} from "../../helpers/threads";
 
-const CreatePostOrComment = () => {
+const CreatePostOrComment = ({navigation}) => {
 	const [title, setTitle] = useState<string>("");
 	const [content, setContent] = useState<string>("");
 	const [state, setState] = useState<string>("");
@@ -34,26 +34,41 @@ const CreatePostOrComment = () => {
 	const postResponse = async () => {
 		if (content.length <= 3) return;
 		dispatch(startLoading(true));
-		const response = await postComment({
-			content,
-			threadId: params.id,
-			user: user.user,
-		});
+		const response = await postComment(
+			{
+				content,
+				threadId: params.id,
+			},
+			user.token
+		);
 		dispatch(startLoading(false));
+		if (response) {
+			navigation.navigate("Stack", {
+				screen: "Home",
+			});
+		} else {
+			Alert.alert("Tente novamente mais tarde!");
+		}
 		console.log(response);
 	};
 
 	const postTopic = async () => {
 		if (content.length <= 3 || title.length <= 3) return;
 		dispatch(startLoading(true));
-		const response = await postThread({
-			title,
-			content,
-			subjectId: state,
-			user: user.user,
-		});
+		const response = await postThread(
+			{
+				title,
+				content,
+				subjectId: state,
+				user: user.user,
+			},
+			user.token
+		);
 		dispatch(startLoading(false));
 		if (response) {
+			navigation.navigate("Stack", {
+				screen: "Home",
+			});
 		} else {
 			Alert.alert("Tente novamente mais tarde!");
 		}

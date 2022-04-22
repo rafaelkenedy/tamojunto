@@ -10,6 +10,7 @@ const user = createSlice({
 		register: {},
 		user: {},
 		logged: false,
+		token: "",
 	},
 	reducers: {
 		darkMode: (state, {payload}) => {
@@ -33,6 +34,9 @@ const user = createSlice({
 		setLogged: (state, {payload}) => {
 			state.logged = payload;
 		},
+		setToken: (state, {payload}) => {
+			state.token = payload;
+		},
 	},
 });
 
@@ -44,5 +48,6 @@ export const {
 	setData,
 	setUserData,
 	setLogged,
+	setToken,
 } = user.actions;
 export default user.reducer;

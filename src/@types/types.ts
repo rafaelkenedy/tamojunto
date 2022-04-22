@@ -39,6 +39,7 @@ export interface ReduxType {
 	search: boolean;
 	theme: string;
 	logged: boolean;
+	token: string;
 }
 
 export interface UserReduxType {

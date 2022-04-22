@@ -18,13 +18,16 @@ const getThreadsById = async (id: string) => {
 	}
 };
 
-const postThread = async (data) => {
+const postThread = async (data, token) => {
 	console.log(data);
 	try {
-		const response = await api.post("/threads", data);
+		const response = await api.post("/threads", data, {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		});
 		return response.data;
 	} catch (e) {
-		console.log(e.response.data);
 		return false;
 	}
 };
