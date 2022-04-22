@@ -19,10 +19,12 @@ const getThreadsById = async (id: string) => {
 };
 
 const postThread = async (data) => {
+	console.log(data);
 	try {
 		const response = await api.post("/threads", data);
 		return response.data;
 	} catch (e) {
+		console.log(e.response.data);
 		return false;
 	}
 };

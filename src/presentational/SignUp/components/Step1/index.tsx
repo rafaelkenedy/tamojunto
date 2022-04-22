@@ -53,7 +53,6 @@ const Step1 = ({...rest}) => {
 	}, [showAlert]);
 
 	const onSubmit = (data) => {
-		console.log(data);
 		const splitName: boolean | SplitNameType = nameValidator(data.name);
 		if (!splitName) {
 			setAlertMessage("Nome deve ser completo.");

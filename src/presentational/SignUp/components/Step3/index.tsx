@@ -94,8 +94,7 @@ const Step3 = ({navigation, ...rest}) => {
 	const getCity = async () => {
 		const result = await getCities(getValues("stateId"));
 		let citiesMap: {value: string; label: string}[] = [];
-		if (!result) return;
-		if (result.length <= 1) return;
+		if (!result || result.length <= 1) return;
 		result.cities.map((city) => {
 			citiesMap.push({value: city.id, label: city.name});
 		});
@@ -105,6 +104,7 @@ const Step3 = ({navigation, ...rest}) => {
 	const fillZipcode = async (zipcode: string) => {
 		if (zipcode.length === 8) {
 			const result = await getZipCodeData(zipcode);
+			if (!result || result?.erro) return;
 			const stateValue = statesId.find((state) => state.uf === result.uf);
 			setValue("address", result.logradouro + ", " + result.bairro);
 			setValue("stateId", stateValue?.value);

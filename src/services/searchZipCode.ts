@@ -5,7 +5,7 @@ const getZipCodeData = async (zipcode: string) => {
 		const {data} = await api.get(`http://viacep.com.br/ws/${zipcode}/json/`);
 		return data;
 	} catch (e) {
-		return e;
+		return false;
 	}
 };
 

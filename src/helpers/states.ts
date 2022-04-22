@@ -1,5 +1,10 @@
 export const statesId = [
 	{
+		label: "São Paulo",
+		value: "0d9f96e1-8a73-47f1-a9d6-81b7eece1f93",
+		uf: "SP",
+	},
+	{
 		label: "Acre",
 		value: "81c86e3d-e618-405f-8136-ed6468c0701c",
 		uf: "AC",
@@ -118,11 +123,6 @@ export const statesId = [
 		label: "Santa Catarina",
 		value: "9023d4cb-0814-4051-a067-7613919b9d53",
 		uf: "SC",
-	},
-	{
-		label: "São Paulo",
-		value: "0d9f96e1-8a73-47f1-a9d6-81b7eece1f93",
-		uf: "SP",
 	},
 	{
 		label: "Sergipe",

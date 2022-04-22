@@ -12,12 +12,12 @@ import RedGreenButton from "../../components/RedGreenButton";
 import Select from "../../components/Select";
 import ForumCard from "../../components/ForumCard";
 import {postComment} from "../../services/comments";
-import {businessType} from "../../helpers/businessType";
 import {postThread} from "../../services/threads";
 import {ReduxType} from "../../@types/types";
 import {useDispatch, useSelector} from "react-redux";
 import {startLoading} from "../../store/slices/user";
 import Loading from "../../components/Loading";
+import {threadId} from "../../helpers/threads";
 
 const CreatePostOrComment = () => {
 	const [title, setTitle] = useState<string>("");
@@ -100,7 +100,7 @@ const CreatePostOrComment = () => {
 								Escolha o tema da sua publicação:
 							</StyledText>
 							<Select
-								items={businessType}
+								items={threadId}
 								selectedValue={state}
 								onValueChange={(text) => setState(text)}
 							/>

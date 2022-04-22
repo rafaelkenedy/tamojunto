@@ -19,8 +19,6 @@ export const StyledViewContainer = styled.View<TextAreaStylePropsType>`
 `;
 
 export const StyledText = styled.TextInput.attrs(() => ({
-	// maxLength: 400,
-	// multiline: true,
 	textAlignVertical: "top",
 }))`
 	color: ${theme.colors.black_pearl};

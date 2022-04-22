@@ -38,9 +38,7 @@ export const StyledButton = styled.TouchableOpacity`
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	border-bottom-left-radius: 50px;
-	left: 315px;
-	background-color: ${theme.colors.tide};
+	right: 0.1px;
 `;
 
 export const StyledIcon = styled.Image`

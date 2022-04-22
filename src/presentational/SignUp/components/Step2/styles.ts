@@ -2,6 +2,7 @@ import styled from "styled-components/native";
 import {ProgressStep} from "react-native-progress-steps";
 import CheckBox from "@react-native-community/checkbox";
 import theme from "../../../../styles/theme";
+import {Dimensions} from "react-native";
 
 interface Step1StylePropsType {
 	isBold?: boolean;
@@ -17,19 +18,21 @@ export const StyledContainer = styled(ProgressStep).attrs(() => ({
 		backgroundColor: theme.colors.eden,
 		borderRadius: 16,
 		height: 60,
-		width: 170,
+		width: Dimensions.get("window").width * 0.42,
 		alignItems: "center",
 		justifyContent: "center",
-		left: 30,
+		left: Dimensions.get("window").width * 0.085,
 	},
 	previousBtnStyle: {
-		backgroundColor: theme.colors.eden,
+		backgroundColor: theme.colors.white,
+		borderColor: theme.colors.eden,
+		borderWidth: 3,
 		borderRadius: 16,
 		height: 60,
-		width: 170,
+		width: Dimensions.get("window").width * 0.42,
 		alignItems: "center",
 		justifyContent: "center",
-		right: 30,
+		right: Dimensions.get("window").width * 0.085,
 	},
 	nextBtnTextStyle: {
 		color: theme.colors.white,
@@ -37,7 +40,7 @@ export const StyledContainer = styled(ProgressStep).attrs(() => ({
 		fontWeight: "bold",
 	},
 	previousBtnTextStyle: {
-		color: theme.colors.white,
+		color: theme.colors.eden,
 		fontSize: 16,
 		fontWeight: "bold",
 	},
