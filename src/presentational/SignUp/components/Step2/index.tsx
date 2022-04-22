@@ -19,6 +19,7 @@ import Select from "../../../../components/Select";
 import {businessType} from "../../../../helpers/businessType";
 import InputMask from "../../../../components/InputMask";
 import {Masks} from "react-native-mask-input";
+import {Linking} from "react-native";
 
 const Step2 = ({...rest}) => {
 	const [canContinue, setContinue] = useState<boolean>(true);
@@ -127,7 +128,12 @@ const Step2 = ({...rest}) => {
 						value={terms}
 						onValueChange={(value) => setTerms(value)}
 					/>
-					<StyledText textSize="16px">
+					<StyledText
+						textSize="16px"
+						onPress={() =>
+							Linking.openURL("https://tamojunto.vercel.app/terms")
+						}
+					>
 						Concordo com os Termos e Condições do tamo
 						<StyledText isBold textSize="16px">
 							junto
@@ -140,7 +146,12 @@ const Step2 = ({...rest}) => {
 						value={privacy}
 						onValueChange={(value) => setPrivacy(value)}
 					/>
-					<StyledText textSize="16px">
+					<StyledText
+						textSize="16px"
+						onPress={() =>
+							Linking.openURL("https://tamojunto.vercel.app/terms")
+						}
+					>
 						Concordo com a Política de Privacidade do tamo
 						<StyledText isBold textSize="16px">
 							junto

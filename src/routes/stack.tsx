@@ -11,6 +11,7 @@ import SearchScreen from "../presentational/SearchScreen";
 import Welcome from "../presentational/Welcome";
 import Login from "../presentational/Login";
 import SignUp from "../presentational/SignUp";
+import Contact from "../presentational/Contact";
 
 const Stack = () => {
 	const StackRoutes: any = createNativeStackNavigator();
@@ -20,7 +21,7 @@ const Stack = () => {
 			initialRouteName="Welcome"
 			screenOptions={{
 				headerShown: false,
-				contentStyle: {backgroundColor: theme.colors.catskill_white},
+				contentStyle: {backgroundColor: theme.colors.athens_gray},
 			}}
 		>
 			<StackRoutes.Screen name="Home" component={Home} />
@@ -35,6 +36,7 @@ const Stack = () => {
 			<StackRoutes.Screen name="Welcome" component={Welcome} />
 			<StackRoutes.Screen name="Login" component={Login} />
 			<StackRoutes.Screen name="SignUp" component={SignUp} />
+			<StackRoutes.Screen name="Contact" component={Contact} />
 		</StackRoutes.Navigator>
 	);
 };

@@ -70,7 +70,7 @@ const DrawerMenu = ({navigation}) => {
 				<StyledIcon source={require("../../assets/icons/MiniBell.png")} />
 				<StyledText>Notificações</StyledText>
 				<StyledNotify>
-					<StyledNotifyText>75</StyledNotifyText>
+					<StyledNotifyText>1</StyledNotifyText>
 				</StyledNotify>
 			</StyledButton>
 			<StyledButton>
@@ -81,7 +81,13 @@ const DrawerMenu = ({navigation}) => {
 				<StyledIcon source={require("../../assets/icons/Invite.png")} />
 				<StyledText>Convide um amigo</StyledText>
 			</StyledButton>
-			<StyledButton>
+			<StyledButton
+				onPress={() =>
+					navigation.navigate("Stack", {
+						screen: "Contact",
+					})
+				}
+			>
 				<StyledIcon source={require("../../assets/icons/Message.png")} />
 				<StyledText>Contato</StyledText>
 			</StyledButton>

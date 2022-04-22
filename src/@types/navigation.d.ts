@@ -13,6 +13,11 @@ export declare global {
 			Topic: {id?: string; image?: string};
 			PostComments: undefined;
 			CreatePostOrComment: undefined;
+			SearchScreen: undefined;
+			Welcome: undefined;
+			Login: undefined;
+			SignUp: undefined;
+			Contact: undefined;
 		}
 	}
 }
