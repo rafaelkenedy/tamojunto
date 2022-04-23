@@ -26,6 +26,7 @@ export const StyledIcon = styled.Image`
 // @ts-ignore
 export const StyledSelect = styled(Picker).attrs(() => ({
 	mode: "dialog",
+	
 }))`
 	color: ${theme.colors.black_pearl};
 	font-size: 16px;
