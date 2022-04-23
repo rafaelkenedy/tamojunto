@@ -1,14 +1,15 @@
-import {TextProps} from "react-native";
 import styled from "styled-components/native";
 import theme from "../../styles/theme";
 
-interface TextType extends TextProps {
+interface HeaderStylePropsType {
 	textWeight?: string;
+	nightMode?: boolean;
 }
 
-export const StyledContainer = styled.View`
+export const StyledContainer = styled.View<HeaderStylePropsType>`
 	height: 70px;
-	background-color: ${theme.colors.white};
+	background-color: ${(props) =>
+		props.nightMode ? theme.colors.dark_container : theme.colors.white};
 	flex-direction: row;
 	align-items: center;
 	border-bottom-left-radius: 12px;
@@ -16,9 +17,10 @@ export const StyledContainer = styled.View`
 	elevation: 20;
 `;
 
-export const StyledTitle = styled.Text<TextType>`
+export const StyledTitle = styled.Text<HeaderStylePropsType>`
 	font-size: 20px;
-	color: ${theme.colors.eden};
+	color: ${(props) =>
+		props.nightMode ? theme.colors.white : theme.colors.eden};
 	font-weight: ${(props) => props.textWeight || 300};
 `;
 
@@ -28,6 +30,7 @@ export const StyledButton = styled.TouchableOpacity`
 	margin: 10px;
 `;
 
-export const StyledMenu = styled.Image`
-	tint-color: ${theme.colors.eden};
+export const StyledMenu = styled.Image<HeaderStylePropsType>`
+	tint-color: ${(props) =>
+		props.nightMode ? theme.colors.white : theme.colors.eden};
 `;

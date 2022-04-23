@@ -60,7 +60,7 @@ const Contact = () => {
 								)
 							}
 						>
-							Verena Campos
+							Verena Vianna
 						</StyledText>
 					</StyledRow>
 				</StyledTrail>

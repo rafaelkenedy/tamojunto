@@ -31,7 +31,7 @@ const TopicCard = ({
 									textWeight={"bold"}
 									textColor={theme.colors.catskill_white}
 								>
-									0
+									{Math.round(Number(thread?.threadCount) / 2)}
 								</StyledText>
 								<StyledText
 									textWeight={"bold"}

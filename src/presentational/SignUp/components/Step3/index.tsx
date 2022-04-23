@@ -79,7 +79,7 @@ const Step3 = ({navigation, ...rest}) => {
 		dispatch(startLoading(false));
 		if (!response) {
 			setAlertMessage(
-				"Ocorreu um erro ao criar a conta, entre em contato com o SAC."
+				"Ocorreu um erro ao criar a conta, tente novamente mais tarde."
 			);
 			setShowAlert(true);
 			return;

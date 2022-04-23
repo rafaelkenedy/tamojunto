@@ -60,7 +60,7 @@ const Home = ({navigation}) => {
 	if (isLoading) return <Splash />;
 
 	return (
-		<StyledView>
+		<StyledView nightMode={user.nightMode}>
 			<StatusBar hidden={false} />
 			<Alert active={alert} cancel={() => setAlert(false)} />
 			<Header />
@@ -68,7 +68,7 @@ const Home = ({navigation}) => {
 				ListHeaderComponent={
 					<>
 						<SearchBar />
-						<StyledText textWeight={"bold"}>
+						<StyledText nightMode={user.nightMode} textWeight={"bold"}>
 							Escolha um tema para conversar:
 						</StyledText>
 						<StyledHeaderFlatList
@@ -87,8 +87,17 @@ const Home = ({navigation}) => {
 								/>
 							)}
 						/>
-						<LargeCard thread={sellBuy} />
-						<StyledText textWeight={"bold"}>
+						<LargeCard
+							thread={sellBuy}
+							action={() => {
+								dispatch(setTheme(sellBuy?.name as string));
+								navigation.navigate("Stack", {
+									screen: "Topic",
+									params: {id: sellBuy?.id, image: sellBuy?.picture.url},
+								});
+							}}
+						/>
+						<StyledText nightMode={user.nightMode} textWeight={"bold"}>
 							Publicações mais recentes:
 						</StyledText>
 					</>

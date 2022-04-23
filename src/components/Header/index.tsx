@@ -1,20 +1,30 @@
 import React from "react";
 import {DrawerActions, useNavigation} from "@react-navigation/native";
 import {StyledButton, StyledContainer, StyledMenu, StyledTitle} from "./styles";
+import {ReduxType} from "../../@types/types";
+import {useSelector} from "react-redux";
 
 const Header = () => {
 	const navigation = useNavigation();
+	const user: ReduxType = useSelector(
+		(handleUserChoices) => handleUserChoices
+	) as ReduxType;
 
 	return (
 		<>
-			<StyledContainer>
+			<StyledContainer nightMode={user.nightMode}>
 				<StyledButton
 					onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
 				>
-					<StyledMenu source={require("../../assets/icons/menu.png")} />
+					<StyledMenu
+						nightMode={user.nightMode}
+						source={require("../../assets/icons/menu.png")}
+					/>
 				</StyledButton>
-				<StyledTitle>tamo</StyledTitle>
-				<StyledTitle textWeight={"bold"}>junto</StyledTitle>
+				<StyledTitle nightMode={user.nightMode}>tamo</StyledTitle>
+				<StyledTitle textWeight={"bold"} nightMode={user.nightMode}>
+					junto
+				</StyledTitle>
 			</StyledContainer>
 		</>
 	);

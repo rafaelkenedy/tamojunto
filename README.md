@@ -23,7 +23,7 @@
 	TamoJunto(We're together rs)
 <img src="https://media4.giphy.com/media/YTJJAVjzeKLcKoA4ie/giphy.gif?cid=790b76114345f6573241480f0386fd233fc37e1de2265ee8&rid=giphy.gif&ct=s" width="80px">
 </h4>
-<p align="center">Project carried out for the Ioasys bootcamp, where the topic addressed was ODS 9, so we decided to create a forum to ferment the industry </p>
+<p align="center">Project carried out for the Ioasys bootcamp, where the topic addressed was ODS 9, so we decided to create a forum to foment the industry </p>
 
 <hr>
 
@@ -41,7 +41,7 @@
 
 ## :dart: About
 
-We created a forum where people can exchange information and help from the culture of sharing
+TamoJunto is a forum-styled community, aiming to be a space for the exchange of experiences, discussion of inovation, perform benchmarkings, promote partnerships and meetups. It is a digital place to foment the ecosystem of innovation for the food service sector.
 
 ## :sparkles: Features
 
@@ -71,6 +71,11 @@ The following tools were used in this project:
 ## :white_check_mark: Requirements
 
 Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+
+For tests use:
+
+    user: camp@ioasys.com.br
+    password: Camp@123
 
 ## :checkered_flag: Starting
 
