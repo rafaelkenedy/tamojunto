@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {BackHandler, Keyboard, StatusBar} from "react-native";
+import {Keyboard, StatusBar} from "react-native";
 
 import {
 	StyledContainer,
@@ -42,13 +42,6 @@ const Login = ({navigation}) => {
 			setShowAlert(false);
 		}, 3000);
 	}, [showAlert]);
-
-	BackHandler.addEventListener("hardwareBackPress", () => {
-		navigation.navigate("Stack", {
-			screen: "Welcome",
-		});
-		return true;
-	});
 
 	Keyboard.addListener("keyboardDidHide", () => {
 		SystemNavigationBar.navigationHide();

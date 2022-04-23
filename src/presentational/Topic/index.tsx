@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {useIsFocused, useRoute} from "@react-navigation/native";
 import {getSubjects, getSubjectsById} from "../../services/subjects";
 import {useDispatch, useSelector} from "react-redux";
-import {setTheme} from "../../store/slices/user";
+import {setOwner, setTheme} from "../../store/slices/user";
 
 import {
 	StyledView,
@@ -60,7 +60,10 @@ const Topic = ({navigation}) => {
 				renderItem={({item}: any) => (
 					<ForumCard
 						content={item}
-						dotAction={() => setAlert(true)}
+						dotAction={() => {
+							dispatch(setOwner(item.user.id));
+							setAlert(true);
+						}}
 						action={() =>
 							navigation.navigate("Stack", {
 								screen: "PostFront",

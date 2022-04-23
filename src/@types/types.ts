@@ -40,9 +40,11 @@ export interface ReduxType {
 	theme: string;
 	logged: boolean;
 	token: string;
+	owner: string;
 }
 
 export interface UserReduxType {
+	id: string;
 	avatar: string | null;
 	businessName: string;
 	cnpj: string;
