@@ -16,7 +16,7 @@ const SearchScreen = ({navigation}: any) => {
 
 	useEffect(() => {
 		getData(params.query);
-	}, []);
+	}, [params]);
 
 	const getData = async (query: string) => {
 		const {data} = await searchQuery(query);

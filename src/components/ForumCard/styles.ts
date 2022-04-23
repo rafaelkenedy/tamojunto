@@ -1,21 +1,18 @@
-import {ViewProps} from "react-native";
 import styled from "styled-components/native";
 import theme from "../../styles/theme";
 
-interface ViewType extends ViewProps {
+interface ForumCardStyleProps {
 	line?: boolean;
 	postSize?: boolean;
-}
-
-interface FontType {
 	isBlack?: boolean;
+	nightMode?: boolean;
 }
 
 export const StyleButton = styled.TouchableOpacity.attrs(() => ({
 	activeOpacity: 0.95,
 }))(() => "");
 
-export const StyledContainer = styled.View<ViewType>`
+export const StyledContainer = styled.View<ForumCardStyleProps>`
 	height: ${(props) => (props.postSize ? "auto" : "173px")};
 	width: 100%;
 	border-radius: 12px;
@@ -23,10 +20,11 @@ export const StyledContainer = styled.View<ViewType>`
 	padding-right: 25px;
 	overflow: hidden;
 	padding-left: 25px;
-	background-color: ${theme.colors.white};
+	background-color: ${(props) =>
+		props.nightMode ? theme.colors.dark_container : theme.colors.white};
 `;
 
-export const StyledHeaderContainer = styled.View<ViewType>`
+export const StyledHeaderContainer = styled.View<ForumCardStyleProps>`
 	padding-top: ${(props) => (props.postSize ? "15px" : "8px")};
 	border-bottom-width: ${(props) => (props.line ? "0.2px" : "0")};
 	border-bottom-color: ${theme.colors.granny_smith};
@@ -41,13 +39,14 @@ export const StyledButton = styled.TouchableOpacity`
 	right: 0.1px;
 `;
 
-export const StyledIcon = styled.Image`
+export const StyledIcon = styled.Image<ForumCardStyleProps>`
 	width: 20px;
 	height: 5px;
-	tint-color: ${theme.colors.eden};
+	tint-color: ${(props) =>
+		props.nightMode ? theme.colors.dark_text : theme.colors.eden};
 `;
 
-export const StyledTitle = styled.Text<FontType>`
+export const StyledTitle = styled.Text<ForumCardStyleProps>`
 	color: ${(props) =>
 		props.isBlack ? theme.colors.black_pearl : theme.colors.eden};
 	font-size: 13px;
@@ -55,8 +54,9 @@ export const StyledTitle = styled.Text<FontType>`
 	margin-bottom: 5px;
 `;
 
-export const StyledText = styled.Text`
-	color: ${theme.colors.black_pearl};
+export const StyledText = styled.Text<ForumCardStyleProps>`
+	color: ${(props) =>
+		props.nightMode ? theme.colors.dark_text : theme.colors.black_pearl};
 	font-size: 13px;
 	font-style: italic;
 	margin-bottom: 10px;

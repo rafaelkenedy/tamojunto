@@ -79,7 +79,7 @@ const Step3 = ({navigation, ...rest}) => {
 		dispatch(startLoading(false));
 		if (!response) {
 			setAlertMessage(
-				"Ocorreu um erro ao criar a conta, entre em contato com o SAC."
+				"Ocorreu um erro ao criar a conta, tente novamente mais tarde."
 			);
 			setShowAlert(true);
 			return;
@@ -199,15 +199,19 @@ const Step3 = ({navigation, ...rest}) => {
 						setValue("stateId", text);
 					}}
 				/>
-				<StyledText isBold topDistance="16px">
-					Munícipio
-				</StyledText>
-				<Select
-					label={"cityId"}
-					items={cities}
-					selectedValue={getValues("cityId")}
-					onValueChange={(text) => setValue("cityId", text)}
-				/>
+				{cities.length >= 1 && (
+					<>
+						<StyledText isBold topDistance="16px">
+							Munícipio
+						</StyledText>
+						<Select
+							label={"cityId"}
+							items={cities}
+							selectedValue={getValues("cityId")}
+							onValueChange={(text) => setValue("cityId", text)}
+						/>
+					</>
+				)}
 				<StyledFooter />
 			</StyledView>
 		</StyledContainer>

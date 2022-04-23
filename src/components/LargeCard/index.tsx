@@ -31,7 +31,7 @@ const LargeCard = ({
 									textWeight={"bold"}
 									textColor={theme.colors.catskill_white}
 								>
-									6
+									{Math.round(Number(thread?.threadCount) / 2)}
 								</StyledText>
 								<StyledText
 									textWeight={"bold"}

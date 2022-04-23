@@ -49,7 +49,6 @@ const CreatePostOrComment = ({navigation}) => {
 		} else {
 			Alert.alert("Tente novamente mais tarde!");
 		}
-		console.log(response);
 	};
 
 	const postTopic = async () => {
@@ -72,7 +71,6 @@ const CreatePostOrComment = ({navigation}) => {
 		} else {
 			Alert.alert("Tente novamente mais tarde!");
 		}
-		console.log("post response", response);
 	};
 
 	return (

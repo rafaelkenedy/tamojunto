@@ -19,10 +19,6 @@ export const StyledText = styled.Text<TextType>`
 	font-weight: ${(props) => props.textWeight || 300};
 `;
 
-export const StyledAlertContainer = styled.View`
-	margin-top: 15px;
-`;
-
 export const StyledFlatList = styled.FlatList`
 	flex: 1;
 	padding-left: 25px;

@@ -1,15 +1,14 @@
-import {TextProps} from "react-native";
 import styled from "styled-components/native";
 import theme from "../../styles/theme";
 
-interface TextType extends TextProps {
+interface HomeStylePropsType {
 	textWeight?: string;
-	textColor?: string;
-	textSize?: string;
+	nightMode?: boolean;
 }
 
-export const StyledView = styled.View`
-	background-color: ${theme.colors.athens_gray};
+export const StyledView = styled.View<HomeStylePropsType>`
+	background-color: ${(props) =>
+		props.nightMode ? theme.colors.dark_contrast : theme.colors.athens_gray};
 	flex: 1;
 `;
 
@@ -20,10 +19,11 @@ export const StyledFlatList = styled.FlatList`
 	margin-top: 5px;
 `;
 
-export const StyledText = styled.Text<TextType>`
+export const StyledText = styled.Text<HomeStylePropsType>`
 	margin-top: 15px;
-	color: ${(props) => props.textColor || theme.colors.eden};
-	font-size: ${(props) => props.textSize || "16px"};
+	color: ${(props) =>
+		props.nightMode ? theme.colors.white : theme.colors.eden};
+	font-size: 16px;
 	font-weight: ${(props) => props.textWeight || 300};
 `;
 

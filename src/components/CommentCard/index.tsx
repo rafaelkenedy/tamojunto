@@ -15,10 +15,10 @@ const CommentCard = ({commentContent, dotAction = () => {}}: any) => {
 	return (
 		<>
 			<StyledContainer>
-				<StyledButton onPress={dotAction}>
-					<StyledIcon source={require("../../assets/icons/more.png")} />
-				</StyledButton>
 				<StyledHeaderContainer>
+					<StyledButton onPress={dotAction}>
+						<StyledIcon source={require("../../assets/icons/more.png")} />
+					</StyledButton>
 					<StyledText
 						isGreen
 					>{`${commentContent.user.firstName} ${commentContent.user.lastName} em ${date}`}</StyledText>

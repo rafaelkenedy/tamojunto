@@ -10,6 +10,8 @@ import {
 	StyledTitle,
 	StyledText,
 } from "./styles";
+import {ReduxType} from "../../@types/types";
+import {useSelector} from "react-redux";
 
 const ForumCard = ({
 	home = false,
@@ -20,18 +22,24 @@ const ForumCard = ({
 	dotAction = () => {},
 }: any) => {
 	const date = moment(content.createdAt).format("DD/MM/YYYY");
+	const user: ReduxType = useSelector(
+		(handleUserChoices) => handleUserChoices
+	) as ReduxType;
 
 	return (
 		<>
 			<StyleButton onPress={action}>
-				<StyledContainer postSize={fullScream}>
+				<StyledContainer postSize={fullScream} nightMode={user.nightMode}>
 					<StyledButton onPress={dotAction}>
-						<StyledIcon source={require("../../assets/icons/more.png")} />
+						<StyledIcon
+							nightMode={user.nightMode}
+							source={require("../../assets/icons/more.png")}
+						/>
 					</StyledButton>
 					<StyledHeaderContainer postSize={home} line>
 						{!fullScream && <StyledTitle>{content.subject}</StyledTitle>}
-						<StyledText>
-							{`${content.user.firstName} ${content.user.lastName} em ${date}`}
+						<StyledText nightMode={user.nightMode}>
+							{`${content?.user?.firstName} ${content?.user?.lastName} em ${date}`}
 						</StyledText>
 					</StyledHeaderContainer>
 					<StyledHeaderContainer>
@@ -41,7 +49,10 @@ const ForumCard = ({
 						{fullScream && commentsCount && (
 							<StyledTitle>{content.commentCount} comentários</StyledTitle>
 						)}
-						<StyledText numberOfLines={!fullScream ? 2 : undefined}>
+						<StyledText
+							nightMode={user.nightMode}
+							numberOfLines={!fullScream ? 2 : undefined}
+						>
 							{content.content}
 						</StyledText>
 						{!fullScream && !home && (
