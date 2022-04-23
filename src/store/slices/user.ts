@@ -11,6 +11,7 @@ const user = createSlice({
 		user: {},
 		logged: false,
 		token: "",
+		owner: "",
 	},
 	reducers: {
 		darkMode: (state, {payload}) => {
@@ -37,6 +38,9 @@ const user = createSlice({
 		setToken: (state, {payload}) => {
 			state.token = payload;
 		},
+		setOwner: (state, {payload}) => {
+			state.owner = payload;
+		},
 	},
 });
 
@@ -49,5 +53,6 @@ export const {
 	setUserData,
 	setLogged,
 	setToken,
+	setOwner,
 } = user.actions;
 export default user.reducer;

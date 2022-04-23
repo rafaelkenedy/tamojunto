@@ -7,9 +7,15 @@ import {
 	StyledText,
 	StyledIcon,
 } from "./styles";
+import {ReduxType} from "../../@types/types";
+import {useSelector} from "react-redux";
 
 const Alert = ({active, cancel = () => {}}) => {
-	const owner = true;
+	const user: ReduxType = useSelector(
+		(handleUserChoices) => handleUserChoices
+	) as ReduxType;
+	const owner = user.owner === user.user.id;
+
 	return (
 		<>
 			{active && (

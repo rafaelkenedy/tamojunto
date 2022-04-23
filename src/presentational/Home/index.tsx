@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {setTheme} from "../../store/slices/user";
+import {setOwner, setTheme} from "../../store/slices/user";
 import {ReduxType, SubjectsType, ThreadsType} from "../../@types/types";
 
 import {
@@ -108,7 +108,10 @@ const Home = ({navigation}) => {
 					<ForumCard
 						content={item}
 						home
-						dotAction={() => setAlert(true)}
+						dotAction={() => {
+							dispatch(setOwner(item.user.id));
+							setAlert(true);
+						}}
 						action={() => {
 							dispatch(setTheme(item.subject as string));
 							navigation.navigate("Stack", {
