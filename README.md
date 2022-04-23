@@ -49,9 +49,9 @@ TamoJunto is a forum-styled community, aiming to be a space for the exchange of 
 :heavy_check_mark: Create, edit and delete it if is the case your topics;\
 :heavy_check_mark: Create, edit and delete it if is the case your comments;\
 :heavy_check_mark: Find for topics;\
-:heavy_check_mark: Save your favorites topics and posts(construction);\
-:heavy_check_mark: Create your account and edit your profile(construction);\
-:heavy_check_mark: Dark Mode (construction);\
+:x: Save your favorites topics and posts (construction);\
+:x: Create your account and edit your profile (construction);\
+:x: Dark Mode (construction);\
 :heavy_check_mark: Share with your friends
 
 ## :rocket: Technologies
