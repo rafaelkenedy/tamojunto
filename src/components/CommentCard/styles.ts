@@ -26,7 +26,7 @@ export const StyledButton = styled.TouchableOpacity`
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	left: 330px;
+	right: 0.1px;
 	top: 10px;
 `;
 

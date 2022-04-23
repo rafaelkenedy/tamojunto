@@ -23,7 +23,7 @@
 	TamoJunto(We're together rs)
 <img src="https://media4.giphy.com/media/YTJJAVjzeKLcKoA4ie/giphy.gif?cid=790b76114345f6573241480f0386fd233fc37e1de2265ee8&rid=giphy.gif&ct=s" width="80px">
 </h4>
-<p align="center">Project carried out for the Ioasys bootcamp, where the topic addressed was ODS 9, so we decided to create a forum to ferment the industry </p>
+<p align="center">Project carried out for the Ioasys bootcamp, where the topic addressed was ODS 9, so we decided to create a forum to foment the industry </p>
 
 <hr>
 
@@ -41,18 +41,17 @@
 
 ## :dart: About
 
-We created a forum where people can exchange information and help from the culture of sharing
+TamoJunto is a forum-styled community, aiming to be a space for the exchange of experiences, discussion of inovation, perform benchmarkings, promote partnerships and meetups. It is a digital place to foment the ecosystem of innovation for the food service sector.
 
 ## :sparkles: Features
 
-:heavy_check_mark: Forum\
-:heavy_check_mark: Create and edit topics\
-:heavy_check_mark: Delete it if is the case\
-:heavy_check_mark: Find for topics\
-:heavy_check_mark: Post comments\
-:heavy_check_mark: Save your favorites topics and posts\
-:heavy_check_mark: Create your account and edit your profile\
-:heavy_check_mark: Dark Mode\
+:heavy_check_mark: Forum;\
+:heavy_check_mark: Create, edit and delete it if is the case your topics;\
+:heavy_check_mark: Create, edit and delete it if is the case your comments;\
+:heavy_check_mark: Find for topics;\
+:x: Save your favorites topics and posts (construction);\
+:x: Create your account and edit your profile (construction);\
+:x: Dark Mode (construction);\
 :heavy_check_mark: Share with your friends
 
 ## :rocket: Technologies
@@ -67,10 +66,16 @@ The following tools were used in this project:
 - [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
 - [React Hook Form](https://react-hook-form.com/)
 - [Eslint](https://eslint.org/)
+- [Lottie](https://lottiefiles.com/)
 
 ## :white_check_mark: Requirements
 
 Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+
+For tests use:
+
+    user: camp@ioasys.com.br
+    password: Camp@123
 
 ## :checkered_flag: Starting
 
@@ -84,7 +89,7 @@ $ cd tamojunto
 # Install dependencies
 $ yarn
 
-# Run the project
+# Start server
 $ yarn start
 
 # Run the project on Android

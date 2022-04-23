@@ -29,6 +29,7 @@ const Home = ({navigation}) => {
 	const [subjects, setSubjects] = useState<SubjectsType[]>([]);
 	const [threads, setThreads] = useState<ThreadsType[]>([]);
 	const [isLoading, setLoading] = useState<boolean>(true);
+	const [page, setPage] = useState<number>(1);
 	const [alert, setAlert] = useState<boolean>();
 	const [sellBuy, setSellBuy] = useState<SubjectsType>();
 	const sellBuyTitle = "Aluguel, compra e venda";
@@ -50,7 +51,7 @@ const Home = ({navigation}) => {
 
 	const loadData = async () => {
 		const result = await getSubjects();
-		const {data} = await getRecentThreads();
+		const {data} = await getRecentThreads(page);
 		setSellBuy(result.filter((item) => item.name === sellBuyTitle)[0]);
 		setSubjects(result.filter((item) => item.name !== sellBuyTitle));
 		setThreads(data);
@@ -60,7 +61,7 @@ const Home = ({navigation}) => {
 	if (isLoading) return <Splash />;
 
 	return (
-		<StyledView>
+		<StyledView nightMode={user.nightMode}>
 			<StatusBar hidden={false} />
 			<Alert active={alert} cancel={() => setAlert(false)} />
 			<Header />
@@ -68,7 +69,7 @@ const Home = ({navigation}) => {
 				ListHeaderComponent={
 					<>
 						<SearchBar />
-						<StyledText textWeight={"bold"}>
+						<StyledText nightMode={user.nightMode} textWeight={"bold"}>
 							Escolha um tema para conversar:
 						</StyledText>
 						<StyledHeaderFlatList
@@ -87,8 +88,17 @@ const Home = ({navigation}) => {
 								/>
 							)}
 						/>
-						<LargeCard thread={sellBuy} />
-						<StyledText textWeight={"bold"}>
+						<LargeCard
+							thread={sellBuy}
+							action={() => {
+								dispatch(setTheme(sellBuy?.name as string));
+								navigation.navigate("Stack", {
+									screen: "Topic",
+									params: {id: sellBuy?.id, image: sellBuy?.picture.url},
+								});
+							}}
+						/>
+						<StyledText nightMode={user.nightMode} textWeight={"bold"}>
 							Publicações mais recentes:
 						</StyledText>
 					</>
@@ -110,7 +120,14 @@ const Home = ({navigation}) => {
 				)}
 				ListFooterComponent={
 					<StyledLocker>
-						<LoadButton />
+						{threads.length >= 50 && (
+							<LoadButton
+								action={() => {
+									setPage(page + 1);
+									loadData();
+								}}
+							/>
+						)}
 					</StyledLocker>
 				}
 			/>

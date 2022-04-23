@@ -9,15 +9,15 @@ const getSubjects = async () => {
 	}
 };
 
-const getSubjectsById = async (id: string) => {
+const getSubjectsById = async (id: string, page: number) => {
 	try {
-		const {data} = await api.get(`/subjects/${id}`);
+		const {data} = await api.get(
+			`/subjects/${id}?order=ASC&page=${page}&take=50`
+		);
 		return data;
 	} catch (e) {
 		return e;
 	}
 };
 
-const postSubjects = () => {};
-
-export {getSubjects, getSubjectsById, postSubjects};
+export {getSubjects, getSubjectsById};

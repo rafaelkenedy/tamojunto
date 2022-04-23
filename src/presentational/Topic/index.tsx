@@ -23,8 +23,9 @@ import Alert from "../../components/Alert";
 import * as applicationTheme from "../../styles/theme";
 
 const Topic = ({navigation}) => {
-	const [content, setContent] = useState();
+	const [content, setContent] = useState([]);
 	const [others, setOthers] = useState([]);
+	const [page, setPage] = useState<number>(1);
 	const [alert, setAlert] = useState<boolean>();
 	const dispatch = useDispatch();
 	const {theme}: any = useSelector((handleUserChoices) => handleUserChoices);
@@ -36,7 +37,7 @@ const Topic = ({navigation}) => {
 	}, [isFocused]);
 
 	const getData = async (id: string) => {
-		const {data} = await getSubjectsById(id);
+		const {data} = await getSubjectsById(id, page);
 		const subjects = await getSubjects();
 		setContent(data);
 		setOthers(subjects.filter((item: any) => item.name !== theme));
@@ -70,7 +71,14 @@ const Topic = ({navigation}) => {
 				)}
 				ListFooterComponent={
 					<>
-						<LoadButton />
+						{content.length >= 50 && (
+							<LoadButton
+								action={() => {
+									setPage(page + 1);
+									getData(params.id);
+								}}
+							/>
+						)}
 						<StyledText textWeight={"bold"}>Explore outros temas:</StyledText>
 						<StyledLocker>
 							<StyledFooterFlatList
