@@ -29,6 +29,7 @@ const Home = ({navigation}) => {
 	const [subjects, setSubjects] = useState<SubjectsType[]>([]);
 	const [threads, setThreads] = useState<ThreadsType[]>([]);
 	const [isLoading, setLoading] = useState<boolean>(true);
+	const [page, setPage] = useState<number>(1);
 	const [alert, setAlert] = useState<boolean>();
 	const [sellBuy, setSellBuy] = useState<SubjectsType>();
 	const sellBuyTitle = "Aluguel, compra e venda";
@@ -50,7 +51,7 @@ const Home = ({navigation}) => {
 
 	const loadData = async () => {
 		const result = await getSubjects();
-		const {data} = await getRecentThreads();
+		const {data} = await getRecentThreads(page);
 		setSellBuy(result.filter((item) => item.name === sellBuyTitle)[0]);
 		setSubjects(result.filter((item) => item.name !== sellBuyTitle));
 		setThreads(data);
@@ -119,7 +120,14 @@ const Home = ({navigation}) => {
 				)}
 				ListFooterComponent={
 					<StyledLocker>
-						<LoadButton />
+						{threads.length >= 50 && (
+							<LoadButton
+								action={() => {
+									setPage(page + 1);
+									loadData();
+								}}
+							/>
+						)}
 					</StyledLocker>
 				}
 			/>

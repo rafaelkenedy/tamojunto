@@ -39,7 +39,6 @@ const DrawerMenu = ({navigation}) => {
 			screen: "Welcome",
 		});
 	};
-	console.log(user);
 
 	return (
 		<StyledDrawerContainer nightMode={user.nightMode}>

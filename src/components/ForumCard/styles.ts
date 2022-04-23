@@ -48,7 +48,7 @@ export const StyledIcon = styled.Image<ForumCardStyleProps>`
 
 export const StyledTitle = styled.Text<ForumCardStyleProps>`
 	color: ${(props) =>
-		props.isBlack ? theme.colors.dark_text : theme.colors.eden};
+		props.isBlack ? theme.colors.black_pearl : theme.colors.eden};
 	font-size: 13px;
 	font-weight: bold;
 	margin-bottom: 5px;

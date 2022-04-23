@@ -45,14 +45,13 @@ TamoJunto is a forum-styled community, aiming to be a space for the exchange of 
 
 ## :sparkles: Features
 
-:heavy_check_mark: Forum\
-:heavy_check_mark: Create and edit topics\
-:heavy_check_mark: Delete it if is the case\
-:heavy_check_mark: Find for topics\
-:heavy_check_mark: Post comments\
-:heavy_check_mark: Save your favorites topics and posts\
-:heavy_check_mark: Create your account and edit your profile\
-:heavy_check_mark: Dark Mode\
+:heavy_check_mark: Forum;\
+:heavy_check_mark: Create, edit and delete it if is the case your topics;\
+:heavy_check_mark: Create, edit and delete it if is the case your comments;\
+:heavy_check_mark: Find for topics;\
+:heavy_check_mark: Save your favorites topics and posts(construction);\
+:heavy_check_mark: Create your account and edit your profile(construction);\
+:heavy_check_mark: Dark Mode (construction);\
 :heavy_check_mark: Share with your friends
 
 ## :rocket: Technologies
@@ -67,6 +66,7 @@ The following tools were used in this project:
 - [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/)
 - [React Hook Form](https://react-hook-form.com/)
 - [Eslint](https://eslint.org/)
+- [Lottie](https://lottiefiles.com/)
 
 ## :white_check_mark: Requirements
 
@@ -89,7 +89,7 @@ $ cd tamojunto
 # Install dependencies
 $ yarn
 
-# Run the project
+# Start server
 $ yarn start
 
 # Run the project on Android
