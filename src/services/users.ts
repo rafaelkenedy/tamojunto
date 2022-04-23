@@ -6,7 +6,7 @@ const postUser = async (data: PostUserType) => {
 		const response = await api.post("/users", data);
 		return response.data;
 	} catch (e) {
-		return false;
+		return e.response;
 	}
 };
 

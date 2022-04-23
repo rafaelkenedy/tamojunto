@@ -9,6 +9,7 @@ const postComment = async (data, token) => {
 		});
 		return response;
 	} catch (e) {
+		
 		return false;
 	}
 };

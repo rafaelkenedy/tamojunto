@@ -7,6 +7,7 @@ import Routes from "./src/routes/routes";
 import store from "./src/store";
 import theme from "./src/styles/theme";
 import {LogBox} from "react-native";
+import Splash from "./src/presentational/Splash";
 
 const App = () => {
 	LogBox.ignoreLogs([
@@ -14,6 +15,7 @@ const App = () => {
 	]);
 
 	return (
+	
 		<Provider store={store}>
 			<ThemeProvider theme={theme}>
 				<StatusBar

@@ -77,11 +77,15 @@ const Step3 = ({navigation, ...rest}) => {
 			stateId: data.stateId,
 		});
 		dispatch(startLoading(false));
-		if (!response) {
-			setAlertMessage(
-				"Ocorreu um erro ao criar a conta, entre em contato com o SAC."
-			);
-			setShowAlert(true);
+		if(response?.error){
+			setAlertMessage(response)
+			setShowAlert(true)
+		
+		// if (!response) {
+		// 	setAlertMessage(
+		// 		"Ocorreu um erro ao criar a conta, entre em contato com o SAC."
+		// 	);
+		// 	setShowAlert(true);
 			return;
 		} else {
 			setContinue(false);
